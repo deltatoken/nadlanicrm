@@ -1,0 +1,30 @@
+{
+  "fields": {
+    "action": "Azione",
+    "actionDate": "Data",
+    "campaign": "Campagnia",
+    "object": "Oggetto",
+    "application": "Applicazione"
+  },
+  "links": {
+    "parent": "Genitore"
+  },
+  "options": {
+    "action": {
+      "Sent": "Inviato",
+      "Opened": "Aperto",
+      "Opted Out": "Rinuncia",
+      "Clicked": "Cliccato",
+      "Opted In": "Iscritto"
+    }
+  },
+  "labels": {
+    "All": "Tutti"
+  },
+  "presetFilters": {
+    "sent": "Inviato",
+    "opened": "Aperto",
+    "optedOut": "Rinuncia",
+    "optedIn": "Iscritto"
+  }
+}

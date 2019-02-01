@@ -1,33 +1,33 @@
 <?php
 /************************************************************************
- * This file is part of EspoCRM.
+ * This file is part of NadlaniCrm.
  *
- * EspoCRM - Open Source CRM application.
- * Copyright (C) 2014-2018 Yuri Kuznetsov, Taras Machyshyn, Oleksiy Avramenko
- * Website: http://www.espocrm.com
+ * NadlaniCrm - Open Source CRM application.
+ * Copyright (C) 2014-2018 Pablo Rotem
+ * Website: https://www.facebook.com/sites4u2
  *
- * EspoCRM is free software: you can redistribute it and/or modify
+ * NadlaniCrm is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * EspoCRM is distributed in the hope that it will be useful,
+ * NadlaniCrm is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with EspoCRM. If not, see http://www.gnu.org/licenses/.
+ * along with NadlaniCrm. If not, see http://www.gnu.org/licenses/.
  *
  * The interactive user interfaces in modified source and object code versions
  * of this program must display Appropriate Legal Notices, as required under
  * Section 5 of the GNU General Public License version 3.
  *
  * In accordance with Section 7(b) of the GNU General Public License version 3,
- * these Appropriate Legal Notices must retain the display of the "EspoCRM" word.
+ * these Appropriate Legal Notices must retain the display of the "NadlaniCrm" word.
  ************************************************************************/
 
-namespace tests\unit\Espo\Core\Utils\File;
+namespace tests\unit\Nadlani\Core\Utils\File;
 
 use tests\unit\ReflectionHelper;
 
@@ -43,27 +43,27 @@ class PermissionTest extends \PHPUnit\Framework\TestCase
 
     protected function setUp()
     {
-        $this->objects['fileManager'] = $this->getMockBuilder('\Espo\Core\Utils\File\Manager')->disableOriginalConstructor()->getMock();
+        $this->objects['fileManager'] = $this->getMockBuilder('\Nadlani\Core\Utils\File\Manager')->disableOriginalConstructor()->getMock();
 
-        $this->object = new \Espo\Core\Utils\File\Permission($this->objects['fileManager']);
+        $this->object = new \Nadlani\Core\Utils\File\Permission($this->objects['fileManager']);
 
         $this->reflection = new ReflectionHelper($this->object);
 
         $this->fileList = array(
-            'application/Espo/Controllers/Email.php',
-            'application/Espo/Controllers/EmailAccount.php',
-            'application/Espo/Controllers/EmailAddress.php',
-            'application/Espo/Controllers/ExternalAccount.php',
-            'application/Espo/Controllers/Import.php',
-            'application/Espo/Controllers/Integration.php',
-            'application/Espo/Modules/Crm/Resources/i18n/pl_PL/Calendar.json',
-            'application/Espo/Modules/Crm/Resources/i18n/pl_PL/Call.json',
-            'application/Espo/Modules/Crm/Resources/i18n/pl_PL/Case.json',
-            'application/Espo/Modules/Crm/Resources/i18n/pl_PL/Contact.json',
-            'application/Espo/Modules/Crm/Resources/i18n/pl_PL/Global.json',
-            'application/Espo/Resources/layouts/User/filters.json',
-            'application/Espo/Resources/metadata/app/acl.json',
-            'application/Espo/Resources/metadata/app/defaultDashboardLayout.json'
+            'application/Nadlani/Controllers/Email.php',
+            'application/Nadlani/Controllers/EmailAccount.php',
+            'application/Nadlani/Controllers/EmailAddress.php',
+            'application/Nadlani/Controllers/ExternalAccount.php',
+            'application/Nadlani/Controllers/Import.php',
+            'application/Nadlani/Controllers/Integration.php',
+            'application/Nadlani/Modules/Crm/Resources/i18n/pl_PL/Calendar.json',
+            'application/Nadlani/Modules/Crm/Resources/i18n/pl_PL/Call.json',
+            'application/Nadlani/Modules/Crm/Resources/i18n/pl_PL/Case.json',
+            'application/Nadlani/Modules/Crm/Resources/i18n/pl_PL/Contact.json',
+            'application/Nadlani/Modules/Crm/Resources/i18n/pl_PL/Global.json',
+            'application/Nadlani/Resources/layouts/User/filters.json',
+            'application/Nadlani/Resources/metadata/app/acl.json',
+            'application/Nadlani/Resources/metadata/app/defaultDashboardLayout.json'
         );
     }
 
@@ -74,18 +74,18 @@ class PermissionTest extends \PHPUnit\Framework\TestCase
 
     public function testGetSearchCount()
     {
-        $search = 'application/Espo/Controllers/';
+        $search = 'application/Nadlani/Controllers/';
         $methodResult = $this->reflection->invokeMethod('getSearchCount', array($search, $this->fileList));
         $result = 6;
         $this->assertEquals($result, $methodResult);
 
 
-        $search = 'application/Espo/Controllers/Email.php';
+        $search = 'application/Nadlani/Controllers/Email.php';
         $methodResult = $this->reflection->invokeMethod('getSearchCount', array($search, $this->fileList));
         $result = 1;
         $this->assertEquals($result, $methodResult);
 
-        $search = 'application/Espo/Controllers/NotReal';
+        $search = 'application/Nadlani/Controllers/NotReal';
         $methodResult = $this->reflection->invokeMethod('getSearchCount', array($search, $this->fileList));
         $result = 0;
         $this->assertEquals($result, $methodResult);
@@ -94,10 +94,10 @@ class PermissionTest extends \PHPUnit\Framework\TestCase
     public function testArrangePermissionList()
     {
         $result = array(
-            'application/Espo/Controllers',
-            'application/Espo/Modules/Crm/Resources/i18n/pl_PL',
-            'application/Espo/Resources/layouts/User/filters.json',
-            'application/Espo/Resources/metadata/app',
+            'application/Nadlani/Controllers',
+            'application/Nadlani/Modules/Crm/Resources/i18n/pl_PL',
+            'application/Nadlani/Resources/layouts/User/filters.json',
+            'application/Nadlani/Resources/metadata/app',
         );
         $this->assertEquals( $result, $this->object->arrangePermissionList($this->fileList) );
     }
@@ -105,45 +105,45 @@ class PermissionTest extends \PHPUnit\Framework\TestCase
     /*public function bestPossibleList()
     {
         $fileList = array(
-            'application/Espo/Controllers',
-            'application/Espo/Core',
-            'application/Espo/Core/Cron',
-            'application/Espo/Core/Loaders',
-            'application/Espo/Core/Mail',
-            'application/Espo/Core/Mail/Storage/Imap.php',
-            'application/Espo/Core/SelectManagers/Base.php',
-            'application/Espo/Core/Utils/Database/Orm',
-            'application/Espo/Core/Utils/Database/Orm/Fields',
-            'application/Espo/Core/Utils/Database/Orm/Relations',
-            'application/Espo/Core/Utils',
-            'application/Espo/Core/defaults/config.php',
-            'application/Espo/Entities',
-            'application/Espo/Hooks/Common/Stream.php',
-            'application/Espo/Modules/Crm/Controllers/Opportunity.php',
-            'application/Espo/Modules/Crm/Jobs/CheckInboundEmails.php',
-            'application/Espo/Modules/Crm/Resources/i18n/de_DE',
-            'application/Espo/Modules/Crm/Resources/i18n/en_US',
-            'application/Espo/Modules/Crm/Resources/i18n/nl_NL',
-            'application/Espo/Modules/Crm/Resources/i18n/pl_PL',
-            'application/Espo/Modules/Crm/Resources/layouts/InboundEmail',
-            'application/Espo/Modules/Crm/Resources/metadata/clientDefs/InboundEmail.json',
-            'application/Espo/Modules/Crm/Resources/metadata/entityDefs',
-            'application/Espo/Modules/Crm/Services',
-            'application/Espo/Repositories',
-            'application/Espo/Resources/i18n/de_DE',
-            'application/Espo/Resources/i18n/en_US',
-            'application/Espo/Resources/i18n/nl_NL',
-            'application/Espo/Resources/i18n/pl_PL',
-            'application/Espo/Resources/layouts/Email',
-            'application/Espo/Resources/layouts/EmailAccount',
-            'application/Espo/Resources/layouts/User/filters.json',
-            'application/Espo/Resources/metadata/app',
-            'application/Espo/Resources/metadata/clientDefs',
-            'application/Espo/Resources/metadata/entityDefs',
-            'application/Espo/Resources/metadata/integrations/Google.json',
-            'application/Espo/Resources/metadata/scopes',
-            'application/Espo/SelectManagers/EmailAccount.php',
-            'application/Espo/Services',
+            'application/Nadlani/Controllers',
+            'application/Nadlani/Core',
+            'application/Nadlani/Core/Cron',
+            'application/Nadlani/Core/Loaders',
+            'application/Nadlani/Core/Mail',
+            'application/Nadlani/Core/Mail/Storage/Imap.php',
+            'application/Nadlani/Core/SelectManagers/Base.php',
+            'application/Nadlani/Core/Utils/Database/Orm',
+            'application/Nadlani/Core/Utils/Database/Orm/Fields',
+            'application/Nadlani/Core/Utils/Database/Orm/Relations',
+            'application/Nadlani/Core/Utils',
+            'application/Nadlani/Core/defaults/config.php',
+            'application/Nadlani/Entities',
+            'application/Nadlani/Hooks/Common/Stream.php',
+            'application/Nadlani/Modules/Crm/Controllers/Opportunity.php',
+            'application/Nadlani/Modules/Crm/Jobs/CheckInboundEmails.php',
+            'application/Nadlani/Modules/Crm/Resources/i18n/de_DE',
+            'application/Nadlani/Modules/Crm/Resources/i18n/en_US',
+            'application/Nadlani/Modules/Crm/Resources/i18n/nl_NL',
+            'application/Nadlani/Modules/Crm/Resources/i18n/pl_PL',
+            'application/Nadlani/Modules/Crm/Resources/layouts/InboundEmail',
+            'application/Nadlani/Modules/Crm/Resources/metadata/clientDefs/InboundEmail.json',
+            'application/Nadlani/Modules/Crm/Resources/metadata/entityDefs',
+            'application/Nadlani/Modules/Crm/Services',
+            'application/Nadlani/Repositories',
+            'application/Nadlani/Resources/i18n/de_DE',
+            'application/Nadlani/Resources/i18n/en_US',
+            'application/Nadlani/Resources/i18n/nl_NL',
+            'application/Nadlani/Resources/i18n/pl_PL',
+            'application/Nadlani/Resources/layouts/Email',
+            'application/Nadlani/Resources/layouts/EmailAccount',
+            'application/Nadlani/Resources/layouts/User/filters.json',
+            'application/Nadlani/Resources/metadata/app',
+            'application/Nadlani/Resources/metadata/clientDefs',
+            'application/Nadlani/Resources/metadata/entityDefs',
+            'application/Nadlani/Resources/metadata/integrations/Google.json',
+            'application/Nadlani/Resources/metadata/scopes',
+            'application/Nadlani/SelectManagers/EmailAccount.php',
+            'application/Nadlani/Services',
             'install/core',
             'install/core/actions/settingsTest.php',
             'install/core/i18n/de_DE/install.json',
@@ -157,15 +157,15 @@ class PermissionTest extends \PHPUnit\Framework\TestCase
         );
 
         $result = array(
-            'application/Espo/Controllers',
-            'application/Espo/Core',
-            'application/Espo/Entities',
-            'application/Espo/Hooks/Common/Stream.php',
-            'application/Espo/Modules/Crm',
-            'application/Espo/Repositories',
-            'application/Espo/Resources',
-            'application/Espo/SelectManagers/EmailAccount.php',
-            'application/Espo/Services',
+            'application/Nadlani/Controllers',
+            'application/Nadlani/Core',
+            'application/Nadlani/Entities',
+            'application/Nadlani/Hooks/Common/Stream.php',
+            'application/Nadlani/Modules/Crm',
+            'application/Nadlani/Repositories',
+            'application/Nadlani/Resources',
+            'application/Nadlani/SelectManagers/EmailAccount.php',
+            'application/Nadlani/Services',
             'install/core',
             'install/js/install.js',
         );

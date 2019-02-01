@@ -706,11 +706,11 @@
     }
   },
   "themes": {
-    "Espo": "Espo",
+    "Nadlani": "Nadlani",
     "Sakura": "Sakura",
     "Violet": "Violet",
-    "EspoRtl": "RTL Espo",
-    "EspoVertical": "Espo sa bočnim menijem",
+    "NadlaniRtl": "RTL Nadlani",
+    "NadlaniVertical": "Nadlani sa bočnim menijem",
     "SakuraVertical": "Sakura sa bočnim menijem",
     "VioletVertical": "Violet sa bočnim menijem",
     "Hazyblue": "Hazyblue",

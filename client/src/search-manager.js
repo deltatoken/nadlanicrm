@@ -1,31 +1,31 @@
 /************************************************************************
- * This file is part of EspoCRM.
+ * This file is part of NadlaniCrm.
  *
- * EspoCRM - Open Source CRM application.
- * Copyright (C) 2014-2018 Yuri Kuznetsov, Taras Machyshyn, Oleksiy Avramenko
- * Website: http://www.espocrm.com
+ * NadlaniCrm - Open Source CRM application.
+ * Copyright (C) 2014-2018 Pablo Rotem
+ * Website: https://www.facebook.com/sites4u2
  *
- * EspoCRM is free software: you can redistribute it and/or modify
+ * NadlaniCrm is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * EspoCRM is distributed in the hope that it will be useful,
+ * NadlaniCrm is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with EspoCRM. If not, see http://www.gnu.org/licenses/.
+ * along with NadlaniCrm. If not, see http://www.gnu.org/licenses/.
  *
  * The interactive user interfaces in modified source and object code versions
  * of this program must display Appropriate Legal Notices, as required under
  * Section 5 of the GNU General Public License version 3.
  *
  * In accordance with Section 7(b) of the GNU General Public License version 3,
- * these Appropriate Legal Notices must retain the display of the "EspoCRM" word.
+ * these Appropriate Legal Notices must retain the display of the "NadlaniCrm" word.
  ************************************************************************/
-Espo.define('search-manager', [], function () {
+Nadlani.define('search-manager', [], function () {
 
     var SearchManager = function (collection, type, storage, dateTime, defaultData, emptyOnReset) {
         this.collection = collection;
@@ -46,12 +46,12 @@ Espo.define('search-manager', [], function () {
             this.defaultData = defaultData;
             for (var p in this.emptyData) {
                 if (!(p in defaultData)) {
-                    defaultData[p] = Espo.Utils.clone(this.emptyData[p]);
+                    defaultData[p] = Nadlani.Utils.clone(this.emptyData[p]);
                 }
             }
         }
 
-        this.data = Espo.Utils.clone(defaultData) || this.emptyData;
+        this.data = Nadlani.Utils.clone(defaultData) || this.emptyData;
 
         this.sanitizeData();
     };
@@ -166,7 +166,7 @@ Espo.define('search-manager', [], function () {
         },
 
         loadStored: function () {
-            this.data = this.storage.get(this.type + 'Search', this.scope) || Espo.Utils.clone(this.defaultData) || Espo.Utils.clone(this.emptyData);
+            this.data = this.storage.get(this.type + 'Search', this.scope) || Nadlani.Utils.clone(this.defaultData) || Nadlani.Utils.clone(this.emptyData);
             this.sanitizeData();
             return this;
         },
@@ -176,17 +176,17 @@ Espo.define('search-manager', [], function () {
         },
 
         setAdvanced: function (advanced) {
-            this.data = Espo.Utils.clone(this.data);
+            this.data = Nadlani.Utils.clone(this.data);
             this.data.advanced = advanced;
         },
 
         setBool: function (bool) {
-            this.data = Espo.Utils.clone(this.data);
+            this.data = Nadlani.Utils.clone(this.data);
             this.data.bool = bool;
         },
 
         setPrimary: function (primary) {
-            this.data = Espo.Utils.clone(this.data);
+            this.data = Nadlani.Utils.clone(this.data);
             this.data.primary = primary;
         },
 
@@ -198,7 +198,7 @@ Espo.define('search-manager', [], function () {
         },
 
         empty: function () {
-            this.data = Espo.Utils.clone(this.emptyData);
+            this.data = Nadlani.Utils.clone(this.emptyData);
             if (this.storage) {
                 this.storage.clear(this.type + 'Search', this.scope);
             }
@@ -209,7 +209,7 @@ Espo.define('search-manager', [], function () {
                 this.empty();
                 return;
             }
-            this.data = Espo.Utils.clone(this.defaultData) || Espo.Utils.clone(this.emptyData);
+            this.data = Nadlani.Utils.clone(this.defaultData) || Nadlani.Utils.clone(this.emptyData);
             if (this.storage) {
                 this.storage.clear(this.type + 'Search', this.scope);
             }

@@ -1,12 +1,12 @@
 <?php
 
-namespace tests\unit\testData\Hooks\testCase1\custom\Espo\Custom\Hooks\Note;
+namespace tests\unit\testData\Hooks\testCase1\custom\Nadlani\Custom\Hooks\Note;
 
-class Mentions extends \Espo\Hooks\Note\Mentions
+class Mentions extends \Nadlani\Hooks\Note\Mentions
 {
     public static $order = 7;
 
-    public function beforeSave(\Espo\ORM\Entity $entity)
+    public function beforeSave(\Nadlani\ORM\Entity $entity)
     {
 
     }

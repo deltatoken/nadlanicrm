@@ -161,9 +161,9 @@
     "selectExtensionPackage": "Sélectionner un pack d'extension",
     "extensionInstalled": "L'extension {name} {version} a été installé.",
     "installExtension": "L'extension {name} {version} est prête pour l'installation.",
-    "upgradeVersion": "EspoCRM will be upgraded to version <strong>{version}</strong>. Please be patient as this may take a while.",
-    "upgradeDone": "EspoCRM has been upgraded to version <strong>{version}</strong>.",
-    "upgradeBackup": "We recommend making a backup of your EspoCRM files and data before upgrading.",
+    "upgradeVersion": "NadlaniCrm will be upgraded to version <strong>{version}</strong>. Please be patient as this may take a while.",
+    "upgradeDone": "NadlaniCrm has been upgraded to version <strong>{version}</strong>.",
+    "upgradeBackup": "We recommend making a backup of your NadlaniCrm files and data before upgrading.",
     "thousandSeparatorEqualsDecimalMark": "The thousands separator character can not be the same as the decimal point character.",
     "userHasNoEmailAddress": "User has no email address.",
     "uninstallConfirmation": "Are you sure you want to uninstall the extension?"

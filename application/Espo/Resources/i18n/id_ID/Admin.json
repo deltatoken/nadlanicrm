@@ -133,9 +133,9 @@
     "sourceList": "Daftar Sumber"
   },
   "messages": {
-    "upgradeVersion": "EspoCRM Anda akan ditingkatkan ke versi <strong> {version} </ strong>. Hal ini dapat memakan waktu.",
-    "upgradeDone": "EspoCRM Anda telah ditingkatkan ke versi <strong> {version} </ strong>.",
-    "upgradeBackup": "Kami menyarankan untuk membuat cadangan berkas dan data EspoCRM Anda sebelum upgrade.",
+    "upgradeVersion": "NadlaniCrm Anda akan ditingkatkan ke versi <strong> {version} </ strong>. Hal ini dapat memakan waktu.",
+    "upgradeDone": "NadlaniCrm Anda telah ditingkatkan ke versi <strong> {version} </ strong>.",
+    "upgradeBackup": "Kami menyarankan untuk membuat cadangan berkas dan data NadlaniCrm Anda sebelum upgrade.",
     "thousandSeparatorEqualsDecimalMark": "Pemisah ribuan, tidak bisa sama dengan tanda desimal",
     "userHasNoEmailAddress": "Pengguna tidak punya alamat email.",
     "selectEntityType": "Pilih jenis entitas di menu sebelah kiri.",
@@ -150,7 +150,7 @@
   "descriptions": {
     "settings": "pengaturan sistem aplikasi.",
     "scheduledJob": "Pekerjaan yang dilaksanakan oleh cron.",
-    "upgrade": "Upgrade EspoCRM.",
+    "upgrade": "Upgrade NadlaniCrm.",
     "clearCache": "Menghapus semua backend cache.",
     "rebuild": "Membangun kembali backend dan clear cache.",
     "users": "manajemen pengguna.",

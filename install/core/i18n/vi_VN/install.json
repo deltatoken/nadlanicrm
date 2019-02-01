@@ -1,6 +1,6 @@
 {
 	"labels": {
-		"Main page title": "Chào mừng đến với EspoCRM",
+		"Main page title": "Chào mừng đến với NadlaniCrm",
 		"Main page header": "",
 		"Start page title": "Điều khoản và bản quyền",
 		"Step1 page title": "Điều khoản và bản quyền",
@@ -12,7 +12,7 @@
 		"Step5 page title": "Cài đặt SMTP cho email đi",
 		"Errors page title": "Lỗi",
 		"Finish page title": "Hoàn thành cài đặt",
-		"Congratulation! Welcome to EspoCRM": "Xin chúc mừng bạn! EspoCRM đã được cài đặt thành công.",
+		"Congratulation! Welcome to NadlaniCrm": "Xin chúc mừng bạn! NadlaniCrm đã được cài đặt thành công.",
 		"Installation Guide": "Hướng dẫn cài đặt",
 		"admin": "admin",
 		"localhost": "localhost",
@@ -23,7 +23,7 @@
 		"Start": "Bắt đầu",
 		"Back": "Lùi",
 		"Next": "Tiến",
-		"Go to EspoCRM": "Đi đến EspoCRM",
+		"Go to NadlaniCrm": "Đi đến NadlaniCrm",
 		"Re-check": "Kiểm tra lại",
 		"Version": "Phiên bản",
 		"Test settings": "Kiểm tra kết nối",

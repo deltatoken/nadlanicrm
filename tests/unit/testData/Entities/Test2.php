@@ -2,7 +2,7 @@
 
 namespace tests\unit\testData\Entities;
 
-use Espo\Core\ORM\Entity;
+use Nadlani\Core\ORM\Entity;
 
 class Test2 extends Entity
 {

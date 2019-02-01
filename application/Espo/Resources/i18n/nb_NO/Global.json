@@ -662,11 +662,11 @@
     }
   },
   "themes": {
-    "Espo": "Espo",
+    "Nadlani": "Nadlani",
     "Sakura": "Sakura",
     "Violet": "Fiolett",
-    "EspoRtl": "RTL Espo",
-    "EspoVertical": "Espo med sidemeny",
+    "NadlaniRtl": "RTL Nadlani",
+    "NadlaniVertical": "Nadlani med sidemeny",
     "SakuraVertical": "Sakura med sidemeny",
     "VioletVertical": "Fiolett med sidemeny",
     "Hazyblue": "Røykblå",

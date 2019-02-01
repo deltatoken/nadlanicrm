@@ -1,33 +1,33 @@
 <?php
 /************************************************************************
- * This file is part of EspoCRM.
+ * This file is part of NadlaniCrm.
  *
- * EspoCRM - Open Source CRM application.
- * Copyright (C) 2014-2018 Yuri Kuznetsov, Taras Machyshyn, Oleksiy Avramenko
- * Website: http://www.espocrm.com
+ * NadlaniCrm - Open Source CRM application.
+ * Copyright (C) 2014-2018 Pablo Rotem
+ * Website: https://www.facebook.com/sites4u2
  *
- * EspoCRM is free software: you can redistribute it and/or modify
+ * NadlaniCrm is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * EspoCRM is distributed in the hope that it will be useful,
+ * NadlaniCrm is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with EspoCRM. If not, see http://www.gnu.org/licenses/.
+ * along with NadlaniCrm. If not, see http://www.gnu.org/licenses/.
  *
  * The interactive user interfaces in modified source and object code versions
  * of this program must display Appropriate Legal Notices, as required under
  * Section 5 of the GNU General Public License version 3.
  *
  * In accordance with Section 7(b) of the GNU General Public License version 3,
- * these Appropriate Legal Notices must retain the display of the "EspoCRM" word.
+ * these Appropriate Legal Notices must retain the display of the "NadlaniCrm" word.
  ************************************************************************/
 
-namespace tests\unit\Espo\Core\Utils;
+namespace tests\unit\Nadlani\Core\Utils;
 
 use tests\unit\ReflectionHelper;
 
@@ -41,12 +41,12 @@ class FieldManagerTest extends \PHPUnit\Framework\TestCase
 
     protected function setUp()
     {
-        $this->objects['container'] = $this->getMockBuilder('\\Espo\\Core\\Container')->disableOriginalConstructor()->getMock();
+        $this->objects['container'] = $this->getMockBuilder('\\Nadlani\\Core\\Container')->disableOriginalConstructor()->getMock();
 
-        $this->objects['metadata'] = $this->getMockBuilder('\\Espo\\Core\\Utils\\Metadata')->disableOriginalConstructor()->getMock();
-        $this->objects['language'] = $this->getMockBuilder('\\Espo\\Core\\Utils\\Language')->disableOriginalConstructor()->getMock();
-        $this->objects['baseLanguage'] = $this->getMockBuilder('\\Espo\\Core\\Utils\\Language')->disableOriginalConstructor()->getMock();
-        $this->objects['metadataHelper'] = $this->getMockBuilder('\\Espo\\Core\\Utils\\Metadata\\Helper')->disableOriginalConstructor()->getMock();
+        $this->objects['metadata'] = $this->getMockBuilder('\\Nadlani\\Core\\Utils\\Metadata')->disableOriginalConstructor()->getMock();
+        $this->objects['language'] = $this->getMockBuilder('\\Nadlani\\Core\\Utils\\Language')->disableOriginalConstructor()->getMock();
+        $this->objects['baseLanguage'] = $this->getMockBuilder('\\Nadlani\\Core\\Utils\\Language')->disableOriginalConstructor()->getMock();
+        $this->objects['metadataHelper'] = $this->getMockBuilder('\\Nadlani\\Core\\Utils\\Metadata\\Helper')->disableOriginalConstructor()->getMock();
 
         $map = array(
             array('baseLanguage', $this->objects['baseLanguage']),
@@ -59,7 +59,7 @@ class FieldManagerTest extends \PHPUnit\Framework\TestCase
             ->method('get')
             ->will($this->returnValueMap($map));
 
-        $this->object = new \Espo\Core\Utils\FieldManager($this->objects['container']);
+        $this->object = new \Nadlani\Core\Utils\FieldManager($this->objects['container']);
 
         $this->reflection = new ReflectionHelper($this->object);
         $this->reflection->setProperty('metadataHelper', $this->objects['metadataHelper']);
@@ -72,7 +72,7 @@ class FieldManagerTest extends \PHPUnit\Framework\TestCase
 
     public function testCreateExistingField()
     {
-        $this->expectException('\Espo\Core\Exceptions\Conflict');
+        $this->expectException('\Nadlani\Core\Exceptions\Conflict');
 
         $data = array(
             "type" => "varchar",

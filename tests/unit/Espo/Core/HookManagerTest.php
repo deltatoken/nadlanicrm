@@ -1,33 +1,33 @@
 <?php
 /************************************************************************
- * This file is part of EspoCRM.
+ * This file is part of NadlaniCrm.
  *
- * EspoCRM - Open Source CRM application.
- * Copyright (C) 2014-2018 Yuri Kuznetsov, Taras Machyshyn, Oleksiy Avramenko
- * Website: http://www.espocrm.com
+ * NadlaniCrm - Open Source CRM application.
+ * Copyright (C) 2014-2018 Pablo Rotem
+ * Website: https://www.facebook.com/sites4u2
  *
- * EspoCRM is free software: you can redistribute it and/or modify
+ * NadlaniCrm is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * EspoCRM is distributed in the hope that it will be useful,
+ * NadlaniCrm is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with EspoCRM. If not, see http://www.gnu.org/licenses/.
+ * along with NadlaniCrm. If not, see http://www.gnu.org/licenses/.
  *
  * The interactive user interfaces in modified source and object code versions
  * of this program must display Appropriate Legal Notices, as required under
  * Section 5 of the GNU General Public License version 3.
  *
  * In accordance with Section 7(b) of the GNU General Public License version 3,
- * these Appropriate Legal Notices must retain the display of the "EspoCRM" word.
+ * these Appropriate Legal Notices must retain the display of the "NadlaniCrm" word.
  ************************************************************************/
 
-namespace tests\unit\Espo\Core;
+namespace tests\unit\Nadlani\Core;
 
 use tests\unit\ReflectionHelper;
 
@@ -41,11 +41,11 @@ class HookManagerTest extends \PHPUnit\Framework\TestCase
 
     protected function setUp()
     {
-        $this->objects['container'] = $this->getMockBuilder('\\Espo\\Core\\Container')->disableOriginalConstructor()->getMock();
+        $this->objects['container'] = $this->getMockBuilder('\\Nadlani\\Core\\Container')->disableOriginalConstructor()->getMock();
 
-        $this->objects['metadata'] = $this->getMockBuilder('\\Espo\\Core\\Utils\\Metadata')->disableOriginalConstructor()->getMock();
-        $this->objects['config'] = $this->getMockBuilder('\\Espo\\Core\\Utils\\Config')->disableOriginalConstructor()->getMock();
-        $this->objects['fileManager'] = new \Espo\Core\Utils\File\Manager();
+        $this->objects['metadata'] = $this->getMockBuilder('\\Nadlani\\Core\\Utils\\Metadata')->disableOriginalConstructor()->getMock();
+        $this->objects['config'] = $this->getMockBuilder('\\Nadlani\\Core\\Utils\\Config')->disableOriginalConstructor()->getMock();
+        $this->objects['fileManager'] = new \Nadlani\Core\Utils\File\Manager();
 
         $map = array(
           array('metadata', $this->objects['metadata']),
@@ -58,7 +58,7 @@ class HookManagerTest extends \PHPUnit\Framework\TestCase
             ->method('get')
             ->will($this->returnValueMap($map));
 
-        $this->object = new \Espo\Core\HookManager($this->objects['container']);
+        $this->object = new \Nadlani\Core\HookManager($this->objects['container']);
         $this->reflection = new ReflectionHelper($this->object);
     }
 
@@ -71,31 +71,31 @@ class HookManagerTest extends \PHPUnit\Framework\TestCase
     public function testIsHookExists()
     {
         $data = array (
-            '\\Espo\\Hooks\\Note\\Stream' => 8,
-            '\\Espo\\Hooks\\Note\\Mentions' => 9,
-            '\\Espo\\Hooks\\Note\\Notifications' => 14,
+            '\\Nadlani\\Hooks\\Note\\Stream' => 8,
+            '\\Nadlani\\Hooks\\Note\\Mentions' => 9,
+            '\\Nadlani\\Hooks\\Note\\Notifications' => 14,
         );
 
         $data = array (
           array (
-            'className' => '\\Espo\\Hooks\\Note\\Stream',
+            'className' => '\\Nadlani\\Hooks\\Note\\Stream',
             'order' => 8,
           ),
           array (
-            'className' => '\\Espo\\Hooks\\Note\\Mentions',
+            'className' => '\\Nadlani\\Hooks\\Note\\Mentions',
             'order' => 9,
           ),
           array (
-            'className' => '\\Espo\\Hooks\\Note\\Notifications',
+            'className' => '\\Nadlani\\Hooks\\Note\\Notifications',
             'order' => 14,
           ),
         );
 
-        $this->assertTrue( $this->reflection->invokeMethod('hookExists', array('\\Espo\\Hooks\\Note\\Mentions', $data)) );
-        $this->assertTrue( $this->reflection->invokeMethod('hookExists', array('\\Espo\\Modules\\Crm\\Hooks\\Note\\Mentions', $data)) );
-        $this->assertTrue( $this->reflection->invokeMethod('hookExists', array('\\Espo\\Modules\\Test\\Hooks\\Note\\Mentions', $data)) );
-        $this->assertTrue( $this->reflection->invokeMethod('hookExists', array('\\Espo\\Modules\\Test\\Hooks\\Common\\Stream', $data)) );
-        $this->assertFalse( $this->reflection->invokeMethod('hookExists', array('\\Espo\\Hooks\\Note\\TestHook', $data)) );
+        $this->assertTrue( $this->reflection->invokeMethod('hookExists', array('\\Nadlani\\Hooks\\Note\\Mentions', $data)) );
+        $this->assertTrue( $this->reflection->invokeMethod('hookExists', array('\\Nadlani\\Modules\\Crm\\Hooks\\Note\\Mentions', $data)) );
+        $this->assertTrue( $this->reflection->invokeMethod('hookExists', array('\\Nadlani\\Modules\\Test\\Hooks\\Note\\Mentions', $data)) );
+        $this->assertTrue( $this->reflection->invokeMethod('hookExists', array('\\Nadlani\\Modules\\Test\\Hooks\\Common\\Stream', $data)) );
+        $this->assertFalse( $this->reflection->invokeMethod('hookExists', array('\\Nadlani\\Hooks\\Note\\TestHook', $data)) );
     }
 
     public function testSortHooks()
@@ -106,30 +106,30 @@ class HookManagerTest extends \PHPUnit\Framework\TestCase
               'afterSave' =>
               array (
                 array (
-                    'className' => '\\Espo\\Hooks\\Common\\AssignmentEmailNotification',
+                    'className' => '\\Nadlani\\Hooks\\Common\\AssignmentEmailNotification',
                     'order' => 9,
                 ),
                 array (
-                    'className' => '\\Espo\\Hooks\\Common\\Notifications',
+                    'className' => '\\Nadlani\\Hooks\\Common\\Notifications',
                     'order' => 10,
                 ),
                 array (
-                    'className' => '\\Espo\\Hooks\\Common\\Stream',
+                    'className' => '\\Nadlani\\Hooks\\Common\\Stream',
                     'order' => 9,
                 ),
               ),
               'beforeSave' =>
               array (
                 array (
-                    'className' => '\\Espo\\Hooks\\Common\\Formula',
+                    'className' => '\\Nadlani\\Hooks\\Common\\Formula',
                     'order' => 5,
                 ),
                 array (
-                    'className' => '\\Espo\\Hooks\\Common\\NextNumber',
+                    'className' => '\\Nadlani\\Hooks\\Common\\NextNumber',
                     'order' => 10,
                 ),
                 array (
-                    'className' => '\\Espo\\Hooks\\Common\\CurrencyConverted',
+                    'className' => '\\Nadlani\\Hooks\\Common\\CurrencyConverted',
                     'order' => 1,
                 ),
               ),
@@ -139,14 +139,14 @@ class HookManagerTest extends \PHPUnit\Framework\TestCase
               'beforeSave' =>
               array (
                 array (
-                    'className' => '\\Espo\\Hooks\\Note\\Mentions',
+                    'className' => '\\Nadlani\\Hooks\\Note\\Mentions',
                     'order' => 9,
                 ),
               ),
               'afterSave' =>
               array (
                 array (
-                    'className' => '\\Espo\\Hooks\\Note\\Notifications',
+                    'className' => '\\Nadlani\\Hooks\\Note\\Notifications',
                     'order' => 14,
                 ),
               ),
@@ -159,30 +159,30 @@ class HookManagerTest extends \PHPUnit\Framework\TestCase
             'afterSave' =>
             array (
                 array (
-                    'className' => '\\Espo\\Hooks\\Common\\AssignmentEmailNotification',
+                    'className' => '\\Nadlani\\Hooks\\Common\\AssignmentEmailNotification',
                     'order' => 9,
                 ),
                 array (
-                    'className' => '\\Espo\\Hooks\\Common\\Stream',
+                    'className' => '\\Nadlani\\Hooks\\Common\\Stream',
                     'order' => 9,
                 ),
                 array (
-                    'className' => '\\Espo\\Hooks\\Common\\Notifications',
+                    'className' => '\\Nadlani\\Hooks\\Common\\Notifications',
                     'order' => 10,
                 ),
             ),
             'beforeSave' =>
             array (
                 array (
-                    'className' => '\\Espo\\Hooks\\Common\\CurrencyConverted',
+                    'className' => '\\Nadlani\\Hooks\\Common\\CurrencyConverted',
                     'order' => 1,
                 ),
                 array (
-                    'className' => '\\Espo\\Hooks\\Common\\Formula',
+                    'className' => '\\Nadlani\\Hooks\\Common\\Formula',
                     'order' => 5,
                 ),
                 array (
-                    'className' => '\\Espo\\Hooks\\Common\\NextNumber',
+                    'className' => '\\Nadlani\\Hooks\\Common\\NextNumber',
                     'order' => 10,
                 ),
             ),
@@ -192,14 +192,14 @@ class HookManagerTest extends \PHPUnit\Framework\TestCase
             'beforeSave' =>
             array (
                 array (
-                    'className' => '\\Espo\\Hooks\\Note\\Mentions',
+                    'className' => '\\Nadlani\\Hooks\\Note\\Mentions',
                     'order' => 9,
                 ),
             ),
             'afterSave' =>
             array (
                 array (
-                    'className' => '\\Espo\\Hooks\\Note\\Notifications',
+                    'className' => '\\Nadlani\\Hooks\\Note\\Notifications',
                     'order' => 14,
                 ),
             ),
@@ -212,9 +212,9 @@ class HookManagerTest extends \PHPUnit\Framework\TestCase
     public function testCase1CustomHook()
     {
         $this->reflection->setProperty('paths', array(
-            'corePath' => $this->filesPath . '/testCase1/application/Espo/Hooks',
-            'modulePath' => $this->filesPath . '/testCase1/application/Espo/Modules/{*}/Hooks',
-            'customPath' => $this->filesPath . '/testCase1/custom/Espo/Custom/Hooks',
+            'corePath' => $this->filesPath . '/testCase1/application/Nadlani/Hooks',
+            'modulePath' => $this->filesPath . '/testCase1/application/Nadlani/Modules/{*}/Hooks',
+            'customPath' => $this->filesPath . '/testCase1/custom/Nadlani/Custom/Hooks',
         ));
 
         $this->objects['config']
@@ -238,7 +238,7 @@ class HookManagerTest extends \PHPUnit\Framework\TestCase
             'beforeSave' =>
             array (
                 array (
-                    'className' => '\\tests\\unit\\testData\\Hooks\\testCase1\\custom\\Espo\\Custom\\Hooks\\Note\\Mentions',
+                    'className' => '\\tests\\unit\\testData\\Hooks\\testCase1\\custom\\Nadlani\\Custom\\Hooks\\Note\\Mentions',
                     'order' => 7,
                 ),
             ),
@@ -251,9 +251,9 @@ class HookManagerTest extends \PHPUnit\Framework\TestCase
     public function testCase2ModuleHook()
     {
         $this->reflection->setProperty('paths', array(
-            'corePath' => $this->filesPath . '/testCase2/application/Espo/Hooks',
-            'modulePath' => $this->filesPath . '/testCase2/application/Espo/Modules/{*}/Hooks',
-            'customPath' => $this->filesPath . '/testCase2/custom/Espo/Custom/Hooks',
+            'corePath' => $this->filesPath . '/testCase2/application/Nadlani/Hooks',
+            'modulePath' => $this->filesPath . '/testCase2/application/Nadlani/Modules/{*}/Hooks',
+            'customPath' => $this->filesPath . '/testCase2/custom/Nadlani/Custom/Hooks',
         ));
 
         $this->objects['config']
@@ -277,7 +277,7 @@ class HookManagerTest extends \PHPUnit\Framework\TestCase
             'beforeSave' =>
             array (
                 array (
-                    'className' => '\\tests\\unit\\testData\\Hooks\\testCase2\\application\\Espo\\Modules\\Crm\\Hooks\\Note\\Mentions',
+                    'className' => '\\tests\\unit\\testData\\Hooks\\testCase2\\application\\Nadlani\\Modules\\Crm\\Hooks\\Note\\Mentions',
                     'order' => 9,
                 ),
             ),
@@ -290,9 +290,9 @@ class HookManagerTest extends \PHPUnit\Framework\TestCase
     public function testCase2ModuleHookReverseModuleOrder()
     {
         $this->reflection->setProperty('paths', array(
-            'corePath' => $this->filesPath . '/testCase2/application/Espo/Hooks',
-            'modulePath' => $this->filesPath . '/testCase2/application/Espo/Modules/{*}/Hooks',
-            'customPath' => $this->filesPath . '/testCase2/custom/Espo/Custom/Hooks',
+            'corePath' => $this->filesPath . '/testCase2/application/Nadlani/Hooks',
+            'modulePath' => $this->filesPath . '/testCase2/application/Nadlani/Modules/{*}/Hooks',
+            'customPath' => $this->filesPath . '/testCase2/custom/Nadlani/Custom/Hooks',
         ));
 
         $this->objects['config']
@@ -316,7 +316,7 @@ class HookManagerTest extends \PHPUnit\Framework\TestCase
             'beforeSave' =>
             array (
                 array (
-                    'className' => '\\tests\\unit\\testData\\Hooks\\testCase2\\application\\Espo\\Modules\\Test\\Hooks\\Note\\Mentions',
+                    'className' => '\\tests\\unit\\testData\\Hooks\\testCase2\\application\\Nadlani\\Modules\\Test\\Hooks\\Note\\Mentions',
                     'order' => 9,
                 ),
             ),
@@ -329,9 +329,9 @@ class HookManagerTest extends \PHPUnit\Framework\TestCase
     public function testCase3CoreHook()
     {
         $this->reflection->setProperty('paths', array(
-            'corePath' => $this->filesPath . '/testCase3/application/Espo/Hooks',
-            'modulePath' => $this->filesPath . '/testCase3/application/Espo/Modules/{*}/Hooks',
-            'customPath' => $this->filesPath . '/testCase3/custom/Espo/Custom/Hooks',
+            'corePath' => $this->filesPath . '/testCase3/application/Nadlani/Hooks',
+            'modulePath' => $this->filesPath . '/testCase3/application/Nadlani/Modules/{*}/Hooks',
+            'customPath' => $this->filesPath . '/testCase3/custom/Nadlani/Custom/Hooks',
         ));
 
         $this->objects['config']
@@ -353,7 +353,7 @@ class HookManagerTest extends \PHPUnit\Framework\TestCase
             'beforeSave' =>
             array (
                 array (
-                    'className' => '\\tests\\unit\\testData\\Hooks\\testCase3\\application\\Espo\\Hooks\\Note\\Mentions',
+                    'className' => '\\tests\\unit\\testData\\Hooks\\testCase3\\application\\Nadlani\\Hooks\\Note\\Mentions',
                     'order' => 9,
                 ),
             ),
@@ -371,30 +371,30 @@ class HookManagerTest extends \PHPUnit\Framework\TestCase
             'afterSave' =>
             array (
                 array (
-                    'className' => '\\Espo\\Hooks\\Common\\AssignmentEmailNotification',
+                    'className' => '\\Nadlani\\Hooks\\Common\\AssignmentEmailNotification',
                     'order' => 9,
                 ),
                 array (
-                    'className' => '\\Espo\\Hooks\\Common\\Stream',
+                    'className' => '\\Nadlani\\Hooks\\Common\\Stream',
                     'order' => 9,
                 ),
                 array (
-                    'className' => '\\Espo\\Hooks\\Common\\Notifications',
+                    'className' => '\\Nadlani\\Hooks\\Common\\Notifications',
                     'order' => 10,
                 ),
             ),
             'beforeSave' =>
             array (
                 array (
-                    'className' => '\\Espo\\Hooks\\Common\\CurrencyConverted',
+                    'className' => '\\Nadlani\\Hooks\\Common\\CurrencyConverted',
                     'order' => 1,
                 ),
                 array (
-                    'className' => '\\Espo\\Hooks\\Common\\Formula',
+                    'className' => '\\Nadlani\\Hooks\\Common\\Formula',
                     'order' => 5,
                 ),
                 array (
-                    'className' => '\\Espo\\Hooks\\Common\\NextNumber',
+                    'className' => '\\Nadlani\\Hooks\\Common\\NextNumber',
                     'order' => 10,
                 ),
             ),
@@ -404,18 +404,18 @@ class HookManagerTest extends \PHPUnit\Framework\TestCase
             'beforeSave' =>
             array (
                 array (
-                    'className' => '\\Espo\\Hooks\\Note\\Mentions',
+                    'className' => '\\Nadlani\\Hooks\\Note\\Mentions',
                     'order' => 9,
                 ),
             ),
             'afterSave' =>
             array (
                 array (
-                    'className' => '\\Espo\\Hooks\\Note\\Btest',
+                    'className' => '\\Nadlani\\Hooks\\Note\\Btest',
                     'order' => 9,
                 ),
                 array (
-                    'className' => '\\Espo\\Hooks\\Note\\Notifications',
+                    'className' => '\\Nadlani\\Hooks\\Note\\Notifications',
                     'order' => 14,
                 ),
             ),
@@ -423,18 +423,18 @@ class HookManagerTest extends \PHPUnit\Framework\TestCase
         ));
 
         $resultBeforeSave = array(
-            '\\Espo\\Hooks\\Common\\CurrencyConverted',
-            '\\Espo\\Hooks\\Common\\Formula',
-            '\\Espo\\Hooks\\Note\\Mentions',
-            '\\Espo\\Hooks\\Common\\NextNumber',
+            '\\Nadlani\\Hooks\\Common\\CurrencyConverted',
+            '\\Nadlani\\Hooks\\Common\\Formula',
+            '\\Nadlani\\Hooks\\Note\\Mentions',
+            '\\Nadlani\\Hooks\\Common\\NextNumber',
         );
 
         $resultAfterSave = array(
-            '\\Espo\\Hooks\\Common\\AssignmentEmailNotification',
-            '\\Espo\\Hooks\\Note\\Btest',
-            '\\Espo\\Hooks\\Common\\Stream',
-            '\\Espo\\Hooks\\Common\\Notifications',
-            '\\Espo\\Hooks\\Note\\Notifications',
+            '\\Nadlani\\Hooks\\Common\\AssignmentEmailNotification',
+            '\\Nadlani\\Hooks\\Note\\Btest',
+            '\\Nadlani\\Hooks\\Common\\Stream',
+            '\\Nadlani\\Hooks\\Common\\Notifications',
+            '\\Nadlani\\Hooks\\Note\\Notifications',
         );
     }
 }

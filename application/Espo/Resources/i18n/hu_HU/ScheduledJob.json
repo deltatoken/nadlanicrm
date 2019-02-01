@@ -21,9 +21,9 @@
       "CheckNewVersion": "Ellenőrizze az új verziót"
     },
     "cronSetup": {
-      "linux": "Megjegyzés: Adja hozzá ezt a sort a crontab fájlhoz az Espo Scheduled Jobs futtatásához:",
-      "mac": "Megjegyzés: Adja hozzá ezt a sort a crontab fájlhoz az Espo Scheduled Jobs futtatásához:",
-      "windows": "Megjegyzés: Hozzon létre egy kötegelt fájlt a következő parancsokkal, hogy futtassa az Espo Scheduled Jobs programot az ütemezett feladatokkal:",
+      "linux": "Megjegyzés: Adja hozzá ezt a sort a crontab fájlhoz az Nadlani Scheduled Jobs futtatásához:",
+      "mac": "Megjegyzés: Adja hozzá ezt a sort a crontab fájlhoz az Nadlani Scheduled Jobs futtatásához:",
+      "windows": "Megjegyzés: Hozzon létre egy kötegelt fájlt a következő parancsokkal, hogy futtassa az Nadlani Scheduled Jobs programot az ütemezett feladatokkal:",
       "default": "Megjegyzés: Adja hozzá ezt a parancsot a Cron feladathoz (Ütemezett feladat):"
     },
     "status": {

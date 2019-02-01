@@ -1,41 +1,41 @@
 <?php
 /************************************************************************
- * This file is part of EspoCRM.
+ * This file is part of NadlaniCrm.
  *
- * EspoCRM - Open Source CRM application.
- * Copyright (C) 2014-2018 Yuri Kuznetsov, Taras Machyshyn, Oleksiy Avramenko
- * Website: http://www.espocrm.com
+ * NadlaniCrm - Open Source CRM application.
+ * Copyright (C) 2014-2018 Pablo Rotem
+ * Website: https://www.facebook.com/sites4u2
  *
- * EspoCRM is free software: you can redistribute it and/or modify
+ * NadlaniCrm is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * EspoCRM is distributed in the hope that it will be useful,
+ * NadlaniCrm is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with EspoCRM. If not, see http://www.gnu.org/licenses/.
+ * along with NadlaniCrm. If not, see http://www.gnu.org/licenses/.
  *
  * The interactive user interfaces in modified source and object code versions
  * of this program must display Appropriate Legal Notices, as required under
  * Section 5 of the GNU General Public License version 3.
  *
  * In accordance with Section 7(b) of the GNU General Public License version 3,
- * these Appropriate Legal Notices must retain the display of the "EspoCRM" word.
+ * these Appropriate Legal Notices must retain the display of the "NadlaniCrm" word.
  ************************************************************************/
 
-use Espo\ORM\DB\MysqlMapper;
-use Espo\ORM\DB\Query\Mysql as Query;
-use Espo\ORM\EntityFactory;
+use Nadlani\ORM\DB\MysqlMapper;
+use Nadlani\ORM\DB\Query\Mysql as Query;
+use Nadlani\ORM\EntityFactory;
 
-use Espo\Entities\Post;
-use Espo\Entities\Comment;
-use Espo\Entities\Tag;
-use Espo\Entities\Note;
-use Espo\Entities\Job;
+use Nadlani\Entities\Post;
+use Nadlani\Entities\Comment;
+use Nadlani\Entities\Tag;
+use Nadlani\Entities\Note;
+use Nadlani\Entities\Job;
 
 require_once 'tests/unit/testData/DB/Entities.php';
 require_once 'tests/unit/testData/DB/MockPDO.php';
@@ -61,23 +61,23 @@ class DBMapperTest extends \PHPUnit\Framework\TestCase
                     return "'" . $args[0] . "'";
                 }));
 
-        $metadata = $this->getMockBuilder('\\Espo\\ORM\\Metadata')->disableOriginalConstructor()->getMock();
+        $metadata = $this->getMockBuilder('\\Nadlani\\ORM\\Metadata')->disableOriginalConstructor()->getMock();
         $metadata
             ->method('get')
             ->will($this->returnValue(false));
 
-        $entityManager = $this->getMockBuilder('\\Espo\\ORM\\EntityManager')->disableOriginalConstructor()->getMock();
+        $entityManager = $this->getMockBuilder('\\Nadlani\\ORM\\EntityManager')->disableOriginalConstructor()->getMock();
         $entityManager
             ->method('getMetadata')
             ->will($this->returnValue($metadata));
 
-        $this->entityFactory = $this->getMockBuilder('\\Espo\\ORM\\EntityFactory')->disableOriginalConstructor()->getMock();
+        $this->entityFactory = $this->getMockBuilder('\\Nadlani\\ORM\\EntityFactory')->disableOriginalConstructor()->getMock();
         $this->entityFactory
             ->expects($this->any())
             ->method('create')
             ->will($this->returnCallback(function () use ($entityManager) {
                 $args = func_get_args();
-                $className = "\\Espo\\Entities\\" . $args[0];
+                $className = "\\Nadlani\\Entities\\" . $args[0];
                 return new $className([], $entityManager);
             }));
 
@@ -86,13 +86,13 @@ class DBMapperTest extends \PHPUnit\Framework\TestCase
         $this->db = new MysqlMapper($this->pdo, $this->entityFactory, $this->query);
         $this->db->setReturnCollection(true);
 
-        $this->post = new \Espo\Entities\Post([], $entityManager);
-        $this->comment = new \Espo\Entities\Comment([], $entityManager);
-        $this->tag = new \Espo\Entities\Tag([], $entityManager);
-        $this->note = new \Espo\Entities\Note([], $entityManager);
+        $this->post = new \Nadlani\Entities\Post([], $entityManager);
+        $this->comment = new \Nadlani\Entities\Comment([], $entityManager);
+        $this->tag = new \Nadlani\Entities\Tag([], $entityManager);
+        $this->note = new \Nadlani\Entities\Note([], $entityManager);
 
-        $this->contact = new \Espo\Entities\Contact([], $entityManager);
-        $this->account = new \Espo\Entities\Account([], $entityManager);
+        $this->contact = new \Nadlani\Entities\Contact([], $entityManager);
+        $this->account = new \Nadlani\Entities\Account([], $entityManager);
 
     }
 
@@ -365,7 +365,7 @@ class DBMapperTest extends \PHPUnit\Framework\TestCase
 
         $this->mockQuery($query, true);
 
-        $job = new \Espo\Entities\Job();
+        $job = new \Nadlani\Entities\Job();
         $job->id = '1';
         $job->setFetched('array', ['1', '2']);
         $job->set('array', ['2', '1']);
@@ -379,7 +379,7 @@ class DBMapperTest extends \PHPUnit\Framework\TestCase
 
         $this->mockQuery($query, true);
 
-        $job = new \Espo\Entities\Job();
+        $job = new \Nadlani\Entities\Job();
         $job->id = '1';
         $job->setFetched('array', ['1', '2']);
         $job->set('array', null);

@@ -1,33 +1,33 @@
 <?php
 /************************************************************************
- * This file is part of EspoCRM.
+ * This file is part of NadlaniCrm.
  *
- * EspoCRM - Open Source CRM application.
- * Copyright (C) 2014-2018 Yuri Kuznetsov, Taras Machyshyn, Oleksiy Avramenko
- * Website: http://www.espocrm.com
+ * NadlaniCrm - Open Source CRM application.
+ * Copyright (C) 2014-2018 Pablo Rotem
+ * Website: https://www.facebook.com/sites4u2
  *
- * EspoCRM is free software: you can redistribute it and/or modify
+ * NadlaniCrm is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * EspoCRM is distributed in the hope that it will be useful,
+ * NadlaniCrm is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with EspoCRM. If not, see http://www.gnu.org/licenses/.
+ * along with NadlaniCrm. If not, see http://www.gnu.org/licenses/.
  *
  * The interactive user interfaces in modified source and object code versions
  * of this program must display Appropriate Legal Notices, as required under
  * Section 5 of the GNU General Public License version 3.
  *
  * In accordance with Section 7(b) of the GNU General Public License version 3,
- * these Appropriate Legal Notices must retain the display of the "EspoCRM" word.
+ * these Appropriate Legal Notices must retain the display of the "NadlaniCrm" word.
  ************************************************************************/
 
-namespace tests\unit\Espo\Core\Utils\File;
+namespace tests\unit\Nadlani\Core\Utils\File;
 
 use tests\unit\ReflectionHelper;
 
@@ -43,11 +43,11 @@ class ClassParserTest extends \PHPUnit\Framework\TestCase
 
     protected function setUp()
     {
-        $this->objects['fileManager'] = new \Espo\Core\Utils\File\Manager();
-        $this->objects['config'] = $this->getMockBuilder('\Espo\Core\Utils\Config')->disableOriginalConstructor()->getMock();
-        $this->objects['metadata'] = $this->getMockBuilder('\Espo\Core\Utils\Metadata')->disableOriginalConstructor()->getMock();
+        $this->objects['fileManager'] = new \Nadlani\Core\Utils\File\Manager();
+        $this->objects['config'] = $this->getMockBuilder('\Nadlani\Core\Utils\Config')->disableOriginalConstructor()->getMock();
+        $this->objects['metadata'] = $this->getMockBuilder('\Nadlani\Core\Utils\Metadata')->disableOriginalConstructor()->getMock();
 
-        $this->object = new \Espo\Core\Utils\File\ClassParser($this->objects['fileManager'], $this->objects['config'], $this->objects['metadata']);
+        $this->object = new \Nadlani\Core\Utils\File\ClassParser($this->objects['fileManager'], $this->objects['config'], $this->objects['metadata']);
 
         $this->reflection = new ReflectionHelper($this->object);
     }
@@ -61,14 +61,14 @@ class ClassParserTest extends \PHPUnit\Framework\TestCase
     function testGetClassNameHash()
     {
         $paths = array(
-            'tests/unit/testData/EntryPoints/Espo/EntryPoints',
-             'tests/unit/testData/EntryPoints/Espo/Modules/Crm/EntryPoints',
+            'tests/unit/testData/EntryPoints/Nadlani/EntryPoints',
+             'tests/unit/testData/EntryPoints/Nadlani/Modules/Crm/EntryPoints',
         );
 
         $result = array(
-            'Download' => '\tests\unit\testData\EntryPoints\Espo\EntryPoints\Download',
-            'Test' => '\tests\unit\testData\EntryPoints\Espo\EntryPoints\Test',
-            'InModule' => '\tests\unit\testData\EntryPoints\Espo\Modules\Crm\EntryPoints\InModule'
+            'Download' => '\tests\unit\testData\EntryPoints\Nadlani\EntryPoints\Download',
+            'Test' => '\tests\unit\testData\EntryPoints\Nadlani\EntryPoints\Test',
+            'InModule' => '\tests\unit\testData\EntryPoints\Nadlani\Modules\Crm\EntryPoints\InModule'
         );
         $this->assertEquals( $result, $this->reflection->invokeMethod('getClassNameHash', array($paths)) );
     }
@@ -83,13 +83,13 @@ class ClassParserTest extends \PHPUnit\Framework\TestCase
 
         $cacheFile = 'tests/unit/testData/EntryPoints/cache/entryPoints.php';
         $paths = array(
-            'corePath' => 'tests/unit/testData/EntryPoints/Espo/EntryPoints',
-             'modulePath' => 'tests/unit/testData/EntryPoints/Espo/Modules/{*}/EntryPoints',
-            'customPath' => 'tests/unit/testData/EntryPoints/Espo/Custom/EntryPoints',
+            'corePath' => 'tests/unit/testData/EntryPoints/Nadlani/EntryPoints',
+             'modulePath' => 'tests/unit/testData/EntryPoints/Nadlani/Modules/{*}/EntryPoints',
+            'customPath' => 'tests/unit/testData/EntryPoints/Nadlani/Custom/EntryPoints',
         );
 
         $result = array (
-          'Download' => '\\tests\\unit\\testData\\EntryPoints\\Espo\\EntryPoints\\Download',
+          'Download' => '\\tests\\unit\\testData\\EntryPoints\\Nadlani\\EntryPoints\\Download',
         );
 
         $this->assertEquals( $result, $this->reflection->invokeMethod('getData', array($paths, $cacheFile)) );
@@ -113,15 +113,15 @@ class ClassParserTest extends \PHPUnit\Framework\TestCase
 
         $cacheFile = 'tests/unit/testData/EntryPoints/cache/entryPoints.php';
         $paths = array(
-            'corePath' => 'tests/unit/testData/EntryPoints/Espo/EntryPoints',
-             'modulePath' => 'tests/unit/testData/EntryPoints/Espo/Modules/{*}/EntryPoints',
-            'customPath' => 'tests/unit/testData/EntryPoints/Espo/Custom/EntryPoints',
+            'corePath' => 'tests/unit/testData/EntryPoints/Nadlani/EntryPoints',
+             'modulePath' => 'tests/unit/testData/EntryPoints/Nadlani/Modules/{*}/EntryPoints',
+            'customPath' => 'tests/unit/testData/EntryPoints/Nadlani/Custom/EntryPoints',
         );
 
         $result = array(
-            'Download' => '\tests\unit\testData\EntryPoints\Espo\EntryPoints\Download',
-            'Test' => '\tests\unit\testData\EntryPoints\Espo\EntryPoints\Test',
-            'InModule' => '\tests\unit\testData\EntryPoints\Espo\Modules\Crm\EntryPoints\InModule'
+            'Download' => '\tests\unit\testData\EntryPoints\Nadlani\EntryPoints\Download',
+            'Test' => '\tests\unit\testData\EntryPoints\Nadlani\EntryPoints\Test',
+            'InModule' => '\tests\unit\testData\EntryPoints\Nadlani\Modules\Crm\EntryPoints\InModule'
         );
 
         $this->assertEquals( $result, $this->reflection->invokeMethod('getData', array($paths, $cacheFile)) );
@@ -145,11 +145,11 @@ class ClassParserTest extends \PHPUnit\Framework\TestCase
             ));
 
         $cacheFile = 'tests/unit/testData/EntryPoints/cache/entryPoints.php';
-        $path = 'tests/unit/testData/EntryPoints/Espo/EntryPoints';
+        $path = 'tests/unit/testData/EntryPoints/Nadlani/EntryPoints';
 
         $result = array(
-            'Download' => '\tests\unit\testData\EntryPoints\Espo\EntryPoints\Download',
-            'Test' => '\tests\unit\testData\EntryPoints\Espo\EntryPoints\Test',
+            'Download' => '\tests\unit\testData\EntryPoints\Nadlani\EntryPoints\Download',
+            'Test' => '\tests\unit\testData\EntryPoints\Nadlani\EntryPoints\Test',
         );
 
         $this->assertEquals( $result, $this->reflection->invokeMethod('getData', array($path, $cacheFile)) );
@@ -173,13 +173,13 @@ class ClassParserTest extends \PHPUnit\Framework\TestCase
             ));
 
         $paths = array(
-            'corePath' => 'tests/unit/testData/EntryPoints/Espo/EntryPoints',
-            'customPath' => 'tests/unit/testData/EntryPoints/Espo/Custom/EntryPoints',
+            'corePath' => 'tests/unit/testData/EntryPoints/Nadlani/EntryPoints',
+            'customPath' => 'tests/unit/testData/EntryPoints/Nadlani/Custom/EntryPoints',
         );
 
         $result = array(
-            'Download' => '\tests\unit\testData\EntryPoints\Espo\EntryPoints\Download',
-            'Test' => '\tests\unit\testData\EntryPoints\Espo\EntryPoints\Test',
+            'Download' => '\tests\unit\testData\EntryPoints\Nadlani\EntryPoints\Download',
+            'Test' => '\tests\unit\testData\EntryPoints\Nadlani\EntryPoints\Test',
         );
 
         $this->assertEquals( $result, $this->reflection->invokeMethod('getData', array($paths)) );

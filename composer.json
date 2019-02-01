@@ -1,6 +1,6 @@
 {
     "name": "espocrm/espocrm",
-    "description": "EspoCRM. Open source CRM application.",
+    "description": "NadlaniCrm. Open source CRM application.",
     "homepage": "https://github.com/espocrm/espocrm.git",
     "license": "GPL-3.0-only",
     "require": {
@@ -37,7 +37,7 @@
         "psr-0": {
             "": "application/",
             "tests": "",
-            "Espo\\Custom": "custom/"
+            "Nadlani\\Custom": "custom/"
         }
     },
     "repositories": [

@@ -21,9 +21,9 @@
       "SendEmailNotifications": "Send Email Notifikationer"
     },
     "cronSetup": {
-      "linux": "Kommentar: Tilføj denne linje i crontabfilen for at køre Espo-Planlagte Jobs:",
-      "mac": "Kommentar: Tilføj denne linje i crontabfilen for at køre Espo-Planlagte Jobs:",
-      "windows": "Kommentar: Opret en batchfil med følgende kommando for at køre Espo-Planlagte Jobs v.hj.a. Windows Opgavestyring.",
+      "linux": "Kommentar: Tilføj denne linje i crontabfilen for at køre Nadlani-Planlagte Jobs:",
+      "mac": "Kommentar: Tilføj denne linje i crontabfilen for at køre Nadlani-Planlagte Jobs:",
+      "windows": "Kommentar: Opret en batchfil med følgende kommando for at køre Nadlani-Planlagte Jobs v.hj.a. Windows Opgavestyring.",
       "default": "Kommentar: Tilføj denne kommando til Cron Job (Opgavestyring):"
     },
     "status": {

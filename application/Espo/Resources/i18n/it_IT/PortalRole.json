@@ -9,7 +9,7 @@
     "Field Level": "Livello del Campo"
   },
   "fields": {
-    "exportPermission": "Esporta Permessi"
+    "exportPermission": "Nadlanirta Permessi"
   },
   "tooltips": {
     "exportPermission": "Definisce se gli utenti del portale hanno la possibilità di esportare record."

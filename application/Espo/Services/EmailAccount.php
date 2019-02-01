@@ -1,38 +1,38 @@
 <?php
 /************************************************************************
- * This file is part of EspoCRM.
+ * This file is part of NadlaniCrm.
  *
- * EspoCRM - Open Source CRM application.
- * Copyright (C) 2014-2018 Yuri Kuznetsov, Taras Machyshyn, Oleksiy Avramenko
- * Website: http://www.espocrm.com
+ * NadlaniCrm - Open Source CRM application.
+ * Copyright (C) 2014-2018 Pablo Rotem
+ * Website: https://www.facebook.com/sites4u2
  *
- * EspoCRM is free software: you can redistribute it and/or modify
+ * NadlaniCrm is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * EspoCRM is distributed in the hope that it will be useful,
+ * NadlaniCrm is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with EspoCRM. If not, see http://www.gnu.org/licenses/.
+ * along with NadlaniCrm. If not, see http://www.gnu.org/licenses/.
  *
  * The interactive user interfaces in modified source and object code versions
  * of this program must display Appropriate Legal Notices, as required under
  * Section 5 of the GNU General Public License version 3.
  *
  * In accordance with Section 7(b) of the GNU General Public License version 3,
- * these Appropriate Legal Notices must retain the display of the "EspoCRM" word.
+ * these Appropriate Legal Notices must retain the display of the "NadlaniCrm" word.
  ************************************************************************/
 
-namespace Espo\Services;
+namespace Nadlani\Services;
 
-use \Espo\ORM\Entity;
+use \Nadlani\ORM\Entity;
 
-use \Espo\Core\Exceptions\Error;
-use \Espo\Core\Exceptions\Forbidden;
+use \Nadlani\Core\Exceptions\Error;
+use \Nadlani\Core\Exceptions\Forbidden;
 use \Zend\Mail\Storage;
 
 class EmailAccount extends Record
@@ -86,7 +86,7 @@ class EmailAccount extends Record
 
         $foldersArr = array();
 
-        $storage = new \Espo\Core\Mail\Mail\Storage\Imap($imapParams);
+        $storage = new \Nadlani\Core\Mail\Mail\Storage\Imap($imapParams);
 
         $folders = new \RecursiveIteratorIterator($storage->getFolders(), \RecursiveIteratorIterator::SELF_FIRST);
         foreach ($folders as $name => $folder) {
@@ -108,7 +108,7 @@ class EmailAccount extends Record
             $imapParams['ssl'] = 'SSL';
         }
 
-        $storage = new \Espo\Core\Mail\Mail\Storage\Imap($imapParams);
+        $storage = new \Nadlani\Core\Mail\Mail\Storage\Imap($imapParams);
 
         if ($storage->getFolders()) {
             return true;
@@ -162,7 +162,7 @@ class EmailAccount extends Record
             $imapParams['ssl'] = 'SSL';
         }
 
-        $storage = new \Espo\Core\Mail\Mail\Storage\Imap($imapParams);
+        $storage = new \Nadlani\Core\Mail\Mail\Storage\Imap($imapParams);
 
         return $storage;
     }
@@ -175,7 +175,7 @@ class EmailAccount extends Record
 
         $notificator = $this->getInjection('notificatorFactory')->create('Email');
 
-        $importer = new \Espo\Core\Mail\Importer($this->getEntityManager(), $this->getConfig(), $notificator);
+        $importer = new \Nadlani\Core\Mail\Importer($this->getEntityManager(), $this->getConfig(), $notificator);
 
         $maxSize = $this->getConfig()->get('emailMessageMaxSize');
 
@@ -234,7 +234,7 @@ class EmailAccount extends Record
             $parserName = $this->getConfig()->get('emailParser');
         }
 
-        $parserClassName = '\\Espo\\Core\\Mail\\Parsers\\' . $parserName;
+        $parserClassName = '\\Nadlani\\Core\\Mail\\Parsers\\' . $parserName;
 
         $monitoredFoldersArr = explode(',', $monitoredFolders);
 
@@ -324,7 +324,7 @@ class EmailAccount extends Record
                 $email = null;
                 try {
                     $parser = new $parserClassName($this->getEntityManager());
-                    $message = new \Espo\Core\Mail\MessageWrapper($storage, $id, $parser);
+                    $message = new \Nadlani\Core\Mail\MessageWrapper($storage, $id, $parser);
 
                     if ($message->isFetched() && $emailAccount->get('keepFetchedEmailsUnread')) {
                         $flags = $message->getFlags();
@@ -432,7 +432,7 @@ class EmailAccount extends Record
         }
     }
 
-    public function findAccountForUser(\Espo\Entities\User $user, $address)
+    public function findAccountForUser(\Nadlani\Entities\User $user, $address)
     {
         $emailAccount = $this->getEntityManager()->getRepository('EmailAccount')->where([
             'emailAddress' => $address,
@@ -443,7 +443,7 @@ class EmailAccount extends Record
         return $emailAccount;
     }
 
-    public function getSmtpParamsFromAccount(\Espo\Entities\EmailAccount $emailAccount)
+    public function getSmtpParamsFromAccount(\Nadlani\Entities\EmailAccount $emailAccount)
     {
         $smtpParams = array();
         $smtpParams['server'] = $emailAccount->get('smtpHost');

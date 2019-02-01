@@ -18,9 +18,9 @@
       "CheckNewVersion": "Controlla nuove versioni"
     },
     "cronSetup": {
-      "linux": "Nota: aggiungi questa riga al file crontab per eseguire le attività pianificate di EspoCRM:",
-      "mac": "Nota: aggiungi questa riga al file crontab per eseguire le attività pianificate di EspoCRM:",
-      "windows": "Nota: crea un file batch con i seguenti comandi per eseguire le attività pianificate di EspoCRM utilizzando Operazioni pianificate di Windows:",
+      "linux": "Nota: aggiungi questa riga al file crontab per eseguire le attività pianificate di NadlaniCrm:",
+      "mac": "Nota: aggiungi questa riga al file crontab per eseguire le attività pianificate di NadlaniCrm:",
+      "windows": "Nota: crea un file batch con i seguenti comandi per eseguire le attività pianificate di NadlaniCrm utilizzando Operazioni pianificate di Windows:",
       "default": "Nota: Aggiungi questo comando a Cron Job (Operazioni pianificate):"
     },
     "status": {

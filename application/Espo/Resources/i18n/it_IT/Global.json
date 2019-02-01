@@ -27,7 +27,7 @@
     "Integration": "Integrazione",
     "LayoutManager": "Gestione layout",
     "EntityManager": "Gestione entità",
-    "Export": "Esporta",
+    "Export": "Nadlanirta",
     "DynamicLogic": "Logica dinamica",
     "DashletOptions": "Opzioni dashlet",
     "Global": "Globale",
@@ -143,7 +143,7 @@
     "Apply": "Applicare",
     "Unlink": "Scollegare",
     "Mass Update": "Aggiornamento Massivo",
-    "Export": "Esporta",
+    "Export": "Nadlanirta",
     "No Data": "Nessun Dato",
     "All": "Tutti",
     "Active": "Attivo",
@@ -276,7 +276,7 @@
     "remove": "Eliminare",
     "merge": "Unire",
     "massUpdate": "Aggiornamento Massivo",
-    "export": "Esporta",
+    "export": "Nadlanirta",
     "follow": "Segui",
     "unfollow": "Non seguire",
     "convertCurrency": "Converti valuta",
@@ -617,8 +617,8 @@
     "postTargetSelfAndOthers": "{user} ha postato a {target} e se stessa"
   },
   "themes": {
-    "EspoRtl": "RTL Espo\n",
-    "Espo": "Classic espo"
+    "NadlaniRtl": "RTL Nadlani\n",
+    "Nadlani": "Classic espo"
   },
   "listViewModes": {
     "list": "Lista"

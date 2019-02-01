@@ -161,9 +161,9 @@
     "selectExtensionPackage": "Izaberi paket ekstenzije",
     "extensionInstalled": "Ekstenzija {name} {version} je instalirana.",
     "installExtension": "Ekstenzija {name} {version} je spremna za instalaciju.",
-    "upgradeVersion": "EspoCRM će biti unapređen na verziju na <strong>{version}</ strong>. Budite strpljivi jer to može potrajati.",
-    "upgradeDone": "EspoCRM je unapređen na verziju na <strong>{version}</strong>,.",
-    "upgradeBackup": "Preporučujemo pravljenje rezervne kopije EspoCRM datoteka i podataka pre nadogradnje.",
+    "upgradeVersion": "NadlaniCrm će biti unapređen na verziju na <strong>{version}</ strong>. Budite strpljivi jer to može potrajati.",
+    "upgradeDone": "NadlaniCrm je unapređen na verziju na <strong>{version}</strong>,.",
+    "upgradeBackup": "Preporučujemo pravljenje rezervne kopije NadlaniCrm datoteka i podataka pre nadogradnje.",
     "thousandSeparatorEqualsDecimalMark": "Oznaka za hiljade ne može biti ista kao decimalna oznaka.",
     "userHasNoEmailAddress": "Korisnik nema e-mail adresu.",
     "uninstallConfirmation": "Da li ste sigurni da želite da deinstalirate ekstenziju?"
@@ -171,7 +171,7 @@
   "descriptions": {
     "settings": "Sistemska podešavanja aplikacije.",
     "scheduledJob": "Poslovi koji se obavljaju putem cron-a.",
-    "upgrade": "Nadogradi EspoCRM.",
+    "upgrade": "Nadogradi NadlaniCrm.",
     "clearCache": "Očistite sav backend keš.",
     "rebuild": "Obnovi backend i očisti keš.",
     "users": "Upravljanje korisnicima.",

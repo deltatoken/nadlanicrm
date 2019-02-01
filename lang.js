@@ -1,29 +1,29 @@
 /************************************************************************
- * This file is part of EspoCRM.
+ * This file is part of NadlaniCrm.
  *
- * EspoCRM - Open Source CRM application.
- * Copyright (C) 2014-2018 Yuri Kuznetsov, Taras Machyshyn, Oleksiy Avramenko
- * Website: http://www.espocrm.com
+ * NadlaniCrm - Open Source CRM application.
+ * Copyright (C) 2014-2018 Pablo Rotem
+ * Website: https://www.facebook.com/sites4u2
  *
- * EspoCRM is free software: you can redistribute it and/or modify
+ * NadlaniCrm is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * EspoCRM is distributed in the hope that it will be useful,
+ * NadlaniCrm is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with EspoCRM. If not, see http://www.gnu.org/licenses/.
+ * along with NadlaniCrm. If not, see http://www.gnu.org/licenses/.
  *
  * The interactive user interfaces in modified source and object code versions
  * of this program must display Appropriate Legal Notices, as required under
  * Section 5 of the GNU General Public License version 3.
  *
  * In accordance with Section 7(b) of the GNU General Public License version 3,
- * these Appropriate Legal Notices must retain the display of the "EspoCRM" word.
+ * these Appropriate Legal Notices must retain the display of the "NadlaniCrm" word.
  ************************************************************************/
 ﻿
 if (process.argv.length < 2) {
@@ -100,9 +100,9 @@ function Lang (poPath, espoPath) {
 
     var resDirNames = this.resDirNames = {};
 
-    var coreDir = this.espoPath + 'application/Espo/Resources/i18n/' + this.baseLanguage + '/';
+    var coreDir = this.espoPath + 'application/Nadlani/Resources/i18n/' + this.baseLanguage + '/';
     var dirs = [coreDir];
-    dirNames[coreDir] = 'application/Espo/Resources/i18n/' + resLang + '/';
+    dirNames[coreDir] = 'application/Nadlani/Resources/i18n/' + resLang + '/';
 
 
     var installDir = this.espoPath + 'install/core/i18n/' + this.baseLanguage + '/';
@@ -110,18 +110,18 @@ function Lang (poPath, espoPath) {
     dirNames[installDir] = 'install/core/i18n/' + resLang + '/';
 
 
-    var templatesDir = this.espoPath + 'application/Espo/Core/Templates/i18n/' + this.baseLanguage + '/';
+    var templatesDir = this.espoPath + 'application/Nadlani/Core/Templates/i18n/' + this.baseLanguage + '/';
     dirs.push(templatesDir);
-    dirNames[templatesDir] = 'application/Espo/Core/Templates/i18n/' + resLang + '/';
+    dirNames[templatesDir] = 'application/Nadlani/Core/Templates/i18n/' + resLang + '/';
 
     if (onlyModuleName) {
         dirs = [];
     }
 
     this.moduleList.forEach(function (moduleName) {
-        var dir = this.espoPath + 'application/Espo/Modules/' + moduleName + '/Resources/i18n/' + this.baseLanguage + '/';
+        var dir = this.espoPath + 'application/Nadlani/Modules/' + moduleName + '/Resources/i18n/' + this.baseLanguage + '/';
         dirs.push(dir);
-        dirNames[dir] = 'application/Espo/Modules/' + moduleName + '/Resources/i18n/' + resLang + '/';
+        dirNames[dir] = 'application/Nadlani/Modules/' + moduleName + '/Resources/i18n/' + resLang + '/';
     }, this);
 
     this.dirs = dirs;

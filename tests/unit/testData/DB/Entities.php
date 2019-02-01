@@ -1,8 +1,8 @@
 <?php
 
-namespace Espo\Entities;
+namespace Nadlani\Entities;
 
-use Espo\ORM\Entity;
+use Nadlani\ORM\Entity;
 
 
 class TEntity extends Entity

@@ -2032,7 +2032,7 @@ Graph.prototype = {
         this.lastMousePos = pos;
       }, this));
 
-    } //else { EspoCRM fix
+    } //else { NadlaniCrm fix
       this.
         observe(this.overlay, 'mousedown', _.bind(this.mouseDownHandler, this)).
         observe(el, 'mousemove', _.bind(this.mouseMoveHandler, this)).
@@ -2040,7 +2040,7 @@ Graph.prototype = {
         observe(el, 'mouseout', function (e) {
           E.fire(el, 'flotr:mouseout', e);
         });
-    //} EspoCRM fix
+    //} NadlaniCrm fix
   },
 
   /**
@@ -5165,7 +5165,7 @@ Flotr.addPlugin('hit', {
     // Default
     } else {
 
-      // EspoCRM fix start
+      // NadlaniCrm fix start
       if (n.mouse.autoPositionHorizontal) {
         if (n.xaxis.d2p(n.x) > this.plotWidth * 2 / 3) {
           p = 'w';
@@ -5173,7 +5173,7 @@ Flotr.addPlugin('hit', {
           p = 'e';
         }
       }
-      // EspoCRM fix end
+      // NadlaniCrm fix end
 
       pos += 'top:';
       if (/n/.test(p)) pos += (oTop - m + top + n.yaxis.d2p(n.y) - size.height);

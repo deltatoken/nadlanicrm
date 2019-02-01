@@ -1,41 +1,41 @@
 <?php
 /************************************************************************
- * This file is part of EspoCRM.
+ * This file is part of NadlaniCrm.
  *
- * EspoCRM - Open Source CRM application.
- * Copyright (C) 2014-2018 Yuri Kuznetsov, Taras Machyshyn, Oleksiy Avramenko
- * Website: http://www.espocrm.com
+ * NadlaniCrm - Open Source CRM application.
+ * Copyright (C) 2014-2018 Pablo Rotem
+ * Website: https://www.facebook.com/sites4u2
  *
- * EspoCRM is free software: you can redistribute it and/or modify
+ * NadlaniCrm is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * EspoCRM is distributed in the hope that it will be useful,
+ * NadlaniCrm is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with EspoCRM. If not, see http://www.gnu.org/licenses/.
+ * along with NadlaniCrm. If not, see http://www.gnu.org/licenses/.
  *
  * The interactive user interfaces in modified source and object code versions
  * of this program must display Appropriate Legal Notices, as required under
  * Section 5 of the GNU General Public License version 3.
  *
  * In accordance with Section 7(b) of the GNU General Public License version 3,
- * these Appropriate Legal Notices must retain the display of the "EspoCRM" word.
+ * these Appropriate Legal Notices must retain the display of the "NadlaniCrm" word.
  ************************************************************************/
 
-namespace Espo\Controllers;
+namespace Nadlani\Controllers;
 
-use Espo\Core\Utils as Utils;
-use \Espo\Core\Exceptions\NotFound;
-use \Espo\Core\Exceptions\Error;
-use \Espo\Core\Exceptions\Forbidden;
-use \Espo\Core\Exceptions\BadRequest;
+use Nadlani\Core\Utils as Utils;
+use \Nadlani\Core\Exceptions\NotFound;
+use \Nadlani\Core\Exceptions\Error;
+use \Nadlani\Core\Exceptions\Forbidden;
+use \Nadlani\Core\Exceptions\BadRequest;
 
-class LabelManager extends \Espo\Core\Controllers\Base
+class LabelManager extends \Nadlani\Core\Controllers\Base
 {
     protected function checkControllerAccess()
     {
@@ -46,7 +46,7 @@ class LabelManager extends \Espo\Core\Controllers\Base
 
     public function postActionGetScopeList($params)
     {
-        $labelManager = $this->getContainer()->get('injectableFactory')->createByClassName('\\Espo\\Core\\Utils\\LabelManager');
+        $labelManager = $this->getContainer()->get('injectableFactory')->createByClassName('\\Nadlani\\Core\\Utils\\LabelManager');
 
         return $labelManager->getScopeList();
     }
@@ -56,7 +56,7 @@ class LabelManager extends \Espo\Core\Controllers\Base
         if (empty($data->scope) || empty($data->language)) {
             throw new BadRequest();
         }
-        $labelManager = $this->getContainer()->get('injectableFactory')->createByClassName('\\Espo\\Core\\Utils\\LabelManager');
+        $labelManager = $this->getContainer()->get('injectableFactory')->createByClassName('\\Nadlani\\Core\\Utils\\LabelManager');
         return $labelManager->getScopeData($data->language, $data->scope);
     }
 
@@ -68,7 +68,7 @@ class LabelManager extends \Espo\Core\Controllers\Base
 
         $labels = get_object_vars($data->labels);
 
-        $labelManager = $this->getContainer()->get('injectableFactory')->createByClassName('\\Espo\\Core\\Utils\\LabelManager');
+        $labelManager = $this->getContainer()->get('injectableFactory')->createByClassName('\\Nadlani\\Core\\Utils\\LabelManager');
         $returnData = $labelManager->saveLabels($data->language, $data->scope, $labels);
 
         $this->getContainer()->get('dataManager')->clearCache();

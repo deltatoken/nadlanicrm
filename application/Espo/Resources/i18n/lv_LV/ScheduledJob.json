@@ -22,9 +22,9 @@
       "CheckNewVersion": "Pārbaudīt, vai ir jauna versija"
     },
     "cronSetup": {
-      "linux": "Piezīme: lai izpildītu \"Espo\" ieplānotos darbus, pievienojiet uzdevumu plānotāja ciļņa failam šo rindu: ",
-      "mac": "Piezīme: lai izpildītu \"Espo\" ieplānotos darbus, pievienojiet uzdevumu plānotāja ciļņa failam šo rindu: ",
-      "windows": "Piezīme: lai izpildītu \"Espo\" ieplānotos darbus, izmantojot \"Windows\" ieplānotos uzdevumus, izveidojiet pakešfailu ar šādām komandām:",
+      "linux": "Piezīme: lai izpildītu \"Nadlani\" ieplānotos darbus, pievienojiet uzdevumu plānotāja ciļņa failam šo rindu: ",
+      "mac": "Piezīme: lai izpildītu \"Nadlani\" ieplānotos darbus, pievienojiet uzdevumu plānotāja ciļņa failam šo rindu: ",
+      "windows": "Piezīme: lai izpildītu \"Nadlani\" ieplānotos darbus, izmantojot \"Windows\" ieplānotos uzdevumus, izveidojiet pakešfailu ar šādām komandām:",
       "default": "Piezīme: pievienojiet uzdevumu plānotāja darbam (ieplānotajiem uzdevumiem) šo komandu:"
     },
     "status": {

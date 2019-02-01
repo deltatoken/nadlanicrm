@@ -40,7 +40,7 @@
         "ldapAccountCanonicalForm": "Account Canonical Form",
         "ldapAccountDomainName": "Account Domain Name",
         "ldapTryUsernameSplit": "Zkuste rozdělit uživatelské jméno",
-        "ldapCreateEspoUser": "Vytvořit uživatele v EspoCRM",
+        "ldapCreateNadlaniUser": "Vytvořit uživatele v NadlaniCrm",
         "ldapSecurity": "Zabezpečení",
         "ldapUserLoginFilter": "Filtr uživatelského přihlášení",
         "ldapAccountDomainNameShort": "Account Domain Name krátké",

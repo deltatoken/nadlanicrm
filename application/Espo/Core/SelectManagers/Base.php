@@ -1,44 +1,44 @@
 <?php
 /************************************************************************
- * This file is part of EspoCRM.
+ * This file is part of NadlaniCrm.
  *
- * EspoCRM - Open Source CRM application.
- * Copyright (C) 2014-2018 Yuri Kuznetsov, Taras Machyshyn, Oleksiy Avramenko
- * Website: http://www.espocrm.com
+ * NadlaniCrm - Open Source CRM application.
+ * Copyright (C) 2014-2018 Pablo Rotem
+ * Website: https://www.facebook.com/sites4u2
  *
- * EspoCRM is free software: you can redistribute it and/or modify
+ * NadlaniCrm is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * EspoCRM is distributed in the hope that it will be useful,
+ * NadlaniCrm is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with EspoCRM. If not, see http://www.gnu.org/licenses/.
+ * along with NadlaniCrm. If not, see http://www.gnu.org/licenses/.
  *
  * The interactive user interfaces in modified source and object code versions
  * of this program must display Appropriate Legal Notices, as required under
  * Section 5 of the GNU General Public License version 3.
  *
  * In accordance with Section 7(b) of the GNU General Public License version 3,
- * these Appropriate Legal Notices must retain the display of the "EspoCRM" word.
+ * these Appropriate Legal Notices must retain the display of the "NadlaniCrm" word.
  ************************************************************************/
 
-namespace Espo\Core\SelectManagers;
+namespace Nadlani\Core\SelectManagers;
 
-use \Espo\Core\Exceptions\Error;
-use \Espo\Core\Exceptions\Forbidden;
+use \Nadlani\Core\Exceptions\Error;
+use \Nadlani\Core\Exceptions\Forbidden;
 
-use \Espo\Core\Acl;
-use \Espo\Core\AclManager;
-use \Espo\Core\Utils\Metadata;
-use \Espo\Core\Utils\Config;
-use \Espo\Core\InjectableFactory;
-use \Espo\Core\Utils\FieldManagerUtil;
-use \Espo\ORM\EntityManager;
+use \Nadlani\Core\Acl;
+use \Nadlani\Core\AclManager;
+use \Nadlani\Core\Utils\Metadata;
+use \Nadlani\Core\Utils\Config;
+use \Nadlani\Core\InjectableFactory;
+use \Nadlani\Core\Utils\FieldManagerUtil;
+use \Nadlani\ORM\EntityManager;
 
 class Base
 {
@@ -76,7 +76,7 @@ class Base
 
     protected $fullTextSearchDataCacheHash = [];
 
-    public function __construct(EntityManager $entityManager, \Espo\Entities\User $user, Acl $acl, AclManager $aclManager, Metadata $metadata, Config $config, FieldManagerUtil $fieldManagerUtil, InjectableFactory $injectableFactory)
+    public function __construct(EntityManager $entityManager, \Nadlani\Entities\User $user, Acl $acl, AclManager $aclManager, Metadata $metadata, Config $config, FieldManagerUtil $fieldManagerUtil, InjectableFactory $injectableFactory)
     {
         $this->entityManager = $entityManager;
         $this->user = $user;
@@ -98,7 +98,7 @@ class Base
         return $this->metadata;
     }
 
-    protected function getUser() : \Espo\Entities\User
+    protected function getUser() : \Nadlani\Entities\User
     {
         return $this->user;
     }
@@ -198,7 +198,7 @@ class Base
         return $this->getMetadata()->get(['entityDefs', $this->entityType, 'collection', 'textFilterFields'], ['name']);
     }
 
-    protected function getSeed() : \Espo\ORM\Entity
+    protected function getSeed() : \Nadlani\ORM\Entity
     {
         if (empty($this->seed)) {
             $this->seed = $this->entityManager->getEntity($this->entityType);

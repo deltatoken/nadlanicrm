@@ -86,7 +86,7 @@
         },
         "outboundEmailFromName": {
             "type": "varchar",
-            "default": "EspoCRM",
+            "default": "NadlaniCrm",
             "trim": true
         },
         "outboundEmailFromAddress": {
@@ -150,8 +150,8 @@
         },
         "authenticationMethod": {
             "type": "enum",
-            "options": ["Espo", "LDAP"],
-            "default": "Espo"
+            "options": ["Nadlani", "LDAP"],
+            "default": "Nadlani"
         },
         "ldapHost": {
             "type": "varchar",
@@ -219,7 +219,7 @@
             "default": false,
             "tooltip": true
         },
-        "ldapCreateEspoUser": {
+        "ldapCreateNadlaniUser": {
             "type": "bool",
             "default": true,
             "tooltip": true

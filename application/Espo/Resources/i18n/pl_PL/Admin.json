@@ -147,7 +147,7 @@
     "selectExtensionPackage": "Wybierz paczkę rozszerzeń",
     "extensionInstalled": "Rozszerzenie {name} {version} zostało zainstalowane.",
     "installExtension": "Rozszerzenie {name} {version} jest gotowe do instalacji.",
-    "upgradeVersion": "Twój EspoCRM jest aktualizowany do wersji <strong>{version}</strong>. To może chwilę czasu.",
+    "upgradeVersion": "Twój NadlaniCrm jest aktualizowany do wersji <strong>{version}</strong>. To może chwilę czasu.",
     "upgradeDone": "Twój CRM został zaaktualizowany do najnowszej wersji <strong>{version}</strong>. Odśwież swoją przeglądarke aby zobaczyć zmiany.",
     "upgradeBackup": "Zalecamy abyś wykonał archiwizacje swoich danych, przed aktualizacją.",
     "thousandSeparatorEqualsDecimalMark": "Separator dziesiętny nie może być taki sam jak znak oddzielenia",
@@ -156,7 +156,7 @@
   "descriptions": {
     "settings": "Ustawienia systemu dla aplikacji.",
     "scheduledJob": "Zadania wykonywane przez skrypt cron.",
-    "upgrade": "Aktualizuj EspoCRM.",
+    "upgrade": "Aktualizuj NadlaniCrm.",
     "clearCache": "Wyczyść wszystkie dane zapisane w pamięci podręcznej.",
     "rebuild": "Przebuduj oraz wyczyść pamięć podręczną.",
     "users": "Zarządzanie użytkownikami.",

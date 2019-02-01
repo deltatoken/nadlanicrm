@@ -1,33 +1,33 @@
 <?php
 /************************************************************************
- * This file is part of EspoCRM.
+ * This file is part of NadlaniCrm.
  *
- * EspoCRM - Open Source CRM application.
- * Copyright (C) 2014-2018 Yuri Kuznetsov, Taras Machyshyn, Oleksiy Avramenko
- * Website: http://www.espocrm.com
+ * NadlaniCrm - Open Source CRM application.
+ * Copyright (C) 2014-2018 Pablo Rotem
+ * Website: https://www.facebook.com/sites4u2
  *
- * EspoCRM is free software: you can redistribute it and/or modify
+ * NadlaniCrm is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * EspoCRM is distributed in the hope that it will be useful,
+ * NadlaniCrm is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with EspoCRM. If not, see http://www.gnu.org/licenses/.
+ * along with NadlaniCrm. If not, see http://www.gnu.org/licenses/.
  *
  * The interactive user interfaces in modified source and object code versions
  * of this program must display Appropriate Legal Notices, as required under
  * Section 5 of the GNU General Public License version 3.
  *
  * In accordance with Section 7(b) of the GNU General Public License version 3,
- * these Appropriate Legal Notices must retain the display of the "EspoCRM" word.
+ * these Appropriate Legal Notices must retain the display of the "NadlaniCrm" word.
  ************************************************************************/
 
-namespace Espo\Core;
+namespace Nadlani\Core;
 
 class Application
 {
@@ -73,7 +73,7 @@ class Application
 
     protected function createAuth()
     {
-        return new \Espo\Core\Utils\Auth($this->container);
+        return new \Nadlani\Core\Utils\Auth($this->container);
     }
 
     public function getContainer()
@@ -110,21 +110,21 @@ class Application
 
         $slim->any('.*', function() {});
 
-        $entryPointManager = new \Espo\Core\EntryPointManager($container);
+        $entryPointManager = new \Nadlani\Core\EntryPointManager($container);
 
         try {
             $authRequired = $entryPointManager->checkAuthRequired($entryPoint);
             $authNotStrict = $entryPointManager->checkNotStrictAuth($entryPoint);
             if ($authRequired && !$authNotStrict) {
                 if (!$final && $portalId = $this->detectedPortalId()) {
-                    $app = new \Espo\Core\Portal\Application($portalId);
+                    $app = new \Nadlani\Core\Portal\Application($portalId);
                     $app->setBasePath($this->getBasePath());
                     $app->runEntryPoint($entryPoint, $data, true);
                     exit;
                 }
             }
-            $auth = new \Espo\Core\Utils\Auth($this->container, $authNotStrict);
-            $apiAuth = new \Espo\Core\Utils\Api\Auth($auth, $authRequired, true);
+            $auth = new \Nadlani\Core\Utils\Auth($this->container, $authNotStrict);
+            $apiAuth = new \Nadlani\Core\Utils\Api\Auth($auth, $authRequired, true);
             $slim->add($apiAuth);
 
             $slim->hook('slim.before.dispatch', function () use ($entryPoint, $entryPointManager, $container, $data) {
@@ -147,7 +147,7 @@ class Application
         $auth = $this->createAuth();
         $auth->useNoAuth();
 
-        $cronManager = new \Espo\Core\CronManager($this->container);
+        $cronManager = new \Nadlani\Core\CronManager($this->container);
         $cronManager->run();
     }
 
@@ -191,7 +191,7 @@ class Application
         $auth = $this->createAuth();
         $auth->useNoAuth();
 
-        $cronManager = new \Espo\Core\CronManager($this->container);
+        $cronManager = new \Nadlani\Core\CronManager($this->container);
         $cronManager->runJobById($id);
     }
 
@@ -220,7 +220,7 @@ class Application
 
     protected function createApiAuth($auth)
     {
-        return new \Espo\Core\Utils\Api\Auth($auth);
+        return new \Nadlani\Core\Utils\Api\Auth($auth);
     }
 
     protected function routeHooks()
@@ -298,7 +298,7 @@ class Application
 
     protected function getRouteList()
     {
-        $routes = new \Espo\Core\Utils\Route($this->getConfig(), $this->getMetadata(), $this->getContainer()->get('fileManager'));
+        $routes = new \Nadlani\Core\Utils\Route($this->getConfig(), $this->getMetadata(), $this->getContainer()->get('fileManager'));
 
 
         return $routes->getAll();
@@ -327,7 +327,7 @@ class Application
 
     protected function initAutoloads()
     {
-        $autoload = new \Espo\Core\Utils\Autoload($this->getConfig(), $this->getMetadata(), $this->getContainer()->get('fileManager'));
+        $autoload = new \Nadlani\Core\Utils\Autoload($this->getConfig(), $this->getMetadata(), $this->getContainer()->get('fileManager'));
 
         try {
             $autoloadList = $autoload->getAll();

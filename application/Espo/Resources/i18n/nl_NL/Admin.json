@@ -122,9 +122,9 @@
         "height": "Height (px)"
     },
     "messages": {
-        "upgradeVersion": "Uw EspoCRM wordt geupgrade naar versie <strong>{version}</strong>. Dit kan enige tijd duren.",
-        "upgradeDone": "Uw EspoCRM is geupgrade naar versie <strong>{version}</strong>. Herstart uw browser scherm.",
-        "upgradeBackup": "We adviseren om eerst een backup te maken van uw EspoCRM bestanden en data, alvorens te upgraden.",
+        "upgradeVersion": "Uw NadlaniCrm wordt geupgrade naar versie <strong>{version}</strong>. Dit kan enige tijd duren.",
+        "upgradeDone": "Uw NadlaniCrm is geupgrade naar versie <strong>{version}</strong>. Herstart uw browser scherm.",
+        "upgradeBackup": "We adviseren om eerst een backup te maken van uw NadlaniCrm bestanden en data, alvorens te upgraden.",
         "thousandSeparatorEqualsDecimalMark": "Het duizendtal scheidingsteken mag niet hetzelfde zijn als het decimaalteken.",
         "userHasNoEmailAddress": "Gebruiker heeft geen emailadres.",
         "selectEntityType": "Selecteer de eenheid soort in het linker menu.",
@@ -139,7 +139,7 @@
     "descriptions": {
         "settings": "Systeem instellingen van het programma.",
         "scheduledJob": "Opdrachten die uitgevoerd worden door cron.",
-        "upgrade": "Upgrade EspoCRM.",
+        "upgrade": "Upgrade NadlaniCrm.",
         "clearCache": "Verwijder backend cache.",
         "rebuild": "Reconstrueer backend en schoon het geheugen.",
         "users": "Gebruikers beheer.",

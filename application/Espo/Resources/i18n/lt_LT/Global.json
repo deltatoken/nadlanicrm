@@ -676,10 +676,10 @@
     "postTargetSelfAndOthers": "{user} paskelbė {target} ir sau"
   },
   "themes": {
-    "EspoRtl": "Iš dešinės į kairę Espo",
-    "Espo": "Klasikinis espo",
+    "NadlaniRtl": "Iš dešinės į kairę Nadlani",
+    "Nadlani": "Klasikinis espo",
     "Sakura": "Klasikinė Sakura",
-    "EspoVertical": "Vertikali Espo",
+    "NadlaniVertical": "Vertikali Nadlani",
     "SakuraVertical": "Vertikali Sakura",
     "Violet": "Klasikinis violetinis",
     "VioletVertical": "Vertikali violetinė",

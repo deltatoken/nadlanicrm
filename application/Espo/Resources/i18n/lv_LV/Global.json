@@ -746,10 +746,10 @@
     "postTargetSelfAndOthers": "{user} veica publicējumu, kas domāts {target} un pašai sev"
   },
   "themes": {
-    "EspoRtl": "\"RTL Espo\"",
-    "Espo": "Klasiskais \"Espo\"",
+    "NadlaniRtl": "\"RTL Nadlani\"",
+    "Nadlani": "Klasiskais \"Nadlani\"",
     "Sakura": "Klasiskais \"Sakura\"",
-    "EspoVertical": "Vertikālais \"Espo\"",
+    "NadlaniVertical": "Vertikālais \"Nadlani\"",
     "SakuraVertical": "Vertikālais \"Sakura\"",
     "Violet": "Klasiskais violetais",
     "VioletVertical": "Vertikālais violetais",

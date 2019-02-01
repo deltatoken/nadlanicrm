@@ -1,32 +1,32 @@
 /************************************************************************
- * This file is part of EspoCRM.
+ * This file is part of NadlaniCrm.
  *
- * EspoCRM - Open Source CRM application.
- * Copyright (C) 2014-2018 Yuri Kuznetsov, Taras Machyshyn, Oleksiy Avramenko
- * Website: http://www.espocrm.com
+ * NadlaniCrm - Open Source CRM application.
+ * Copyright (C) 2014-2018 Pablo Rotem
+ * Website: https://www.facebook.com/sites4u2
  *
- * EspoCRM is free software: you can redistribute it and/or modify
+ * NadlaniCrm is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * EspoCRM is distributed in the hope that it will be useful,
+ * NadlaniCrm is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with EspoCRM. If not, see http://www.gnu.org/licenses/.
+ * along with NadlaniCrm. If not, see http://www.gnu.org/licenses/.
  *
  * The interactive user interfaces in modified source and object code versions
  * of this program must display Appropriate Legal Notices, as required under
  * Section 5 of the GNU General Public License version 3.
  *
  * In accordance with Section 7(b) of the GNU General Public License version 3,
- * these Appropriate Legal Notices must retain the display of the "EspoCRM" word.
+ * these Appropriate Legal Notices must retain the display of the "NadlaniCrm" word.
  ************************************************************************/
 
-Espo.define('views/dashlets/abstract/base', 'view', function (Dep) {
+Nadlani.define('views/dashlets/abstract/base', 'view', function (Dep) {
 
     return Dep.extend({
 
@@ -61,14 +61,14 @@ Espo.define('views/dashlets/abstract/base', 'view', function (Dep) {
                 title: this.getLanguage().translate(this.name, 'dashlets'),
             }, this.defaultOptions);
 
-            this.defaultOptions = Espo.Utils.clone(this.defaultOptions);
+            this.defaultOptions = Nadlani.Utils.clone(this.defaultOptions);
 
             this.optionsFields = this.getMetadata().get(['dashlets', this.name, 'options', 'fields']) || this.optionsFields || {};
-            this.optionsFields = Espo.Utils.clone(this.optionsFields);
+            this.optionsFields = Nadlani.Utils.clone(this.optionsFields);
 
             this.setupDefaultOptions();
 
-            var options = Espo.Utils.cloneDeep(this.defaultOptions);
+            var options = Nadlani.Utils.cloneDeep(this.defaultOptions);
 
             for (var key in options) {
                 if (typeof options[key] == 'function') {
@@ -102,8 +102,8 @@ Espo.define('views/dashlets/abstract/base', 'view', function (Dep) {
                 }, this);
             }
 
-            this.actionList = Espo.Utils.clone(this.actionList);
-            this.buttonList = Espo.Utils.clone(this.buttonList);
+            this.actionList = Nadlani.Utils.clone(this.actionList);
+            this.buttonList = Nadlani.Utils.clone(this.buttonList);
 
             if (this.options.readOnly) {
                 this.actionList = this.actionList.filter(function(item) {

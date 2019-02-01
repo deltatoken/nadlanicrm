@@ -1,37 +1,37 @@
 <?php
 /************************************************************************
- * This file is part of EspoCRM.
+ * This file is part of NadlaniCrm.
  *
- * EspoCRM - Open Source CRM application.
- * Copyright (C) 2014-2018 Yuri Kuznetsov, Taras Machyshyn, Oleksiy Avramenko
- * Website: http://www.espocrm.com
+ * NadlaniCrm - Open Source CRM application.
+ * Copyright (C) 2014-2018 Pablo Rotem
+ * Website: https://www.facebook.com/sites4u2
  *
- * EspoCRM is free software: you can redistribute it and/or modify
+ * NadlaniCrm is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * EspoCRM is distributed in the hope that it will be useful,
+ * NadlaniCrm is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with EspoCRM. If not, see http://www.gnu.org/licenses/.
+ * along with NadlaniCrm. If not, see http://www.gnu.org/licenses/.
  *
  * The interactive user interfaces in modified source and object code versions
  * of this program must display Appropriate Legal Notices, as required under
  * Section 5 of the GNU General Public License version 3.
  *
  * In accordance with Section 7(b) of the GNU General Public License version 3,
- * these Appropriate Legal Notices must retain the display of the "EspoCRM" word.
+ * these Appropriate Legal Notices must retain the display of the "NadlaniCrm" word.
  ************************************************************************/
 
-namespace tests\unit\Espo\Core\Upgrades;
+namespace tests\unit\Nadlani\Core\Upgrades;
 
 use tests\unit\ReflectionHelper,
-    Espo\Core\ExtensionManager,
-    Espo\Core\UpgradeManager;
+    Nadlani\Core\ExtensionManager,
+    Nadlani\Core\UpgradeManager;
 
 class ActionManagerTest extends \PHPUnit\Framework\TestCase
 {
@@ -56,9 +56,9 @@ class ActionManagerTest extends \PHPUnit\Framework\TestCase
 
     protected function setUp()
     {
-        $this->objects['container'] = $this->getMockBuilder('\Espo\Core\Container')->disableOriginalConstructor()->getMock();
+        $this->objects['container'] = $this->getMockBuilder('\Nadlani\Core\Container')->disableOriginalConstructor()->getMock();
 
-        $this->object = new \Espo\Core\Upgrades\ActionManager($this->params['name'], $this->objects['container'], $this->params['params'] );
+        $this->object = new \Nadlani\Core\Upgrades\ActionManager($this->params['name'], $this->objects['container'], $this->params['params'] );
 
         $this->reflection = new ReflectionHelper($this->object);
     }
@@ -73,7 +73,7 @@ class ActionManagerTest extends \PHPUnit\Framework\TestCase
         $this->object->setAction(ExtensionManager::UPLOAD);
 
         $class = $this->reflection->invokeMethod('getObject');
-        $this->assertInstanceOf('\Espo\Core\Upgrades\Actions\Extension\Upload', $class);
+        $this->assertInstanceOf('\Nadlani\Core\Upgrades\Actions\Extension\Upload', $class);
     }
 
     public function testGetObjectExtensionInstall()
@@ -81,7 +81,7 @@ class ActionManagerTest extends \PHPUnit\Framework\TestCase
         $this->object->setAction(ExtensionManager::INSTALL);
 
         $class = $this->reflection->invokeMethod('getObject');
-        $this->assertInstanceOf('\Espo\Core\Upgrades\Actions\Extension\Install', $class);
+        $this->assertInstanceOf('\Nadlani\Core\Upgrades\Actions\Extension\Install', $class);
     }
 
     public function testGetObjectExtensionUninstall()
@@ -89,7 +89,7 @@ class ActionManagerTest extends \PHPUnit\Framework\TestCase
         $this->object->setAction(ExtensionManager::UNINSTALL);
 
         $class = $this->reflection->invokeMethod('getObject');
-        $this->assertInstanceOf('\Espo\Core\Upgrades\Actions\Extension\Uninstall', $class);
+        $this->assertInstanceOf('\Nadlani\Core\Upgrades\Actions\Extension\Uninstall', $class);
     }
 
     public function testGetObjectExtensionDelete()
@@ -97,12 +97,12 @@ class ActionManagerTest extends \PHPUnit\Framework\TestCase
         $this->object->setAction(ExtensionManager::DELETE);
 
         $class = $this->reflection->invokeMethod('getObject');
-        $this->assertInstanceOf('\Espo\Core\Upgrades\Actions\Extension\Delete', $class);
+        $this->assertInstanceOf('\Nadlani\Core\Upgrades\Actions\Extension\Delete', $class);
     }
 
     public function testGetObjectExtensionNotExists()
     {
-        $this->expectException('\Espo\Core\Exceptions\Error');
+        $this->expectException('\Nadlani\Core\Exceptions\Error');
 
         $this->object->setAction('CustomClass');
         $class = $this->reflection->invokeMethod('getObject');
@@ -114,7 +114,7 @@ class ActionManagerTest extends \PHPUnit\Framework\TestCase
         $this->object->setAction(UpgradeManager::UPLOAD);
 
         $class = $this->reflection->invokeMethod('getObject');
-        $this->assertInstanceOf('\Espo\Core\Upgrades\Actions\Upgrade\Upload', $class);
+        $this->assertInstanceOf('\Nadlani\Core\Upgrades\Actions\Upgrade\Upload', $class);
     }
 
     public function testGetObjectUpgradeInstall()
@@ -123,31 +123,31 @@ class ActionManagerTest extends \PHPUnit\Framework\TestCase
         $this->object->setAction(UpgradeManager::INSTALL);
 
         $class = $this->reflection->invokeMethod('getObject');
-        $this->assertInstanceOf('\Espo\Core\Upgrades\Actions\Upgrade\Install', $class);
+        $this->assertInstanceOf('\Nadlani\Core\Upgrades\Actions\Upgrade\Install', $class);
     }
 
     public function testGetObjectUpgradeUninstall()
     {
-        $this->expectException('\Espo\Core\Exceptions\Error');
+        $this->expectException('\Nadlani\Core\Exceptions\Error');
 
         $this->reflection->setProperty('managerName', 'Upgrade');
         $this->object->setAction(UpgradeManager::UNINSTALL);
 
         $class = $this->reflection->invokeMethod('getObject');
-        $this->assertInstanceOf('\Espo\Core\Upgrades\Actions\Upgrade\Uninstall', $class);
+        $this->assertInstanceOf('\Nadlani\Core\Upgrades\Actions\Upgrade\Uninstall', $class);
 
         $class->run(array());
     }
 
     public function testGetObjectUpgradeDelete()
     {
-        $this->expectException('\Espo\Core\Exceptions\Error');
+        $this->expectException('\Nadlani\Core\Exceptions\Error');
 
         $this->reflection->setProperty('managerName', 'Upgrade');
         $this->object->setAction(UpgradeManager::DELETE);
 
         $class = $this->reflection->invokeMethod('getObject');
-        $this->assertInstanceOf('\Espo\Core\Upgrades\Actions\Upgrade\Delete', $class);
+        $this->assertInstanceOf('\Nadlani\Core\Upgrades\Actions\Upgrade\Delete', $class);
 
         $class->run(array());
     }

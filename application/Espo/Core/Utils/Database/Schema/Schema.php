@@ -1,36 +1,36 @@
 <?php
 /************************************************************************
- * This file is part of EspoCRM.
+ * This file is part of NadlaniCrm.
  *
- * EspoCRM - Open Source CRM application.
- * Copyright (C) 2014-2018 Yuri Kuznetsov, Taras Machyshyn, Oleksiy Avramenko
- * Website: http://www.espocrm.com
+ * NadlaniCrm - Open Source CRM application.
+ * Copyright (C) 2014-2018 Pablo Rotem
+ * Website: https://www.facebook.com/sites4u2
  *
- * EspoCRM is free software: you can redistribute it and/or modify
+ * NadlaniCrm is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * EspoCRM is distributed in the hope that it will be useful,
+ * NadlaniCrm is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with EspoCRM. If not, see http://www.gnu.org/licenses/.
+ * along with NadlaniCrm. If not, see http://www.gnu.org/licenses/.
  *
  * The interactive user interfaces in modified source and object code versions
  * of this program must display Appropriate Legal Notices, as required under
  * Section 5 of the GNU General Public License version 3.
  *
  * In accordance with Section 7(b) of the GNU General Public License version 3,
- * these Appropriate Legal Notices must retain the display of the "EspoCRM" word.
+ * these Appropriate Legal Notices must retain the display of the "NadlaniCrm" word.
  ************************************************************************/
 
-namespace Espo\Core\Utils\Database\Schema;
+namespace Nadlani\Core\Utils\Database\Schema;
 
 use Doctrine\DBAL\Types\Type,
-    Espo\Core\Utils\Util;
+    Nadlani\Core\Utils\Util;
 
 class Schema
 {
@@ -51,8 +51,8 @@ class Schema
     private $databaseHelper;
 
     protected $fieldTypePaths = array(
-        'application/Espo/Core/Utils/Database/DBAL/FieldTypes',
-        'custom/Espo/Custom/Core/Utils/Database/DBAL/FieldTypes',
+        'application/Nadlani/Core/Utils/Database/DBAL/FieldTypes',
+        'custom/Nadlani/Custom/Core/Utils/Database/DBAL/FieldTypes',
     );
 
     /**
@@ -60,8 +60,8 @@ class Schema
      * @var array
      */
     protected $rebuildActionsPath = array(
-        'corePath' => 'application/Espo/Core/Utils/Database/Schema/rebuildActions',
-        'customPath' => 'custom/Espo/Custom/Core/Utils/Database/Schema/rebuildActions',
+        'corePath' => 'application/Nadlani/Core/Utils/Database/Schema/rebuildActions',
+        'customPath' => 'custom/Nadlani/Custom/Core/Utils/Database/Schema/rebuildActions',
     );
 
     /**
@@ -74,7 +74,7 @@ class Schema
      */
     protected $rebuildActionClasses = null;
 
-    public function __construct(\Espo\Core\Utils\Config $config, \Espo\Core\Utils\Metadata $metadata, \Espo\Core\Utils\File\Manager $fileManager, \Espo\Core\ORM\EntityManager $entityManager, \Espo\Core\Utils\File\ClassParser $classParser, \Espo\Core\Utils\Metadata\OrmMetadata $ormMetadata)
+    public function __construct(\Nadlani\Core\Utils\Config $config, \Nadlani\Core\Utils\Metadata $metadata, \Nadlani\Core\Utils\File\Manager $fileManager, \Nadlani\Core\ORM\EntityManager $entityManager, \Nadlani\Core\Utils\File\ClassParser $classParser, \Nadlani\Core\Utils\Metadata\OrmMetadata $ormMetadata)
     {
         $this->config = $config;
         $this->metadata = $metadata;
@@ -82,12 +82,12 @@ class Schema
         $this->entityManager = $entityManager;
         $this->classParser = $classParser;
 
-        $this->databaseHelper = new \Espo\Core\Utils\Database\Helper($this->config);
+        $this->databaseHelper = new \Nadlani\Core\Utils\Database\Helper($this->config);
 
-        $this->comparator = new \Espo\Core\Utils\Database\DBAL\Schema\Comparator();
+        $this->comparator = new \Nadlani\Core\Utils\Database\DBAL\Schema\Comparator();
         $this->initFieldTypes();
 
-        $this->converter = new \Espo\Core\Utils\Database\Converter($this->metadata, $this->fileManager, $this->config);
+        $this->converter = new \Nadlani\Core\Utils\Database\Converter($this->metadata, $this->fileManager, $this->config);
         $this->schemaConverter = new Converter($this->metadata, $this->fileManager, $this, $this->config);
 
         $this->ormMetadata = $ormMetadata;

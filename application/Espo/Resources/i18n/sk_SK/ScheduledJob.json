@@ -22,9 +22,9 @@
       "CheckNewVersion": "Skontroluj novú verziu"
     },
     "cronSetup": {
-      "linux": "Poznámka: Pridajte tento riadok do súbru crontab-u, aby fungovali plánované behy Espo",
-      "mac": "Poznámka: Pridajte tento riadok do súbru crontab-u, aby fungovali plánované behy Espo",
-      "windows": "Poznámka: Vytvorte dávkový súbor s nasledujúcimi príkazmi, aby fungovali plánované behy Espo v Plánovaných úlohách Windows",
+      "linux": "Poznámka: Pridajte tento riadok do súbru crontab-u, aby fungovali plánované behy Nadlani",
+      "mac": "Poznámka: Pridajte tento riadok do súbru crontab-u, aby fungovali plánované behy Nadlani",
+      "windows": "Poznámka: Vytvorte dávkový súbor s nasledujúcimi príkazmi, aby fungovali plánované behy Nadlani v Plánovaných úlohách Windows",
       "default": "Poznámka: Pridajte tento príkaz do Cron Job (Scheduled Task)"
     },
     "status": {

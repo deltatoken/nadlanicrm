@@ -1,6 +1,6 @@
 <?php
 
-namespace tests\unit\testData\EntryPoints\Espo\Modules\Crm\EntryPoints;
+namespace tests\unit\testData\EntryPoints\Nadlani\Modules\Crm\EntryPoints;
 
 
 class InModule

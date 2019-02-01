@@ -1,38 +1,38 @@
 <?php
 /************************************************************************
- * This file is part of EspoCRM.
+ * This file is part of NadlaniCrm.
  *
- * EspoCRM - Open Source CRM application.
- * Copyright (C) 2014-2018 Yuri Kuznetsov, Taras Machyshyn, Oleksiy Avramenko
- * Website: http://www.espocrm.com
+ * NadlaniCrm - Open Source CRM application.
+ * Copyright (C) 2014-2018 Pablo Rotem
+ * Website: https://www.facebook.com/sites4u2
  *
- * EspoCRM is free software: you can redistribute it and/or modify
+ * NadlaniCrm is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * EspoCRM is distributed in the hope that it will be useful,
+ * NadlaniCrm is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with EspoCRM. If not, see http://www.gnu.org/licenses/.
+ * along with NadlaniCrm. If not, see http://www.gnu.org/licenses/.
  *
  * The interactive user interfaces in modified source and object code versions
  * of this program must display Appropriate Legal Notices, as required under
  * Section 5 of the GNU General Public License version 3.
  *
  * In accordance with Section 7(b) of the GNU General Public License version 3,
- * these Appropriate Legal Notices must retain the display of the "EspoCRM" word.
+ * these Appropriate Legal Notices must retain the display of the "NadlaniCrm" word.
  ************************************************************************/
 
-namespace Espo\Core\Utils;
+namespace Nadlani\Core\Utils;
 
-use \Espo\Core\Exceptions\Error;
-use \Espo\Core\Exceptions\Forbidden;
+use \Nadlani\Core\Exceptions\Error;
+use \Nadlani\Core\Exceptions\Forbidden;
 
-use \Espo\Entities\Portal;
+use \Nadlani\Entities\Portal;
 
 class Auth
 {
@@ -52,7 +52,7 @@ class Auth
 
     private $portal;
 
-    public function __construct(\Espo\Core\Container $container, $allowAnyAccess = false)
+    public function __construct(\Nadlani\Core\Container $container, $allowAnyAccess = false)
     {
         $this->container = $container;
 
@@ -68,16 +68,16 @@ class Auth
 
     protected function getDefaultAuthenticationMethod()
     {
-        return $this->getConfig()->get('authenticationMethod', 'Espo');
+        return $this->getConfig()->get('authenticationMethod', 'Nadlani');
     }
 
     protected function getAuthentication($authenticationMethod)
     {
         $authenticationMethod = preg_replace('/[^a-zA-Z0-9]+/', '', $authenticationMethod);
 
-        $authenticationClassName = "\\Espo\\Custom\\Core\\Utils\\Authentication\\" . $authenticationMethod;
+        $authenticationClassName = "\\Nadlani\\Custom\\Core\\Utils\\Authentication\\" . $authenticationMethod;
         if (!class_exists($authenticationClassName)) {
-            $authenticationClassName = "\\Espo\\Core\\Utils\\Authentication\\" . $authenticationMethod;
+            $authenticationClassName = "\\Nadlani\\Core\\Utils\\Authentication\\" . $authenticationMethod;
         }
 
         $authentication = new $authenticationClassName($this->getConfig(), $this->getEntityManager(), $this);
@@ -137,7 +137,7 @@ class Auth
         $isByTokenOnly = false;
 
         if (!$authenticationMethod) {
-            if ($this->request->headers->get('Http-Espo-Authorization-By-Token') === 'true') {
+            if ($this->request->headers->get('Http-Nadlani-Authorization-By-Token') === 'true') {
                 $isByTokenOnly = true;
             }
         }
@@ -210,7 +210,7 @@ class Auth
         }
 
         if (!$user->isAdmin() && $this->getConfig()->get('maintenanceMode')) {
-            throw new \Espo\Core\Exceptions\ServiceUnavailable("Application is in maintenance mode.");
+            throw new \Nadlani\Core\Exceptions\ServiceUnavailable("Application is in maintenance mode.");
         }
 
         if (!$user->isActive()) {
@@ -247,7 +247,7 @@ class Auth
         $this->getEntityManager()->setUser($user);
         $this->getContainer()->setUser($user);
 
-        if ($this->request->headers->get('Http-Espo-Authorization')) {
+        if ($this->request->headers->get('Http-Nadlani-Authorization')) {
             if (!$authToken) {
                 $authToken = $this->getEntityManager()->getEntity('AuthToken');
                 $token = $this->generateToken();

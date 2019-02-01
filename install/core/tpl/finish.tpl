@@ -4,7 +4,7 @@
             <div class=" col-md-13">
                 <div class="panel-body" align="center">
                     <div class="message">
-                        {$langs['labels']['Congratulation! Welcome to EspoCRM']}
+                        {$langs['labels']['Congratulation! Welcome to NadlaniCrm']}
                     </div>
 
                     <br>
@@ -16,7 +16,7 @@
                         <br>
 
                         <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
-                        <div class="g-plusone" data-size="standard" data-count="true" data-href='http://www.espocrm.com'></div>
+                        <div class="g-plusone" data-size="standard" data-count="true" data-href='https://www.facebook.com/sites4u2'></div>
                     </div>
 
                     <div class="more-information">
@@ -45,7 +45,7 @@
 </div>
 {/if}
 <footer class="modal-footer">
-    <button class="btn btn-primary" type="button" id="start">{$langs['labels']['Go to EspoCRM']}</button>
+    <button class="btn btn-primary" type="button" id="start">{$langs['labels']['Go to NadlaniCrm']}</button>
 </footer>
 <script>
     {literal}

@@ -1,40 +1,40 @@
 <?php
 /************************************************************************
- * This file is part of EspoCRM.
+ * This file is part of NadlaniCrm.
  *
- * EspoCRM - Open Source CRM application.
- * Copyright (C) 2014-2018 Yuri Kuznetsov, Taras Machyshyn, Oleksiy Avramenko
- * Website: http://www.espocrm.com
+ * NadlaniCrm - Open Source CRM application.
+ * Copyright (C) 2014-2018 Pablo Rotem
+ * Website: https://www.facebook.com/sites4u2
  *
- * EspoCRM is free software: you can redistribute it and/or modify
+ * NadlaniCrm is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * EspoCRM is distributed in the hope that it will be useful,
+ * NadlaniCrm is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with EspoCRM. If not, see http://www.gnu.org/licenses/.
+ * along with NadlaniCrm. If not, see http://www.gnu.org/licenses/.
  *
  * The interactive user interfaces in modified source and object code versions
  * of this program must display Appropriate Legal Notices, as required under
  * Section 5 of the GNU General Public License version 3.
  *
  * In accordance with Section 7(b) of the GNU General Public License version 3,
- * these Appropriate Legal Notices must retain the display of the "EspoCRM" word.
+ * these Appropriate Legal Notices must retain the display of the "NadlaniCrm" word.
  ************************************************************************/
 
-namespace Espo\Core\Utils\Authentication;
+namespace Nadlani\Core\Utils\Authentication;
 
-use Espo\Core\Exceptions\Error;
-use Espo\Core\Utils\Config;
-use Espo\Core\ORM\EntityManager;
-use Espo\Core\Utils\Auth;
+use Nadlani\Core\Exceptions\Error;
+use Nadlani\Core\Utils\Config;
+use Nadlani\Core\ORM\EntityManager;
+use Nadlani\Core\Utils\Auth;
 
-class LDAP extends Espo
+class LDAP extends Nadlani
 {
     private $utils;
 
@@ -106,11 +106,11 @@ class LDAP extends Espo
      *
      * @param  string $username
      * @param  string $password
-     * @param  \Espo\Entities\AuthToken $authToken
+     * @param  \Nadlani\Entities\AuthToken $authToken
      *
-     * @return \Espo\Entities\User | null
+     * @return \Nadlani\Entities\User | null
      */
-    public function login($username, $password, \Espo\Entities\AuthToken $authToken = null, $params = [], $request)
+    public function login($username, $password, \Nadlani\Entities\AuthToken $authToken = null, $params = [], $request)
     {
         if (!$password) return;
 
@@ -141,7 +141,7 @@ class LDAP extends Espo
                 return null;
             }
 
-            $GLOBALS['log']->info('LDAP: Administrator ['.$username.'] was logged in by Espo method.');
+            $GLOBALS['log']->info('LDAP: Administrator ['.$username.'] was logged in by Nadlani method.');
         }
 
         if (!isset($adminUser)) {
@@ -159,7 +159,7 @@ class LDAP extends Espo
                     return null;
                 }
 
-                $GLOBALS['log']->info('LDAP: Administrator ['.$username.'] was logged in by Espo method.');
+                $GLOBALS['log']->info('LDAP: Administrator ['.$username.'] was logged in by Nadlani method.');
             }
 
             $GLOBALS['log']->debug('User ['.$username.'] is found with this DN ['.$userDn.'].');
@@ -179,7 +179,7 @@ class LDAP extends Espo
             ]
         ]);
 
-        if (!isset($user) && $this->getUtils()->getOption('createEspoUser')) {
+        if (!isset($user) && $this->getUtils()->getOption('createNadlaniUser')) {
             $userData = $ldapClient->getEntry($userDn);
             $user = $this->createUser($userData, $isPortal);
         }
@@ -191,11 +191,11 @@ class LDAP extends Espo
      * Login by authorization token
      *
      * @param  string $username
-     * @param  \Espo\Entities\AuthToken $authToken
+     * @param  \Nadlani\Entities\AuthToken $authToken
      *
-     * @return \Espo\Entities\User | null
+     * @return \Nadlani\Entities\User | null
      */
-    protected function loginByToken($username, \Espo\Entities\AuthToken $authToken = null)
+    protected function loginByToken($username, \Nadlani\Entities\AuthToken $authToken = null)
     {
         if (!isset($authToken)) {
             return null;
@@ -224,7 +224,7 @@ class LDAP extends Espo
      *
      * @param  string $username
      * @param  string $password
-     * @return \Espo\Entities\User | null
+     * @return \Nadlani\Entities\User | null
      */
     protected function adminLogin($username, $password)
     {
@@ -242,12 +242,12 @@ class LDAP extends Espo
     }
 
     /**
-     * Create Espo user with data gets from LDAP server
+     * Create Nadlani user with data gets from LDAP server
      *
      * @param  array $userData LDAP entity data
      * @param  boolean $isPortal Is portal user
      *
-     * @return \Espo\Entities\User
+     * @return \Nadlani\Entities\User
      */
     protected function createUser(array $userData, $isPortal = false)
     {

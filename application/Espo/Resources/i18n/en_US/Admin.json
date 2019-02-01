@@ -184,9 +184,9 @@
         "displayAsLabel": "Display as Label"
     },
     "messages": {
-        "upgradeVersion": "EspoCRM will be upgraded to version <strong>{version}</strong>. Please be patient as this may take a while.",
-        "upgradeDone": "EspoCRM has been upgraded to version <strong>{version}</strong>.",
-        "upgradeBackup": "We recommend making a backup of your EspoCRM files and data before upgrading.",
+        "upgradeVersion": "NadlaniCrm will be upgraded to version <strong>{version}</strong>. Please be patient as this may take a while.",
+        "upgradeDone": "NadlaniCrm has been upgraded to version <strong>{version}</strong>.",
+        "upgradeBackup": "We recommend making a backup of your NadlaniCrm files and data before upgrading.",
         "thousandSeparatorEqualsDecimalMark": "The thousands separator character can not be the same as the decimal point character.",
         "userHasNoEmailAddress": "User has no email address.",
         "selectEntityType": "Select entity type in the left menu.",
@@ -197,14 +197,14 @@
         "extensionInstalled": "Extension {name} {version} has been installed.",
         "installExtension": "Extension {name} {version} is ready for an installation.",
         "cronIsNotConfigured": "Scheduled jobs are not running.  Hence inbound emails, notifications and reminders are not working. Please follow the [instructions](https://www.espocrm.com/documentation/administration/server-configuration/#user-content-setup-a-crontab) to setup cron job.",
-        "newVersionIsAvailable": "New EspoCRM version {latestVersion} is available.",
+        "newVersionIsAvailable": "New NadlaniCrm version {latestVersion} is available.",
         "newExtensionVersionIsAvailable": "New {extensionName} version {latestVersion} is available.",
         "uninstallConfirmation": "Are you sure you want to uninstall the extension?"
     },
     "descriptions": {
         "settings": "System settings of application.",
         "scheduledJob": "Jobs which are executed by cron.",
-        "upgrade": "Upgrade EspoCRM.",
+        "upgrade": "Upgrade NadlaniCrm.",
         "clearCache": "Clear all backend cache.",
         "rebuild": "Rebuild backend and clear cache.",
         "users": "Users management.",
@@ -235,7 +235,7 @@
         "authLog": "Login history.",
         "leadCapture": "API entry points for Web-to-Lead.",
         "attachments": "All file attachments stored in the system.",
-        "systemRequirements": "System Requirements for EspoCRM.",
+        "systemRequirements": "System Requirements for NadlaniCrm.",
         "apiUsers": "Separate users for integration purposes."
     },
     "options": {

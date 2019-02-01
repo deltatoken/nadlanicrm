@@ -1,29 +1,29 @@
 /************************************************************************
- * This file is part of EspoCRM.
+ * This file is part of NadlaniCrm.
  *
- * EspoCRM - Open Source CRM application.
- * Copyright (C) 2014-2018 Yuri Kuznetsov, Taras Machyshyn, Oleksiy Avramenko
- * Website: http://www.espocrm.com
+ * NadlaniCrm - Open Source CRM application.
+ * Copyright (C) 2014-2018 Pablo Rotem
+ * Website: https://www.facebook.com/sites4u2
  *
- * EspoCRM is free software: you can redistribute it and/or modify
+ * NadlaniCrm is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * EspoCRM is distributed in the hope that it will be useful,
+ * NadlaniCrm is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with EspoCRM. If not, see http://www.gnu.org/licenses/.
+ * along with NadlaniCrm. If not, see http://www.gnu.org/licenses/.
  *
  * The interactive user interfaces in modified source and object code versions
  * of this program must display Appropriate Legal Notices, as required under
  * Section 5 of the GNU General Public License version 3.
  *
  * In accordance with Section 7(b) of the GNU General Public License version 3,
- * these Appropriate Legal Notices must retain the display of the "EspoCRM" word.
+ * these Appropriate Legal Notices must retain the display of the "NadlaniCrm" word.
  ************************************************************************/
 
 if (process.argv.length < 2) {
@@ -68,9 +68,9 @@ function PO (espoPath, language) {
     }
 
     var dirs = [
-        this.path + 'application/Espo/Resources/i18n/',
+        this.path + 'application/Nadlani/Resources/i18n/',
         this.path + 'install/core/i18n/',
-        this.path + 'application/Espo/Core/Templates/i18n/'
+        this.path + 'application/Nadlani/Core/Templates/i18n/'
     ];
 
     if (onlyModuleName) {
@@ -78,7 +78,7 @@ function PO (espoPath, language) {
     }
 
     this.moduleList.forEach(function (moduleName) {
-        dirs.push(this.path + 'application/Espo/Modules/' + moduleName + '/Resources/i18n/');
+        dirs.push(this.path + 'application/Nadlani/Modules/' + moduleName + '/Resources/i18n/');
     }, this);
 
     this.dirs = dirs;
@@ -89,7 +89,7 @@ function PO (espoPath, language) {
         '"POT-Creation-Date: \\n"\n' +
         '"PO-Revision-Date: \\n"\n' +
         '"Last-Translator: \\n"\n' +
-        '"Language-Team: EspoCRM <infobox@espocrm.com>\\n"\n' +
+        '"Language-Team: NadlaniCrm <infobox@espocrm.com>\\n"\n' +
         '"MIME-Version: 1.0\\n"\n' +
         '"Content-Type: text/plain; charset=UTF-8\\n"\n' +
         '"Content-Transfer-Encoding: 8bit\\n"\n' +
@@ -205,7 +205,7 @@ PO.prototype.fixString = function (savedString) {
 
 
 if (language === '--all') {
-    var pathToLanguage = espoPath + '/application/Espo/Resources/i18n/';
+    var pathToLanguage = espoPath + '/application/Nadlani/Resources/i18n/';
 
     var languageList = [];
     fs.readdirSync(pathToLanguage).forEach(function (dir) {

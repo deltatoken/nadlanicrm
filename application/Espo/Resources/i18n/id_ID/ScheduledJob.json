@@ -20,9 +20,9 @@
       "AuthTokenControl": "Tupoksi Token Kontrol"
     },
     "cronSetup": {
-      "linux": "Catatan: Tambahkan baris ini ke file kontak untuk menjalankan Espo Pekerjaan Terjadwal:",
-      "mac": "Catatan: Tambahkan baris ini ke file kontak untuk menjalankan Espo Pekerjaan Terjadwal:",
-      "windows": "Catatan: Buat file batch dengan perintah berikut untuk menjalankan Espo Pekerjaan Terjadwal menggunakan Windows Scheduled Tasks:",
+      "linux": "Catatan: Tambahkan baris ini ke file kontak untuk menjalankan Nadlani Pekerjaan Terjadwal:",
+      "mac": "Catatan: Tambahkan baris ini ke file kontak untuk menjalankan Nadlani Pekerjaan Terjadwal:",
+      "windows": "Catatan: Buat file batch dengan perintah berikut untuk menjalankan Nadlani Pekerjaan Terjadwal menggunakan Windows Scheduled Tasks:",
       "default": "Catatan: Tambahkan perintah ini untuk Cron Job (Scheduled Task):"
     },
     "status": {

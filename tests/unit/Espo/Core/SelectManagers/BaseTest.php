@@ -1,33 +1,33 @@
 <?php
 /************************************************************************
- * This file is part of EspoCRM.
+ * This file is part of NadlaniCrm.
  *
- * EspoCRM - Open Source CRM application.
- * Copyright (C) 2014-2018 Yuri Kuznetsov, Taras Machyshyn, Oleksiy Avramenko
- * Website: http://www.espocrm.com
+ * NadlaniCrm - Open Source CRM application.
+ * Copyright (C) 2014-2018 Pablo Rotem
+ * Website: https://www.facebook.com/sites4u2
  *
- * EspoCRM is free software: you can redistribute it and/or modify
+ * NadlaniCrm is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * EspoCRM is distributed in the hope that it will be useful,
+ * NadlaniCrm is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with EspoCRM. If not, see http://www.gnu.org/licenses/.
+ * along with NadlaniCrm. If not, see http://www.gnu.org/licenses/.
  *
  * The interactive user interfaces in modified source and object code versions
  * of this program must display Appropriate Legal Notices, as required under
  * Section 5 of the GNU General Public License version 3.
  *
  * In accordance with Section 7(b) of the GNU General Public License version 3,
- * these Appropriate Legal Notices must retain the display of the "EspoCRM" word.
+ * these Appropriate Legal Notices must retain the display of the "NadlaniCrm" word.
  ************************************************************************/
 
-namespace tests\unit\Espo\Core\SelectManagers;
+namespace tests\unit\Nadlani\Core\SelectManagers;
 
 use \tests\unit\testData\Entities\Test2;
 
@@ -37,14 +37,14 @@ class BaseTest extends \PHPUnit\Framework\TestCase
     {
         $entity = $this->entity = new Test2();
 
-        $this->config = $this->getMockBuilder('\\Espo\\Core\\Utils\\Config')->disableOriginalConstructor()->getMock();
-        $this->acl = $this->getMockBuilder('\\Espo\\Core\\Acl')->disableOriginalConstructor()->getMock();
-        $this->aclManager = $this->getMockBuilder('\\Espo\\Core\\AclManager')->disableOriginalConstructor()->getMock();
-        $this->metadata = $this->getMockBuilder('\\Espo\\Core\\Utils\\Metadata')->disableOriginalConstructor()->getMock();
-        $this->entityManager = $this->getMockBuilder('\\Espo\\Core\\ORM\\EntityManager')->disableOriginalConstructor()->getMock();
-        $this->user = $this->getMockBuilder('\\Espo\\Entities\\User')->disableOriginalConstructor()->getMock();
-        $this->fieldManagerUtil = $this->getMockBuilder('\\Espo\\Core\\Utils\\FieldManagerUtil')->disableOriginalConstructor()->getMock();
-        $this->injectableFactory = $this->getMockBuilder('\\Espo\\Core\\InjectableFactory')->disableOriginalConstructor()->getMock();
+        $this->config = $this->getMockBuilder('\\Nadlani\\Core\\Utils\\Config')->disableOriginalConstructor()->getMock();
+        $this->acl = $this->getMockBuilder('\\Nadlani\\Core\\Acl')->disableOriginalConstructor()->getMock();
+        $this->aclManager = $this->getMockBuilder('\\Nadlani\\Core\\AclManager')->disableOriginalConstructor()->getMock();
+        $this->metadata = $this->getMockBuilder('\\Nadlani\\Core\\Utils\\Metadata')->disableOriginalConstructor()->getMock();
+        $this->entityManager = $this->getMockBuilder('\\Nadlani\\Core\\ORM\\EntityManager')->disableOriginalConstructor()->getMock();
+        $this->user = $this->getMockBuilder('\\Nadlani\\Entities\\User')->disableOriginalConstructor()->getMock();
+        $this->fieldManagerUtil = $this->getMockBuilder('\\Nadlani\\Core\\Utils\\FieldManagerUtil')->disableOriginalConstructor()->getMock();
+        $this->injectableFactory = $this->getMockBuilder('\\Nadlani\\Core\\InjectableFactory')->disableOriginalConstructor()->getMock();
 
         $this->entityManager
             ->expects($this->any())
@@ -52,7 +52,7 @@ class BaseTest extends \PHPUnit\Framework\TestCase
             ->with($this->equalTo('Test2'))
             ->will($this->returnValue($this->entity));
 
-        $preferences = $this->preferences = $this->getMockBuilder('\\Espo\\Entities\\Preferences')->disableOriginalConstructor()->getMock();
+        $preferences = $this->preferences = $this->getMockBuilder('\\Nadlani\\Entities\\Preferences')->disableOriginalConstructor()->getMock();
         $preferences
             ->expects($this->any())
             ->method('get')
@@ -87,7 +87,7 @@ class BaseTest extends \PHPUnit\Framework\TestCase
 
     function testTestEmptySelectParams()
     {
-        $selectManager = new \Espo\Core\SelectManagers\Base($this->entityManager, $this->user, $this->acl, $this->aclManager, $this->metadata, $this->config, $this->fieldManagerUtil, $this->injectableFactory);
+        $selectManager = new \Nadlani\Core\SelectManagers\Base($this->entityManager, $this->user, $this->acl, $this->aclManager, $this->metadata, $this->config, $this->fieldManagerUtil, $this->injectableFactory);
         $selectManager->setEntityType('Test2');
 
         $selectParams = $selectManager->getEmptySelectParams();
@@ -100,7 +100,7 @@ class BaseTest extends \PHPUnit\Framework\TestCase
 
     function testGetEmptySelectParams()
     {
-        $selectManager = new \Espo\Core\SelectManagers\Base($this->entityManager, $this->user, $this->acl, $this->aclManager, $this->metadata, $this->config, $this->fieldManagerUtil, $this->injectableFactory);
+        $selectManager = new \Nadlani\Core\SelectManagers\Base($this->entityManager, $this->user, $this->acl, $this->aclManager, $this->metadata, $this->config, $this->fieldManagerUtil, $this->injectableFactory);
         $selectManager->setEntityType('Test2');
 
         $selectParams = $selectManager->getEmptySelectParams();
@@ -113,7 +113,7 @@ class BaseTest extends \PHPUnit\Framework\TestCase
 
     function testAccessOnlyOwn()
     {
-        $selectManager = new \Espo\Core\SelectManagers\Base($this->entityManager, $this->user, $this->acl, $this->aclManager, $this->metadata, $this->config, $this->fieldManagerUtil, $this->injectableFactory);
+        $selectManager = new \Nadlani\Core\SelectManagers\Base($this->entityManager, $this->user, $this->acl, $this->aclManager, $this->metadata, $this->config, $this->fieldManagerUtil, $this->injectableFactory);
         $selectManager->setEntityType('Test2');
 
         $this->user
@@ -147,7 +147,7 @@ class BaseTest extends \PHPUnit\Framework\TestCase
 
     function testAccessOnlyTeam()
     {
-        $selectManager = new \Espo\Core\SelectManagers\Base($this->entityManager, $this->user, $this->acl, $this->aclManager, $this->metadata, $this->config, $this->fieldManagerUtil, $this->injectableFactory);
+        $selectManager = new \Nadlani\Core\SelectManagers\Base($this->entityManager, $this->user, $this->acl, $this->aclManager, $this->metadata, $this->config, $this->fieldManagerUtil, $this->injectableFactory);
         $selectManager->setEntityType('Test2');
 
         $this->user
@@ -184,7 +184,7 @@ class BaseTest extends \PHPUnit\Framework\TestCase
 
     function testBuildSelectParams()
     {
-        $selectManager = new \Espo\Core\SelectManagers\Base($this->entityManager, $this->user, $this->acl, $this->aclManager, $this->metadata, $this->config, $this->fieldManagerUtil, $this->injectableFactory);
+        $selectManager = new \Nadlani\Core\SelectManagers\Base($this->entityManager, $this->user, $this->acl, $this->aclManager, $this->metadata, $this->config, $this->fieldManagerUtil, $this->injectableFactory);
         $selectManager->setEntityType('Test2');
 
         $params = array(
@@ -229,7 +229,7 @@ class BaseTest extends \PHPUnit\Framework\TestCase
 
     function testBuildSelectParamsNot()
     {
-        $selectManager = new \Espo\Core\SelectManagers\Base($this->entityManager, $this->user, $this->acl, $this->aclManager, $this->metadata, $this->config, $this->fieldManagerUtil, $this->injectableFactory);
+        $selectManager = new \Nadlani\Core\SelectManagers\Base($this->entityManager, $this->user, $this->acl, $this->aclManager, $this->metadata, $this->config, $this->fieldManagerUtil, $this->injectableFactory);
         $selectManager->setEntityType('Test2');
 
         $params = array(
@@ -259,7 +259,7 @@ class BaseTest extends \PHPUnit\Framework\TestCase
 
     function testBuildSelectParamsComplex()
     {
-        $selectManager = new \Espo\Core\SelectManagers\Base($this->entityManager, $this->user, $this->acl, $this->aclManager, $this->metadata, $this->config, $this->fieldManagerUtil, $this->injectableFactory);
+        $selectManager = new \Nadlani\Core\SelectManagers\Base($this->entityManager, $this->user, $this->acl, $this->aclManager, $this->metadata, $this->config, $this->fieldManagerUtil, $this->injectableFactory);
         $selectManager->setEntityType('Test2');
 
         $params = array(

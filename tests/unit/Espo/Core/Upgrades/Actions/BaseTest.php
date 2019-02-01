@@ -1,35 +1,35 @@
 <?php
 /************************************************************************
- * This file is part of EspoCRM.
+ * This file is part of NadlaniCrm.
  *
- * EspoCRM - Open Source CRM application.
- * Copyright (C) 2014-2018 Yuri Kuznetsov, Taras Machyshyn, Oleksiy Avramenko
- * Website: http://www.espocrm.com
+ * NadlaniCrm - Open Source CRM application.
+ * Copyright (C) 2014-2018 Pablo Rotem
+ * Website: https://www.facebook.com/sites4u2
  *
- * EspoCRM is free software: you can redistribute it and/or modify
+ * NadlaniCrm is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * EspoCRM is distributed in the hope that it will be useful,
+ * NadlaniCrm is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with EspoCRM. If not, see http://www.gnu.org/licenses/.
+ * along with NadlaniCrm. If not, see http://www.gnu.org/licenses/.
  *
  * The interactive user interfaces in modified source and object code versions
  * of this program must display Appropriate Legal Notices, as required under
  * Section 5 of the GNU General Public License version 3.
  *
  * In accordance with Section 7(b) of the GNU General Public License version 3,
- * these Appropriate Legal Notices must retain the display of the "EspoCRM" word.
+ * these Appropriate Legal Notices must retain the display of the "NadlaniCrm" word.
  ************************************************************************/
 
-namespace tests\unit\Espo\Core\Upgrades\Actions;
+namespace tests\unit\Nadlani\Core\Upgrades\Actions;
 use tests\unit\ReflectionHelper;
-use Espo\Core\Utils\Util;
+use Nadlani\Core\Utils\Util;
 
 class BaseTest extends \PHPUnit\Framework\TestCase
 {
@@ -58,13 +58,13 @@ class BaseTest extends \PHPUnit\Framework\TestCase
 
     protected function setUp()
     {
-        $this->objects['container'] = $this->getMockBuilder('\Espo\Core\Container')->disableOriginalConstructor()->getMock();
-        $this->objects['actionManager'] = $this->getMockBuilder('\Espo\Core\Upgrades\ActionManager')->disableOriginalConstructor()->getMock();
+        $this->objects['container'] = $this->getMockBuilder('\Nadlani\Core\Container')->disableOriginalConstructor()->getMock();
+        $this->objects['actionManager'] = $this->getMockBuilder('\Nadlani\Core\Upgrades\ActionManager')->disableOriginalConstructor()->getMock();
 
-        $this->objects['config'] = $this->getMockBuilder('\Espo\Core\Utils\Config')->disableOriginalConstructor()->getMock();
-        $this->objects['fileManager'] = $this->getMockBuilder('\Espo\Core\Utils\File\Manager')->disableOriginalConstructor()->getMock();
+        $this->objects['config'] = $this->getMockBuilder('\Nadlani\Core\Utils\Config')->disableOriginalConstructor()->getMock();
+        $this->objects['fileManager'] = $this->getMockBuilder('\Nadlani\Core\Utils\File\Manager')->disableOriginalConstructor()->getMock();
 
-        $GLOBALS['log'] = $this->getMockBuilder('\Espo\Core\Utils\Log')->disableOriginalConstructor()->getMock();
+        $GLOBALS['log'] = $this->getMockBuilder('\Nadlani\Core\Utils\Log')->disableOriginalConstructor()->getMock();
 
         $map = array(
           array('config', $this->objects['config']),
@@ -93,7 +93,7 @@ class BaseTest extends \PHPUnit\Framework\TestCase
         $manifestName = $this->reflection->getProperty('manifestName');
         $filename = $packagePath . '/' .$manifestName;
 
-        $this->fileManager = new \Espo\Core\Utils\File\Manager();
+        $this->fileManager = new \Nadlani\Core\Utils\File\Manager();
         $this->fileManager->putContents($filename, '');
         /* END */
     }
@@ -111,7 +111,7 @@ class BaseTest extends \PHPUnit\Framework\TestCase
 
     public function testCreateProcessIdWithExists()
     {
-        $this->expectException('\Espo\Core\Exceptions\Error');
+        $this->expectException('\Nadlani\Core\Exceptions\Error');
 
         $processId = $this->reflection->invokeMethod('createProcessId', array());
     }
@@ -126,7 +126,7 @@ class BaseTest extends \PHPUnit\Framework\TestCase
 
     public function testGetProcessId()
     {
-        $this->expectException('\Espo\Core\Exceptions\Error');
+        $this->expectException('\Nadlani\Core\Exceptions\Error');
 
         $this->reflection->setProperty('processId', null);
         $this->reflection->invokeMethod('getProcessId');
@@ -134,7 +134,7 @@ class BaseTest extends \PHPUnit\Framework\TestCase
 
     public function testGetManifestIncorrect()
     {
-        $this->expectException('\Espo\Core\Exceptions\Error');
+        $this->expectException('\Nadlani\Core\Exceptions\Error');
 
         $manifest = '{
             "name": "Upgrade 1.0-b3 to 1.0-b4"
@@ -156,7 +156,7 @@ class BaseTest extends \PHPUnit\Framework\TestCase
             "acceptableVersions": [
             ],
             "releaseDate": "2014-09-25",
-            "author": "EspoCRM",
+            "author": "NadlaniCrm",
             "description": "My Description"
         }';
 
@@ -220,7 +220,7 @@ class BaseTest extends \PHPUnit\Framework\TestCase
             $currentVersion = $this->currentVersion;
         }
 
-        $this->expectException('\Espo\Core\Exceptions\Error');
+        $this->expectException('\Nadlani\Core\Exceptions\Error');
 
         $this->reflection->invokeMethod('checkVersions', array($versions, $currentVersion, 'error'));
     }
@@ -260,7 +260,7 @@ class BaseTest extends \PHPUnit\Framework\TestCase
 
     public function testCheckPackageTypeUpgrade()
     {
-        $this->expectException('\Espo\Core\Exceptions\Error');
+        $this->expectException('\Nadlani\Core\Exceptions\Error');
 
         $this->reflection->setProperty('data', array('manifest' => array('type' => 'upgrade')));
         $this->assertTrue( $this->reflection->invokeMethod('checkPackageType') );

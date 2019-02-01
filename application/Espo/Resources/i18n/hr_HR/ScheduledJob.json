@@ -23,7 +23,7 @@
     "cronSetup": {
       "linux": "Napomena: Dodajte ovu liniju u crontab datoteku za pokretanje ESPO zakazanih poslova:",
       "mac": "Napomena: Dodajte ovu liniju u crontab datoteku za pokretanje ESPO zakazanih poslova:",
-      "windows": "Bilješka: Napravi datoteku sa slijedećim komandama kako bi se pokretali Espo zakazani poslovi koristeći Windows zakazane zadatke:",
+      "windows": "Bilješka: Napravi datoteku sa slijedećim komandama kako bi se pokretali Nadlani zakazani poslovi koristeći Windows zakazane zadatke:",
       "default": "Napomena: Dodaj ovu komandu za Cron Job (Planirani Zadatak):"
     },
     "status": {

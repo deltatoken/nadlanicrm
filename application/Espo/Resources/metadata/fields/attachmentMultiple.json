@@ -39,6 +39,6 @@
    },
    "notSortable": true,
    "filter": true,
-   "hookClassName": "\\Espo\\Core\\Utils\\FieldManager\\Hooks\\AttachmentMultipleType",
+   "hookClassName": "\\Nadlani\\Core\\Utils\\FieldManager\\Hooks\\AttachmentMultipleType",
    "personalData": true
 }

@@ -1,32 +1,32 @@
 /************************************************************************
- * This file is part of EspoCRM.
+ * This file is part of NadlaniCrm.
  *
- * EspoCRM - Open Source CRM application.
- * Copyright (C) 2014-2018 Yuri Kuznetsov, Taras Machyshyn, Oleksiy Avramenko
- * Website: http://www.espocrm.com
+ * NadlaniCrm - Open Source CRM application.
+ * Copyright (C) 2014-2018 Pablo Rotem
+ * Website: https://www.facebook.com/sites4u2
  *
- * EspoCRM is free software: you can redistribute it and/or modify
+ * NadlaniCrm is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * EspoCRM is distributed in the hope that it will be useful,
+ * NadlaniCrm is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with EspoCRM. If not, see http://www.gnu.org/licenses/.
+ * along with NadlaniCrm. If not, see http://www.gnu.org/licenses/.
  *
  * The interactive user interfaces in modified source and object code versions
  * of this program must display Appropriate Legal Notices, as required under
  * Section 5 of the GNU General Public License version 3.
  *
  * In accordance with Section 7(b) of the GNU General Public License version 3,
- * these Appropriate Legal Notices must retain the display of the "EspoCRM" word.
+ * these Appropriate Legal Notices must retain the display of the "NadlaniCrm" word.
  ************************************************************************/
 
-Espo.define('views/site/navbar', 'view', function (Dep) {
+Nadlani.define('views/site/navbar', 'view', function (Dep) {
 
     return Dep.extend({
 
@@ -78,7 +78,7 @@ Espo.define('views/site/navbar', 'view', function (Dep) {
                 var $el = $(e.currentTarget);
 
                 var action = $el.data('action');
-                var method = 'action' + Espo.Utils.upperCaseFirst(action);
+                var method = 'action' + Nadlani.Utils.upperCaseFirst(action);
                 if (typeof this[method] == 'function') {
                     var data = $el.data();
                     this[method](data, e);
@@ -154,7 +154,7 @@ Espo.define('views/site/navbar', 'view', function (Dep) {
 
         getTabList: function () {
             var tabList = this.getPreferences().get('useCustomTabList') ? this.getPreferences().get('tabList') : this.getConfig().get('tabList');
-            tabList = Espo.Utils.clone(tabList || []);
+            tabList = Nadlani.Utils.clone(tabList || []);
 
             if (this.getThemeManager().getParam('navbarIsVertical')) {
                 tabList.unshift('Home');
@@ -570,12 +570,12 @@ Espo.define('views/site/navbar', 'view', function (Dep) {
         },
 
         quickCreate: function (scope) {
-            Espo.Ui.notify(this.translate('Loading...'));
+            Nadlani.Ui.notify(this.translate('Loading...'));
             var type = this.getMetadata().get(['clientDefs', scope, 'quickCreateModalType']) || 'edit';
             var viewName = this.getMetadata().get(['clientDefs', scope, 'modalViews', type]) || 'views/modals/edit';
             this.createView('quickCreate', viewName , {scope: scope}, function (view) {
                 view.once('after:render', function () {
-                    Espo.Ui.notify(false);
+                    Nadlani.Ui.notify(false);
                 });
                 view.render();
             });

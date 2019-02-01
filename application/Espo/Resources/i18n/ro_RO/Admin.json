@@ -136,9 +136,9 @@
     "maxFileSize": "Mărimea Maximă A Fișierului (Mb)"
   },
   "messages": {
-    "upgradeVersion": "EspoCRM se va actualiza la versiunea <strong>{version}</strong>. Vă rugăm așteptați, s-ar putea să dureze puțin.",
-    "upgradeDone": "EspoCRM a fost actualizată la versiunea <strong>{version}</strong>.",
-    "upgradeBackup": "Vă rugăm să faceți o copie de rezervă a EspoCRM înainte de a face actualizarea.",
+    "upgradeVersion": "NadlaniCrm se va actualiza la versiunea <strong>{version}</strong>. Vă rugăm așteptați, s-ar putea să dureze puțin.",
+    "upgradeDone": "NadlaniCrm a fost actualizată la versiunea <strong>{version}</strong>.",
+    "upgradeBackup": "Vă rugăm să faceți o copie de rezervă a NadlaniCrm înainte de a face actualizarea.",
     "thousandSeparatorEqualsDecimalMark": "Separatorul de mii nu poate fi același cu separatorul de zecimale.",
     "userHasNoEmailAddress": "Utilizatorul nu are adresă de email.",
     "selectEntityType": "Selectați tipul entității aflat în meniul din stânga.",
@@ -149,7 +149,7 @@
     "extensionInstalled": " Extenisa {name} {version} a fost instalată. ",
     "installExtension": "Extenisa {name} {version} este gata pentru instalare.",
     "cronIsNotConfigured": "Activitățiile programate nu rulează. Astfel, email-urile primite, notificările și mementourile nu funcționează. Te rugăm să urmezi <a target=\"_blank\" href=\"https://www.espocrm.com/documentation/administration/server-configuration/#user-content-setup-a-crontab\">instructions</a>  pentru a seta o activitate cron. ",
-    "newVersionIsAvailable": " O nouă vesiune de EspoCRM {latestVersion} este disponibilă. ",
+    "newVersionIsAvailable": " O nouă vesiune de NadlaniCrm {latestVersion} este disponibilă. ",
     "newExtensionVersionIsAvailable": "O nouă versiune {latestVersion} din {extensionName} este disponibilă."
   },
   "descriptions": {

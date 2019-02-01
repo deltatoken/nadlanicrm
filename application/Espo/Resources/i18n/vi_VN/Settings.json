@@ -42,7 +42,7 @@
         "ldapAccountCanonicalForm": "Account Canonical Form",
         "ldapAccountDomainName": "Tên miền tài khoản",
         "ldapTryUsernameSplit": "Thử lại",
-        "ldapCreateEspoUser": "Tạo người dùng",
+        "ldapCreateNadlaniUser": "Tạo người dùng",
         "ldapSecurity": "Bảo mật",
         "ldapUserLoginFilter": "Bộ lọc đăng nhập",
         "ldapAccountDomainNameShort": "Tên miền tài khoản",

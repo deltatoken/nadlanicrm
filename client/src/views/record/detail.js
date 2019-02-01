@@ -1,32 +1,32 @@
 /************************************************************************
- * This file is part of EspoCRM.
+ * This file is part of NadlaniCrm.
  *
- * EspoCRM - Open Source CRM application.
- * Copyright (C) 2014-2018 Yuri Kuznetsov, Taras Machyshyn, Oleksiy Avramenko
- * Website: http://www.espocrm.com
+ * NadlaniCrm - Open Source CRM application.
+ * Copyright (C) 2014-2018 Pablo Rotem
+ * Website: https://www.facebook.com/sites4u2
  *
- * EspoCRM is free software: you can redistribute it and/or modify
+ * NadlaniCrm is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * EspoCRM is distributed in the hope that it will be useful,
+ * NadlaniCrm is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with EspoCRM. If not, see http://www.gnu.org/licenses/.
+ * along with NadlaniCrm. If not, see http://www.gnu.org/licenses/.
  *
  * The interactive user interfaces in modified source and object code versions
  * of this program must display Appropriate Legal Notices, as required under
  * Section 5 of the GNU General Public License version 3.
  *
  * In accordance with Section 7(b) of the GNU General Public License version 3,
- * these Appropriate Legal Notices must retain the display of the "EspoCRM" word.
+ * these Appropriate Legal Notices must retain the display of the "NadlaniCrm" word.
  ************************************************************************/
 
-Espo.define('views/record/detail', ['views/record/base', 'view-record-helper'], function (Dep, ViewRecordHelper) {
+Nadlani.define('views/record/detail', ['views/record/base', 'view-record-helper'], function (Dep, ViewRecordHelper) {
 
     return Dep.extend({
 
@@ -121,7 +121,7 @@ Espo.define('views/record/detail', ['views/record/base', 'view-record-helper'], 
 
         events: {
             'click .button-container .action': function (e) {
-                Espo.Utils.handleAction(this, e);
+                Nadlani.Utils.handleAction(this, e);
             }
         },
 
@@ -174,7 +174,7 @@ Espo.define('views/record/detail', ['views/record/base', 'view-record-helper'], 
             this.model.save(attributes, {
                 patch: true
             }).then(function () {
-                Espo.Ui.success(this.translate('Self-Assigned'));
+                Nadlani.Ui.success(this.translate('Self-Assigned'));
             }.bind(this));
         },
 
@@ -550,7 +550,7 @@ Espo.define('views/record/detail', ['views/record/base', 'view-record-helper'], 
 
             if (this.hasView('middle')) {
                 if ('getFieldViews' in this.getView('middle')) {
-                    _.extend(fields, Espo.Utils.clone(this.getView('middle').getFieldViews(withHidden)));
+                    _.extend(fields, Nadlani.Utils.clone(this.getView('middle').getFieldViews(withHidden)));
                 }
             }
             if (this.hasView('side')) {
@@ -708,7 +708,7 @@ Espo.define('views/record/detail', ['views/record/base', 'view-record-helper'], 
             }, this);
 
             this.numId = Math.floor((Math.random() * 10000) + 1);
-            this.id = Espo.Utils.toDom(this.entityType) + '-' + Espo.Utils.toDom(this.type) + '-' + this.numId;
+            this.id = Nadlani.Utils.toDom(this.entityType) + '-' + Nadlani.Utils.toDom(this.type) + '-' + this.numId;
 
             if (_.isUndefined(this.events)) {
                 this.events = {};
@@ -808,7 +808,7 @@ Espo.define('views/record/detail', ['views/record/base', 'view-record-helper'], 
 
                         var changedAttributes = model.changedAttributes();
                         for (var attribute in changedAttributes) {
-                            var methodName = 'onChange' + Espo.Utils.upperCaseFirst(attribute);
+                            var methodName = 'onChange' + Nadlani.Utils.upperCaseFirst(attribute);
                             if (methodName in this.dynamicHandler) {
                                 this.dynamicHandler[methodName].call(this.dynamicHandler, model, changedAttributes[attribute], o);
                             }
@@ -934,13 +934,13 @@ Espo.define('views/record/detail', ['views/record/base', 'view-record-helper'], 
                 }
             }
 
-            Espo.Ui.notify(this.translate('loading', 'messages'));
+            Nadlani.Ui.notify(this.translate('loading', 'messages'));
             this.createView('modalRelatedList', viewName, options, function (view) {
-                Espo.Ui.notify(false);
+                Nadlani.Ui.notify(false);
                 view.render();
 
                 this.listenTo(view, 'action', function (action, data, e) {
-                    var method = 'action' + Espo.Utils.upperCaseFirst(action);
+                    var method = 'action' + Nadlani.Utils.upperCaseFirst(action);
                     if (typeof this[method] == 'function') {
                         this[method](data, e);
                         e.preventDefault();
@@ -989,7 +989,7 @@ Espo.define('views/record/detail', ['views/record/base', 'view-record-helper'], 
 
         afterNotModified: function () {
             var msg = this.translate('notModified', 'messages');
-            Espo.Ui.warning(msg, 'warning');
+            Nadlani.Ui.warning(msg, 'warning');
             this.enableButtons();
         },
 
@@ -1440,7 +1440,7 @@ Espo.define('views/record/detail', ['views/record/base', 'view-record-helper'], 
          */
         exit: function (after) {
             if (after) {
-                var methodName = 'exitAfter' + Espo.Utils.upperCaseFirst(after);
+                var methodName = 'exitAfter' + Nadlani.Utils.upperCaseFirst(after);
                 if (methodName in this) {
                     var result = this[methodName]();
                     if (result) {

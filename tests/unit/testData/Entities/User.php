@@ -2,7 +2,7 @@
 
 namespace tests\unit\testData\Entities;
 
-use Espo\ORM\Entity;
+use Nadlani\ORM\Entity;
 
 class User extends Entity
 {

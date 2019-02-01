@@ -1,6 +1,6 @@
 <?php
 
-namespace tests\unit\testData\EntryPoints\Espo\EntryPoints;
+namespace tests\unit\testData\EntryPoints\Nadlani\EntryPoints;
 
 
 class Test

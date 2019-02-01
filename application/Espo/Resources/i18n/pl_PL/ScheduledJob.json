@@ -16,9 +16,9 @@
       "AuthTokenControl": "Kontrola tokenu autentykacji"
     },
     "cronSetup": {
-      "linux": "Uwaga: Dodaj tą linię do pliku crontab, aby uruchomić zaplanowane zadania Espo:",
-      "mac": "Uwaga: Dodaj tą linię do pliku crontab, aby uruchomić zaplanowane zadania Espo:",
-      "windows": "Uwaga: Utwórz plik wsadowy z następujących poleceń, aby uruchomić zaplanowane zadania Espo w systemie Windows:"
+      "linux": "Uwaga: Dodaj tą linię do pliku crontab, aby uruchomić zaplanowane zadania Nadlani:",
+      "mac": "Uwaga: Dodaj tą linię do pliku crontab, aby uruchomić zaplanowane zadania Nadlani:",
+      "windows": "Uwaga: Utwórz plik wsadowy z następujących poleceń, aby uruchomić zaplanowane zadania Nadlani w systemie Windows:"
     },
     "status": {
       "Active": "Aktywny",

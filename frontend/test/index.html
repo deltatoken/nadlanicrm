@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>EspoCRM Fronted Tests</title>
+	<title>NadlaniCrm Fronted Tests</title>
 
 	<link rel="shortcut icon" type="image/png" href="jasmine/jasmine_favicon.png">
 	<link rel="stylesheet" href="jasmine/jasmine.css">
@@ -21,8 +21,8 @@
 
 	<script type="text/javascript" src="../../client/src/loader.js"></script>
 	<script type="text/javascript">
-		Espo.loader._nameToPathOriginal = Espo.loader._nameToPath;
-		Espo.loader._nameToPath = function (name) {
+		Nadlani.loader._nameToPathOriginal = Nadlani.loader._nameToPath;
+		Nadlani.loader._nameToPath = function (name) {
 			var path = this._nameToPathOriginal(name);
 			return '../../' + path;
 		}

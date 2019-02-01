@@ -84,9 +84,9 @@
         "previewSize": "Kích thước cũ"                
     },
     "messages": {
-        "upgradeVersion": "Your EspoCRM will be upgraded to version <strong>{version}</strong>. This can take some time.",
-        "upgradeDone": "Your EspoCRM has been upgraded to version <strong>{version}</strong>. Refresh your browser window.",
-        "upgradeBackup": "We recommend you to make backup of your EspoCRM files and data before upgrade.",
+        "upgradeVersion": "Your NadlaniCrm will be upgraded to version <strong>{version}</strong>. This can take some time.",
+        "upgradeDone": "Your NadlaniCrm has been upgraded to version <strong>{version}</strong>. Refresh your browser window.",
+        "upgradeBackup": "We recommend you to make backup of your NadlaniCrm files and data before upgrade.",
         "thousandSeparatorEqualsDecimalMark": "Dấu phân cách không thể giống nhau",
         "userHasNoEmailAddress": "Người dùng chưa có địa chỉ email",
         "selectEntityType": "Chọn loại ở menu bên trái",
@@ -96,7 +96,7 @@
     "descriptions": {
         "settings": "System settings of application.",
         "scheduledJob": "Công việc tự động tiến hành",
-        "upgrade": "Nâng cấp hệ thống EspoCRM",
+        "upgrade": "Nâng cấp hệ thống NadlaniCrm",
         "clearCache": "Xóa dữ liệu cache.",
         "rebuild": "Xóa dữ liệu và tải lại hệ thống",
         "users": "Quản lý người dùng.",

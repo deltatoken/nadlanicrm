@@ -1,38 +1,38 @@
 /************************************************************************
- * This file is part of EspoCRM.
+ * This file is part of NadlaniCrm.
  *
- * EspoCRM - Open Source CRM application.
- * Copyright (C) 2014-2018 Yuri Kuznetsov, Taras Machyshyn, Oleksiy Avramenko
- * Website: http://www.espocrm.com
+ * NadlaniCrm - Open Source CRM application.
+ * Copyright (C) 2014-2018 Pablo Rotem
+ * Website: https://www.facebook.com/sites4u2
  *
- * EspoCRM is free software: you can redistribute it and/or modify
+ * NadlaniCrm is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * EspoCRM is distributed in the hope that it will be useful,
+ * NadlaniCrm is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with EspoCRM. If not, see http://www.gnu.org/licenses/.
+ * along with NadlaniCrm. If not, see http://www.gnu.org/licenses/.
  *
  * The interactive user interfaces in modified source and object code versions
  * of this program must display Appropriate Legal Notices, as required under
  * Section 5 of the GNU General Public License version 3.
  *
  * In accordance with Section 7(b) of the GNU General Public License version 3,
- * these Appropriate Legal Notices must retain the display of the "EspoCRM" word.
+ * these Appropriate Legal Notices must retain the display of the "NadlaniCrm" word.
  ************************************************************************/
 
-var Espo = Espo || {classMap:{}};
+var Nadlani = Nadlani || {classMap:{}};
 
-(function (Espo, _, $) {
+(function (Nadlani, _, $) {
 
     var root = this;
 
-    Espo.Loader = function (cache, cacheTimestamp) {
+    Nadlani.Loader = function (cache, cacheTimestamp) {
         this.basePath = $('script[data-base-path]').data('basePath') || '';
 
         this.cache = cache || null;
@@ -47,13 +47,13 @@ var Espo = Espo || {classMap:{}};
         this.loadingSubject = null;
     }
 
-    _.extend(Espo.Loader.prototype, {
+    _.extend(Nadlani.Loader.prototype, {
 
         cache: null,
 
         data: null,
 
-        classMap: Espo,
+        classMap: Nadlani,
 
         _loadCallbacks: null,
 
@@ -414,16 +414,16 @@ var Espo = Espo || {classMap:{}};
         },
     });
 
-    Espo.loader = new Espo.Loader();
+    Nadlani.loader = new Nadlani.Loader();
 
-    root.require = Espo.require = function (subject, callback, context, errorCallback) {
+    root.require = Nadlani.require = function (subject, callback, context, errorCallback) {
         if (context) {
             callback = callback.bind(context);
         }
-        Espo.loader.require(subject, callback, errorCallback);
+        Nadlani.loader.require(subject, callback, errorCallback);
     }
 
-    root.define = Espo.define = function (arg1, arg2, arg3) {
+    root.define = Nadlani.define = function (arg1, arg2, arg3) {
         var subject = null;
         var dependency = null;
         var callback = null;
@@ -437,11 +437,11 @@ var Espo = Espo || {classMap:{}};
             dependency = arg2;
             callback = arg3;
         }
-        Espo.loader.define(subject, dependency, callback);
+        Nadlani.loader.define(subject, dependency, callback);
     }
 
-    Espo.loadLib = function (url, callback) {
-        Espo.loader.loadLib(url, callback);
+    Nadlani.loadLib = function (url, callback) {
+        Nadlani.loader.loadLib(url, callback);
     }
 
-}).call(this, Espo, _, $);
+}).call(this, Nadlani, _, $);

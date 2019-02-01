@@ -1,40 +1,40 @@
 <?php
 /************************************************************************
- * This file is part of EspoCRM.
+ * This file is part of NadlaniCrm.
  *
- * EspoCRM - Open Source CRM application.
- * Copyright (C) 2014-2018 Yuri Kuznetsov, Taras Machyshyn, Oleksiy Avramenko
- * Website: http://www.espocrm.com
+ * NadlaniCrm - Open Source CRM application.
+ * Copyright (C) 2014-2018 Pablo Rotem
+ * Website: https://www.facebook.com/sites4u2
  *
- * EspoCRM is free software: you can redistribute it and/or modify
+ * NadlaniCrm is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * EspoCRM is distributed in the hope that it will be useful,
+ * NadlaniCrm is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with EspoCRM. If not, see http://www.gnu.org/licenses/.
+ * along with NadlaniCrm. If not, see http://www.gnu.org/licenses/.
  *
  * The interactive user interfaces in modified source and object code versions
  * of this program must display Appropriate Legal Notices, as required under
  * Section 5 of the GNU General Public License version 3.
  *
  * In accordance with Section 7(b) of the GNU General Public License version 3,
- * these Appropriate Legal Notices must retain the display of the "EspoCRM" word.
+ * these Appropriate Legal Notices must retain the display of the "NadlaniCrm" word.
  ************************************************************************/
 
-namespace Espo\Core\Utils;
+namespace Nadlani\Core\Utils;
 
-use \Espo\Core\Exceptions\Error;
-use \Espo\Core\Exceptions\BadRequest;
-use \Espo\Core\Exceptions\Forbidden;
-use \Espo\Core\Exceptions\Conflict;
-use \Espo\Core\Utils\Json;
-use \Espo\Core\Container;
+use \Nadlani\Core\Exceptions\Error;
+use \Nadlani\Core\Exceptions\BadRequest;
+use \Nadlani\Core\Exceptions\Forbidden;
+use \Nadlani\Core\Exceptions\Conflict;
+use \Nadlani\Core\Utils\Json;
+use \Nadlani\Core\Container;
 
 class EntityManager
 {
@@ -63,7 +63,7 @@ class EntityManager
         $this->fileManager = $fileManager;
         $this->config = $config;
 
-        $this->metadataHelper = new \Espo\Core\Utils\Metadata\Helper($this->metadata);
+        $this->metadataHelper = new \Nadlani\Core\Utils\Metadata\Helper($this->metadata);
 
         $this->container = $container;
     }
@@ -114,17 +114,17 @@ class EntityManager
 
     protected function checkControllerExists($name)
     {
-        $controllerClassName = '\\Espo\\Custom\\Controllers\\' . Util::normilizeClassName($name);
+        $controllerClassName = '\\Nadlani\\Custom\\Controllers\\' . Util::normilizeClassName($name);
         if (class_exists($controllerClassName)) {
             return true;
         } else {
             foreach ($this->getMetadata()->getModuleList() as $moduleName) {
-                $controllerClassName = '\\Espo\\Modules\\' . $moduleName . '\\Controllers\\' . Util::normilizeClassName($name);
+                $controllerClassName = '\\Nadlani\\Modules\\' . $moduleName . '\\Controllers\\' . Util::normilizeClassName($name);
                 if (class_exists($controllerClassName)) {
                     return true;
                 }
             }
-            $controllerClassName = '\\Espo\\Controllers\\' . Util::normilizeClassName($name);
+            $controllerClassName = '\\Nadlani\\Controllers\\' . Util::normilizeClassName($name);
             if (class_exists($controllerClassName)) {
                 return true;
             }
@@ -212,60 +212,60 @@ class EntityManager
 
         $normalizedName = Util::normilizeClassName($name);
 
-        $templateNamespace = "\Espo\Core\Templates";
-        $templatePath = "application/Espo/Core/Templates";
+        $templateNamespace = "\Nadlani\Core\Templates";
+        $templatePath = "application/Nadlani/Core/Templates";
 
         $templateModuleName = null;
         if (!empty($templateDefs['module'])) {
             $templateModuleName = $templateDefs['module'];
             $normalizedTemplateModuleName = Util::normilizeClassName($templateModuleName);
-            $templateNamespace = "\Espo\Modules\\{$normalizedTemplateModuleName}\Core\Templates";
-            $templatePath = "application/Espo/Modules/".$normalizedTemplateModuleName."/Core/Templates";
+            $templateNamespace = "\Nadlani\Modules\\{$normalizedTemplateModuleName}\Core\Templates";
+            $templatePath = "application/Nadlani/Modules/".$normalizedTemplateModuleName."/Core/Templates";
         }
 
         $contents = "<" . "?" . "php\n\n".
-            "namespace Espo\Custom\Entities;\n\n".
+            "namespace Nadlani\Custom\Entities;\n\n".
             "class {$normalizedName} extends {$templateNamespace}\Entities\\{$type}\n".
             "{\n".
             "    protected \$entityType = \"$name\";\n".
             "}\n";
 
-        $filePath = "custom/Espo/Custom/Entities/{$normalizedName}.php";
+        $filePath = "custom/Nadlani/Custom/Entities/{$normalizedName}.php";
         $this->getFileManager()->putContents($filePath, $contents);
 
         $contents = "<" . "?" . "php\n\n".
-            "namespace Espo\Custom\Controllers;\n\n".
+            "namespace Nadlani\Custom\Controllers;\n\n".
             "class {$normalizedName} extends {$templateNamespace}\Controllers\\{$type}\n".
             "{\n".
             "}\n";
-        $filePath = "custom/Espo/Custom/Controllers/{$normalizedName}.php";
+        $filePath = "custom/Nadlani/Custom/Controllers/{$normalizedName}.php";
         $this->getFileManager()->putContents($filePath, $contents);
 
         $contents = "<" . "?" . "php\n\n".
-            "namespace Espo\Custom\Services;\n\n".
+            "namespace Nadlani\Custom\Services;\n\n".
             "class {$normalizedName} extends {$templateNamespace}\Services\\{$type}\n".
             "{\n".
             "}\n";
-        $filePath = "custom/Espo/Custom/Services/{$normalizedName}.php";
+        $filePath = "custom/Nadlani/Custom/Services/{$normalizedName}.php";
         $this->getFileManager()->putContents($filePath, $contents);
 
         $contents = "<" . "?" . "php\n\n".
-            "namespace Espo\Custom\Repositories;\n\n".
+            "namespace Nadlani\Custom\Repositories;\n\n".
             "class {$normalizedName} extends {$templateNamespace}\Repositories\\{$type}\n".
             "{\n".
             "}\n";
 
-        $filePath = "custom/Espo/Custom/Repositories/{$normalizedName}.php";
+        $filePath = "custom/Nadlani/Custom/Repositories/{$normalizedName}.php";
         $this->getFileManager()->putContents($filePath, $contents);
 
         if (file_exists($templatePath . '/SelectManagers/' . $type . '.php')) {
             $contents = "<" . "?" . "php\n\n".
-                "namespace Espo\Custom\SelectManagers;\n\n".
+                "namespace Nadlani\Custom\SelectManagers;\n\n".
                 "class {$normalizedName} extends {$templateNamespace}\SelectManagers\\{$type}\n".
                 "{\n".
                 "}\n";
 
-            $filePath = "custom/Espo/Custom/SelectManagers/{$normalizedName}.php";
+            $filePath = "custom/Nadlani/Custom/SelectManagers/{$normalizedName}.php";
             $this->getFileManager()->putContents($filePath, $contents);
         }
 
@@ -297,7 +297,7 @@ class EntityManager
                 $languageContents = str_replace('{'.$key.'}', $value, $languageContents);
             }
 
-            $destinationFilePath = 'custom/Espo/Custom/Resources/i18n/' . $language . '/' . $name . '.json';
+            $destinationFilePath = 'custom/Nadlani/Custom/Resources/i18n/' . $language . '/' . $name . '.json';
             $this->getFileManager()->putContents($destinationFilePath, $languageContents);
         }
 
@@ -366,7 +366,7 @@ class EntityManager
 
         $layoutsPath = $templatePath . "/Layouts/{$type}";
         if ($this->getFileManager()->isDir($layoutsPath)) {
-            $this->getFileManager()->copy($layoutsPath, 'custom/Espo/Custom/Resources/layouts/' . $name);
+            $this->getFileManager()->copy($layoutsPath, 'custom/Nadlani/Custom/Resources/layouts/' . $name);
         }
 
         $this->processHook('afterCreate', $type, $name, $params);
@@ -529,25 +529,25 @@ class EntityManager
             } catch (\Exception $e) {}
         }
 
-        $this->getFileManager()->removeFile("custom/Espo/Custom/Resources/metadata/entityDefs/{$name}.json");
-        $this->getFileManager()->removeFile("custom/Espo/Custom/Resources/metadata/clientDefs/{$name}.json");
-        $this->getFileManager()->removeFile("custom/Espo/Custom/Resources/metadata/scopes/{$name}.json");
+        $this->getFileManager()->removeFile("custom/Nadlani/Custom/Resources/metadata/entityDefs/{$name}.json");
+        $this->getFileManager()->removeFile("custom/Nadlani/Custom/Resources/metadata/clientDefs/{$name}.json");
+        $this->getFileManager()->removeFile("custom/Nadlani/Custom/Resources/metadata/scopes/{$name}.json");
 
-        $this->getFileManager()->removeFile("custom/Espo/Custom/Entities/{$normalizedName}.php");
-        $this->getFileManager()->removeFile("custom/Espo/Custom/Services/{$normalizedName}.php");
-        $this->getFileManager()->removeFile("custom/Espo/Custom/Controllers/{$normalizedName}.php");
-        $this->getFileManager()->removeFile("custom/Espo/Custom/Repositories/{$normalizedName}.php");
+        $this->getFileManager()->removeFile("custom/Nadlani/Custom/Entities/{$normalizedName}.php");
+        $this->getFileManager()->removeFile("custom/Nadlani/Custom/Services/{$normalizedName}.php");
+        $this->getFileManager()->removeFile("custom/Nadlani/Custom/Controllers/{$normalizedName}.php");
+        $this->getFileManager()->removeFile("custom/Nadlani/Custom/Repositories/{$normalizedName}.php");
 
-        if (file_exists("custom/Espo/Custom/SelectManagers/{$normalizedName}.php")) {
-            $this->getFileManager()->removeFile("custom/Espo/Custom/SelectManagers/{$normalizedName}.php");
+        if (file_exists("custom/Nadlani/Custom/SelectManagers/{$normalizedName}.php")) {
+            $this->getFileManager()->removeFile("custom/Nadlani/Custom/SelectManagers/{$normalizedName}.php");
         }
 
-        $this->getFileManager()->removeInDir("custom/Espo/Custom/Resources/layouts/{$normalizedName}");
-        $this->getFileManager()->removeDir("custom/Espo/Custom/Resources/layouts/{$normalizedName}");
+        $this->getFileManager()->removeInDir("custom/Nadlani/Custom/Resources/layouts/{$normalizedName}");
+        $this->getFileManager()->removeDir("custom/Nadlani/Custom/Resources/layouts/{$normalizedName}");
 
         $languageList = $this->getConfig()->get('languageList', []);
         foreach ($languageList as $language) {
-            $filePath = 'custom/Espo/Custom/Resources/i18n/' . $language . '/' . $normalizedName . '.json' ;
+            $filePath = 'custom/Nadlani/Custom/Resources/i18n/' . $language . '/' . $normalizedName . '.json' ;
             if (!file_exists($filePath)) continue;
             $this->getFileManager()->removeFile($filePath);
         }
@@ -1030,13 +1030,13 @@ class EntityManager
     {
         $templateDefs = $this->getMetadata()->get(['app', 'entityTemplates', $type], []);
 
-        $className = '\\Espo\\Core\\Utils\\EntityManager\\Hooks\\' . $type . 'Type';
+        $className = '\\Nadlani\\Core\\Utils\\EntityManager\\Hooks\\' . $type . 'Type';
 
         $templateModuleName = null;
         if (!empty($templateDefs['module'])) {
             $templateModuleName = $templateDefs['module'];
             $normalizedTemplateModuleName = Util::normilizeClassName($templateModuleName);
-            $className = '\\Espo\\Modules\\'.$normalizedTemplateModuleName.'\\Core\\Utils\\EntityManager\\Hooks\\' . $type . 'Type';
+            $className = '\\Nadlani\\Modules\\'.$normalizedTemplateModuleName.'\\Core\\Utils\\EntityManager\\Hooks\\' . $type . 'Type';
         }
 
 

@@ -151,9 +151,9 @@
     "readOnly": "Skrivebeskyttet"
   },
   "messages": {
-    "upgradeVersion": "EspoCRM vil oppgraderes til versjon <strong>{version}</strong>. Dette kan ta litt tid.",
-    "upgradeDone": "EspoCRM har blitt oppgradert til versjon <strong>{version}</strong>.",
-    "upgradeBackup": "Det er anbefalt å ta backup av EspoCRMs filer og data før oppgradering.",
+    "upgradeVersion": "NadlaniCrm vil oppgraderes til versjon <strong>{version}</strong>. Dette kan ta litt tid.",
+    "upgradeDone": "NadlaniCrm har blitt oppgradert til versjon <strong>{version}</strong>.",
+    "upgradeBackup": "Det er anbefalt å ta backup av NadlaniCrms filer og data før oppgradering.",
     "thousandSeparatorEqualsDecimalMark": "Skillet for tusentall kan ikke være et desimaltegn",
     "userHasNoEmailAddress": "Brukeren har ikke epostadresse",
     "selectEntityType": "Velg enhetstype i venstre meny.",
@@ -168,7 +168,7 @@
   "descriptions": {
     "settings": "Grunnleggende systeminnstillinger",
     "scheduledJob": "Oppgaver som utføres av cron.",
-    "upgrade": "Oppgrader EspoCRM.",
+    "upgrade": "Oppgrader NadlaniCrm.",
     "clearCache": "Tøm hurtigminne for serverdelen.",
     "rebuild": "Gjennbygg serverdel og tøm hurtigminne.",
     "users": "Administrer brukere.",

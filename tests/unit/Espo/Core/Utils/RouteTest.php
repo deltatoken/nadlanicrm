@@ -1,33 +1,33 @@
 <?php
 /************************************************************************
- * This file is part of EspoCRM.
+ * This file is part of NadlaniCrm.
  *
- * EspoCRM - Open Source CRM application.
- * Copyright (C) 2014-2018 Yuri Kuznetsov, Taras Machyshyn, Oleksiy Avramenko
- * Website: http://www.espocrm.com
+ * NadlaniCrm - Open Source CRM application.
+ * Copyright (C) 2014-2018 Pablo Rotem
+ * Website: https://www.facebook.com/sites4u2
  *
- * EspoCRM is free software: you can redistribute it and/or modify
+ * NadlaniCrm is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * EspoCRM is distributed in the hope that it will be useful,
+ * NadlaniCrm is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with EspoCRM. If not, see http://www.gnu.org/licenses/.
+ * along with NadlaniCrm. If not, see http://www.gnu.org/licenses/.
  *
  * The interactive user interfaces in modified source and object code versions
  * of this program must display Appropriate Legal Notices, as required under
  * Section 5 of the GNU General Public License version 3.
  *
  * In accordance with Section 7(b) of the GNU General Public License version 3,
- * these Appropriate Legal Notices must retain the display of the "EspoCRM" word.
+ * these Appropriate Legal Notices must retain the display of the "NadlaniCrm" word.
  ************************************************************************/
 
-namespace tests\unit\Espo\Core\Utils;
+namespace tests\unit\Nadlani\Core\Utils;
 
 use tests\unit\ReflectionHelper;
 
@@ -41,11 +41,11 @@ class RouteTest extends \PHPUnit\Framework\TestCase
 
     protected function setUp()
     {
-        $this->objects['container'] = $this->getMockBuilder('\\Espo\\Core\\Container')->disableOriginalConstructor()->getMock();
+        $this->objects['container'] = $this->getMockBuilder('\\Nadlani\\Core\\Container')->disableOriginalConstructor()->getMock();
 
-        $this->objects['config'] = $this->getMockBuilder('\\Espo\\Core\\Utils\\Config')->disableOriginalConstructor()->getMock();
-        $this->objects['fileManager'] = new \Espo\Core\Utils\File\Manager();
-        $this->objects['metadata'] = $this->getMockBuilder('\\Espo\\Core\\Utils\\Metadata')->disableOriginalConstructor()->getMock();
+        $this->objects['config'] = $this->getMockBuilder('\\Nadlani\\Core\\Utils\\Config')->disableOriginalConstructor()->getMock();
+        $this->objects['fileManager'] = new \Nadlani\Core\Utils\File\Manager();
+        $this->objects['metadata'] = $this->getMockBuilder('\\Nadlani\\Core\\Utils\\Metadata')->disableOriginalConstructor()->getMock();
 
         $map = array(
             array('config', $this->objects['config']),
@@ -58,7 +58,7 @@ class RouteTest extends \PHPUnit\Framework\TestCase
             ->method('get')
             ->will($this->returnValueMap($map));
 
-        $this->object = new \Espo\Core\Utils\Route($this->objects['config'], $this->objects['metadata'], $this->objects['fileManager']);
+        $this->object = new \Nadlani\Core\Utils\Route($this->objects['config'], $this->objects['metadata'], $this->objects['fileManager']);
         $this->reflection = new ReflectionHelper($this->object);
     }
 
@@ -71,9 +71,9 @@ class RouteTest extends \PHPUnit\Framework\TestCase
     public function testUnifyCase1CustomRoutes()
     {
         $this->reflection->setProperty('paths', array(
-            'corePath' => $this->filesPath . '/testCase1/application/Espo/Resources/routes.json',
-            'modulePath' => $this->filesPath . '/testCase1/application/Espo/Modules/{*}/Resources/routes.json',
-            'customPath' => $this->filesPath . '/testCase1/custom/Espo/Custom/Resources/routes.json',
+            'corePath' => $this->filesPath . '/testCase1/application/Nadlani/Resources/routes.json',
+            'modulePath' => $this->filesPath . '/testCase1/application/Nadlani/Modules/{*}/Resources/routes.json',
+            'customPath' => $this->filesPath . '/testCase1/custom/Nadlani/Custom/Resources/routes.json',
         ));
 
         $this->objects['metadata']
@@ -160,9 +160,9 @@ class RouteTest extends \PHPUnit\Framework\TestCase
     public function testUnifyCase2ModuleRoutes()
     {
         $this->reflection->setProperty('paths', array(
-            'corePath' => $this->filesPath . '/testCase2/application/Espo/Resources/routes.json',
-            'modulePath' => $this->filesPath . '/testCase2/application/Espo/Modules/{*}/Resources/routes.json',
-            'customPath' => $this->filesPath . '/testCase2/custom/Espo/Custom/Resources/routes.json',
+            'corePath' => $this->filesPath . '/testCase2/application/Nadlani/Resources/routes.json',
+            'modulePath' => $this->filesPath . '/testCase2/application/Nadlani/Modules/{*}/Resources/routes.json',
+            'customPath' => $this->filesPath . '/testCase2/custom/Nadlani/Custom/Resources/routes.json',
         ));
 
         $this->objects['metadata']
@@ -247,9 +247,9 @@ class RouteTest extends \PHPUnit\Framework\TestCase
     public function testUnifyCase3ModuleRoutesWithRewrites()
     {
         $this->reflection->setProperty('paths', array(
-            'corePath' => $this->filesPath . '/testCase3/application/Espo/Resources/routes.json',
-            'modulePath' => $this->filesPath . '/testCase3/application/Espo/Modules/{*}/Resources/routes.json',
-            'customPath' => $this->filesPath . '/testCase3/custom/Espo/Custom/Resources/routes.json',
+            'corePath' => $this->filesPath . '/testCase3/application/Nadlani/Resources/routes.json',
+            'modulePath' => $this->filesPath . '/testCase3/application/Nadlani/Modules/{*}/Resources/routes.json',
+            'customPath' => $this->filesPath . '/testCase3/custom/Nadlani/Custom/Resources/routes.json',
         ));
 
         $this->objects['metadata']
@@ -335,9 +335,9 @@ class RouteTest extends \PHPUnit\Framework\TestCase
     {
         // prepare path
         $paths = [
-            'corePath'   => $this->filesPath.'/testCase4/application/Espo/Resources/routes.json',
-            'modulePath' => $this->filesPath.'/testCase4/application/Espo/Modules/{*}/Resources/routes.json',
-            'customPath' => $this->filesPath.'/testCase4/custom/Espo/Custom/Resources/routes.json',
+            'corePath'   => $this->filesPath.'/testCase4/application/Nadlani/Resources/routes.json',
+            'modulePath' => $this->filesPath.'/testCase4/application/Nadlani/Modules/{*}/Resources/routes.json',
+            'customPath' => $this->filesPath.'/testCase4/custom/Nadlani/Custom/Resources/routes.json',
         ];
 
         $this->reflection->setProperty('paths', $paths);

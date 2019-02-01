@@ -1,4 +1,4 @@
-<h3>Ihre EspoCRM Zugriffsinformation</h3>
+<h3>Ihre NadlaniCrm Zugriffsinformation</h3>
 
 <p>Benutzername: {{userName}}</p>
 <p>Passwort: {{password}}</p>

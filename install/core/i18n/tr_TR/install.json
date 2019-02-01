@@ -1,6 +1,6 @@
 {
   "labels": {
-    "Main page title": "EspoCRM e Hoşgeldiniz",
+    "Main page title": "NadlaniCrm e Hoşgeldiniz",
     "Start page title": "Lisans Sözleşmesi",
     "Step1 page title": "Lisans Sözleşmesi",
     "License Agreement": "Lisans Sözleşmesi",
@@ -10,9 +10,9 @@
     "Step5 page title": "Giden epostalar için SMTP ayarları",
     "Errors page title": "Hatalar",
     "Finish page title": "Yükleme tamamlandı",
-    "Congratulation! Welcome to EspoCRM": "Tebrikler! EspoCRM başarıyla yüklendi.",
+    "Congratulation! Welcome to NadlaniCrm": "Tebrikler! NadlaniCrm başarıyla yüklendi.",
     "More Information": "Daha fazla bilgi için {BLOG} sayfamızı ziyaret edin, bizi {TWITTER} sayfasından takip edin. <br> <br> Herhangi bir öneri veya sorunuz varsa lütfen {FORUM} adresinden sorun.",
-    "share": "EspoCRM'yi seviyorsanız, arkadaşlarınızla paylaşın. Onlara bu ürünü öğrenmelerini sağlayın.",
+    "share": "NadlaniCrm'yi seviyorsanız, arkadaşlarınızla paylaşın. Onlara bu ürünü öğrenmelerini sağlayın.",
     "blog": "Blog",
     "twitter": "Twitter",
     "forum": "Forum",
@@ -23,7 +23,7 @@
     "Start": "Başla",
     "Back": "Geri",
     "Next": "Sonraki",
-    "Go to EspoCRM": "EspoCRM sayfama git",
+    "Go to NadlaniCrm": "NadlaniCrm sayfama git",
     "Re-check": "Tekrar Kontrol Et",
     "Version": "Versiyon",
     "Test settings": "Bağlantıyı Kontrol Et",
@@ -97,22 +97,22 @@
     "Thousand Separator and Decimal Mark equal": "Binlik ayraç ve ondalık ayraç aynı olamaz",
     "extension": "{0} uzantı eksik",
     "option": "Önerilen değer {0}",
-    "mysqlSettingError": "EspoCRM, \\ \"{NAME} \" ayarının {VALUE} olarak ayarlanmasını gerektiriyor"
+    "mysqlSettingError": "NadlaniCrm, \\ \"{NAME} \" ayarının {VALUE} olarak ayarlanmasını gerektiriyor"
   },
   "options": {
     "modRewriteTitle": {
-      "apache": "API Hatası: EspoCRM API'sı kullanılamıyor. Olası sorunlar: Apache sunucusunda \\ \"mod_rewrite \" devre dışı, .htaccess desteği veya RewriteBase sorunu devre dışı bırakıldı. <br> Gerekli adımları uygulayın. Her adımın ardından sorunun çözülüp çözülmediğini kontrol edin.",
-      "nginx": "API Hatası: EspoCRM API'sı kullanılamıyor. \\ \"Sunucu \" bölümünde bu kodu Nginx sunucu blok yapılandırma dosyanıza (/ etc / nginx / sites-available / YOUR_SITE) ekleyin:",
-      "microsoft-iis": "API Hatası: EspoCRM API'sı kullanılamıyor. <br> Olası problem: \\ \"URL Yeniden Yaz \" devre dışı. Lütfen IIS sunucusunda \\ \"URL Rewrite \" Modülü'nü kontrol edin ve etkinleştirin",
-      "default": "API Hatası: EspoCRM API'sı kullanılamıyor. <br> Olası sorun: devre dışı bırakılmış Rewrite Modülü. Lütfen sunucunuzdaki Rewrite Modülü'nü kontrol edin ve etkinleştirin (örn. Apache'deki mod_rewrite) ve .htaccess desteğini etkinleştirin."
+      "apache": "API Hatası: NadlaniCrm API'sı kullanılamıyor. Olası sorunlar: Apache sunucusunda \\ \"mod_rewrite \" devre dışı, .htaccess desteği veya RewriteBase sorunu devre dışı bırakıldı. <br> Gerekli adımları uygulayın. Her adımın ardından sorunun çözülüp çözülmediğini kontrol edin.",
+      "nginx": "API Hatası: NadlaniCrm API'sı kullanılamıyor. \\ \"Sunucu \" bölümünde bu kodu Nginx sunucu blok yapılandırma dosyanıza (/ etc / nginx / sites-available / YOUR_SITE) ekleyin:",
+      "microsoft-iis": "API Hatası: NadlaniCrm API'sı kullanılamıyor. <br> Olası problem: \\ \"URL Yeniden Yaz \" devre dışı. Lütfen IIS sunucusunda \\ \"URL Rewrite \" Modülü'nü kontrol edin ve etkinleştirin",
+      "default": "API Hatası: NadlaniCrm API'sı kullanılamıyor. <br> Olası sorun: devre dışı bırakılmış Rewrite Modülü. Lütfen sunucunuzdaki Rewrite Modülü'nü kontrol edin ve etkinleştirin (örn. Apache'deki mod_rewrite) ve .htaccess desteğini etkinleştirin."
     },
     "modRewriteInstruction": {
       "apache": {
-        "linux": "<br> <br> 1. \\ \"Mod_rewrite \" yı etkinleştirin. Bunu yapmak için şu komutları bir Terminalde çalıştırın: <pre> {APACHE1} </ pre> <br> 2. .htaccess desteğini etkinleştirin. Sunucu yapılandırma ayarlarını ekleyin / düzenleyin (/etc/apache/apache2.conf, /etc/httpd/conf/httpd.conf):<pre>{APACHE2}</pre>\n Sonra bu komutu bir Terminalde çalıştırın: < Pre> {APACHE3} </ pre> <br> 3. RewriteBase yolunu eklemeyi deneyin, {API_PATH} .htaccess dosyasını açın ve aşağıdaki satırı değiştirin: <pre> {APACHE4} </ pre> <pre> {APACHE5} </ pre> <br> Daha fazla bilgi için lütfen ziyaret edin. <a href=\"https://www.espocrm.com/documentation/administration/apache-server-configuration/\" target=\"_blank\"> EspoCRM için Apache sunucusu yapılandırması </a> kılavuzunu okuyun. <br> <br>"
+        "linux": "<br> <br> 1. \\ \"Mod_rewrite \" yı etkinleştirin. Bunu yapmak için şu komutları bir Terminalde çalıştırın: <pre> {APACHE1} </ pre> <br> 2. .htaccess desteğini etkinleştirin. Sunucu yapılandırma ayarlarını ekleyin / düzenleyin (/etc/apache/apache2.conf, /etc/httpd/conf/httpd.conf):<pre>{APACHE2}</pre>\n Sonra bu komutu bir Terminalde çalıştırın: < Pre> {APACHE3} </ pre> <br> 3. RewriteBase yolunu eklemeyi deneyin, {API_PATH} .htaccess dosyasını açın ve aşağıdaki satırı değiştirin: <pre> {APACHE4} </ pre> <pre> {APACHE5} </ pre> <br> Daha fazla bilgi için lütfen ziyaret edin. <a href=\"https://www.espocrm.com/documentation/administration/apache-server-configuration/\" target=\"_blank\"> NadlaniCrm için Apache sunucusu yapılandırması </a> kılavuzunu okuyun. <br> <br>"
       },
       "nginx": {
-        "linux": "<br> \\ n <pre> \\ n {NGINX} \\ n </ pre> <br> Daha fazla bilgi için lütfen <a href = \\ \"http://www.espocrm.com/blog/nginx-server adresini ziyaret edin. Için yapılandırma-espocrm / \\ \"hedef = \" boş \\ \"> EspoCRM için Nginx sunucu yapılandırması </a>. <br> <br>",
-        "windows": "<br> \\ n <pre> \\ n {NGINX} \\ n </ pre> <br> Daha fazla bilgi için lütfen <a href = \\ \"http://www.espocrm.com/blog/nginx-server adresini ziyaret edin. Için yapılandırma-espocrm / \\ \"hedef = \" boş \\ \"> EspoCRM için Nginx sunucu yapılandırması </a>. <br> <br>"
+        "linux": "<br> \\ n <pre> \\ n {NGINX} \\ n </ pre> <br> Daha fazla bilgi için lütfen <a href = \\ \"https://www.facebook.com/sites4u2/blog/nginx-server adresini ziyaret edin. Için yapılandırma-espocrm / \\ \"hedef = \" boş \\ \"> NadlaniCrm için Nginx sunucu yapılandırması </a>. <br> <br>",
+        "windows": "<br> \\ n <pre> \\ n {NGINX} \\ n </ pre> <br> Daha fazla bilgi için lütfen <a href = \\ \"https://www.facebook.com/sites4u2/blog/nginx-server adresini ziyaret edin. Için yapılandırma-espocrm / \\ \"hedef = \" boş \\ \"> NadlaniCrm için Nginx sunucu yapılandırması </a>. <br> <br>"
       }
     }
   }

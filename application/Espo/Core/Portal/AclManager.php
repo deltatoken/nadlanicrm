@@ -1,63 +1,63 @@
 <?php
 /************************************************************************
- * This file is part of EspoCRM.
+ * This file is part of NadlaniCrm.
  *
- * EspoCRM - Open Source CRM application.
- * Copyright (C) 2014-2018 Yuri Kuznetsov, Taras Machyshyn, Oleksiy Avramenko
- * Website: http://www.espocrm.com
+ * NadlaniCrm - Open Source CRM application.
+ * Copyright (C) 2014-2018 Pablo Rotem
+ * Website: https://www.facebook.com/sites4u2
  *
- * EspoCRM is free software: you can redistribute it and/or modify
+ * NadlaniCrm is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * EspoCRM is distributed in the hope that it will be useful,
+ * NadlaniCrm is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with EspoCRM. If not, see http://www.gnu.org/licenses/.
+ * along with NadlaniCrm. If not, see http://www.gnu.org/licenses/.
  *
  * The interactive user interfaces in modified source and object code versions
  * of this program must display Appropriate Legal Notices, as required under
  * Section 5 of the GNU General Public License version 3.
  *
  * In accordance with Section 7(b) of the GNU General Public License version 3,
- * these Appropriate Legal Notices must retain the display of the "EspoCRM" word.
+ * these Appropriate Legal Notices must retain the display of the "NadlaniCrm" word.
  ************************************************************************/
 
-namespace Espo\Core\Portal;
+namespace Nadlani\Core\Portal;
 
-use \Espo\ORM\Entity;
-use \Espo\Entities\User;
-use \Espo\Core\Utils\Util;
+use \Nadlani\ORM\Entity;
+use \Nadlani\Entities\User;
+use \Nadlani\Core\Utils\Util;
 
-class AclManager extends \Espo\Core\AclManager
+class AclManager extends \Nadlani\Core\AclManager
 {
-    protected $tableClassName = '\\Espo\\Core\\AclPortal\\Table';
+    protected $tableClassName = '\\Nadlani\\Core\\AclPortal\\Table';
 
     private $mainManager = null;
 
     private $portal = null;
 
-    protected $userAclClassName = '\\Espo\\Core\\Portal\\Acl';
+    protected $userAclClassName = '\\Nadlani\\Core\\Portal\\Acl';
 
     public function getImplementation($scope)
     {
         if (empty($this->implementationHashMap[$scope])) {
             $normalizedName = Util::normilizeClassName($scope);
 
-            $className = '\\Espo\\Custom\\AclPortal\\' . $normalizedName;
+            $className = '\\Nadlani\\Custom\\AclPortal\\' . $normalizedName;
             if (!class_exists($className)) {
                 $moduleName = $this->getMetadata()->getScopeModuleName($scope);
                 if ($moduleName) {
-                    $className = '\\Espo\\Modules\\' . $moduleName . '\\AclPortal\\' . $normalizedName;
+                    $className = '\\Nadlani\\Modules\\' . $moduleName . '\\AclPortal\\' . $normalizedName;
                 } else {
-                    $className = '\\Espo\\AclPortal\\' . $normalizedName;
+                    $className = '\\Nadlani\\AclPortal\\' . $normalizedName;
                 }
                 if (!class_exists($className)) {
-                    $className = '\\Espo\\Core\\AclPortal\\Base';
+                    $className = '\\Nadlani\\Core\\AclPortal\\Base';
                 }
             }
 

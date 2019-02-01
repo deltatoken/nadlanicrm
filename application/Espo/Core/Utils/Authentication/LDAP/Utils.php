@@ -1,34 +1,34 @@
 <?php
 /************************************************************************
- * This file is part of EspoCRM.
+ * This file is part of NadlaniCrm.
  *
- * EspoCRM - Open Source CRM application.
- * Copyright (C) 2014-2018 Yuri Kuznetsov, Taras Machyshyn, Oleksiy Avramenko
- * Website: http://www.espocrm.com
+ * NadlaniCrm - Open Source CRM application.
+ * Copyright (C) 2014-2018 Pablo Rotem
+ * Website: https://www.facebook.com/sites4u2
  *
- * EspoCRM is free software: you can redistribute it and/or modify
+ * NadlaniCrm is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * EspoCRM is distributed in the hope that it will be useful,
+ * NadlaniCrm is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with EspoCRM. If not, see http://www.gnu.org/licenses/.
+ * along with NadlaniCrm. If not, see http://www.gnu.org/licenses/.
  *
  * The interactive user interfaces in modified source and object code versions
  * of this program must display Appropriate Legal Notices, as required under
  * Section 5 of the GNU General Public License version 3.
  *
  * In accordance with Section 7(b) of the GNU General Public License version 3,
- * these Appropriate Legal Notices must retain the display of the "EspoCRM" word.
+ * these Appropriate Legal Notices must retain the display of the "NadlaniCrm" word.
  ************************************************************************/
 
-namespace Espo\Core\Utils\Authentication\LDAP;
-use \Espo\Core\Utils\Config;
+namespace Nadlani\Core\Utils\Authentication\LDAP;
+use \Nadlani\Core\Utils\Config;
 
 class Utils
 {
@@ -37,7 +37,7 @@ class Utils
     protected $options = null;
 
     /**
-     * Association between LDAP and Espo fields
+     * Association between LDAP and Nadlani fields
      * @var array
      */
     protected $fieldMap = array(
@@ -56,7 +56,7 @@ class Utils
         'optReferrals' => 'ldapOptReferrals',
         'tryUsernameSplit' => 'ldapTryUsernameSplit',
         'networkTimeout' => 'ldapNetworkTimeout',
-        'createEspoUser' => 'ldapCreateEspoUser',
+        'createNadlaniUser' => 'ldapCreateNadlaniUser',
         'userNameAttribute' => 'ldapUserNameAttribute',
         'userTitleAttribute' => 'ldapUserTitleAttribute',
         'userFirstNameAttribute' => 'ldapUserFirstNameAttribute',
@@ -73,12 +73,12 @@ class Utils
     );
 
     /**
-     * Permitted Espo Options
+     * Permitted Nadlani Options
      *
      * @var array
      */
-    protected $permittedEspoOptions = array(
-        'createEspoUser',
+    protected $permittedNadlaniOptions = array(
+        'createNadlaniUser',
         'userNameAttribute',
         'userObjectClass',
         'userTitleAttribute',
@@ -95,7 +95,7 @@ class Utils
     );
 
     /**
-     * accountCanonicalForm Map between Espo and Zend value
+     * accountCanonicalForm Map between Nadlani and Zend value
      *
      * @var array
      */
@@ -188,7 +188,7 @@ class Utils
     public function getLdapClientOptions()
     {
         $options = $this->getOptions();
-        $zendOptions = array_diff_key($options, array_flip($this->permittedEspoOptions));
+        $zendOptions = array_diff_key($options, array_flip($this->permittedNadlaniOptions));
 
         return $zendOptions;
     }

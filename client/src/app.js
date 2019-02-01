@@ -1,33 +1,33 @@
 /************************************************************************
- * This file is part of EspoCRM.
+ * This file is part of NadlaniCrm.
  *
- * EspoCRM - Open Source CRM application.
- * Copyright (C) 2014-2018 Yuri Kuznetsov, Taras Machyshyn, Oleksiy Avramenko
- * Website: http://www.espocrm.com
+ * NadlaniCrm - Open Source CRM application.
+ * Copyright (C) 2014-2018 Pablo Rotem
+ * Website: https://www.facebook.com/sites4u2
  *
- * EspoCRM is free software: you can redistribute it and/or modify
+ * NadlaniCrm is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * EspoCRM is distributed in the hope that it will be useful,
+ * NadlaniCrm is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with EspoCRM. If not, see http://www.gnu.org/licenses/.
+ * along with NadlaniCrm. If not, see http://www.gnu.org/licenses/.
  *
  * The interactive user interfaces in modified source and object code versions
  * of this program must display Appropriate Legal Notices, as required under
  * Section 5 of the GNU General Public License version 3.
  *
  * In accordance with Section 7(b) of the GNU General Public License version 3,
- * these Appropriate Legal Notices must retain the display of the "EspoCRM" word.
+ * these Appropriate Legal Notices must retain the display of the "NadlaniCrm" word.
  ************************************************************************/
 
 
-Espo.define(
+Nadlani.define(
     'app',
     [
         'ui',
@@ -87,7 +87,7 @@ Espo.define(
 
         this.appParams = {};
 
-        this.loader = Espo.loader;
+        this.loader = Nadlani.loader;
         this.loader.basePath = this.basePath;
 
         this.controllers = {};
@@ -340,9 +340,9 @@ Espo.define(
                     var className = this.metadata.get('clientDefs.' + name + '.controller');
                     if (!className) {
                         var module = this.metadata.get('scopes.' + name + '.module');
-                        className = Espo.Utils.composeClassName(module, name, 'controllers');
+                        className = Nadlani.Utils.composeClassName(module, name, 'controllers');
                     }
-                    Espo.require(className, function (controllerClass) {
+                    Nadlani.require(className, function (controllerClass) {
                         var injections = this.getControllerInjection();
                         injections.baseController = this.baseController;
                         this.controllers[name] = new controllerClass(this.baseController.params, injections);
@@ -398,7 +398,7 @@ Espo.define(
             helper.appParams = this.appParams;
 
             this.viewLoader = function (viewName, callback) {
-                Espo.require(Espo.Utils.composeViewClassName(viewName), callback);
+                Nadlani.require(Nadlani.Utils.composeViewClassName(viewName), callback);
             }.bind(this);
 
             var self = this;
@@ -608,7 +608,7 @@ Espo.define(
             $.ajaxSetup({
                 beforeSend: function (xhr, options) {
                     if (!options.local && self.url) {
-                        options.url = Espo.Utils.trimSlash(self.url) + '/' + options.url;
+                        options.url = Nadlani.Utils.trimSlash(self.url) + '/' + options.url;
                     }
 
                     if (!options.local && self.basePath !== '') {
@@ -616,8 +616,8 @@ Espo.define(
                     }
                     if (self.auth !== null) {
                         xhr.setRequestHeader('Authorization', 'Basic ' + self.auth);
-                        xhr.setRequestHeader('Espo-Authorization', self.auth);
-                        xhr.setRequestHeader('Espo-Authorization-By-Token', true);
+                        xhr.setRequestHeader('Nadlani-Authorization', self.auth);
+                        xhr.setRequestHeader('Nadlani-Authorization-By-Token', true);
                     }
                 },
                 dataType: 'json',
@@ -634,11 +634,11 @@ Espo.define(
                 switch (xhr.status) {
                     case 0:
                         if (xhr.statusText == 'timeout') {
-                            Espo.Ui.error(self.language.translate('Timeout'));
+                            Nadlani.Ui.error(self.language.translate('Timeout'));
                         }
                         break;
                     case 200:
-                        Espo.Ui.error(self.language.translate('Bad server response'));
+                        Nadlani.Ui.error(self.language.translate('Bad server response'));
                         console.error('Bad server response: ' + xhr.responseText);
                         break;
                     case 401:
@@ -646,7 +646,7 @@ Espo.define(
                             if (self.auth) {
                                 self.logout();
                             } else {
-                                Espo.Ui.error(self.language.translate('Auth error'));
+                                Nadlani.Ui.error(self.language.translate('Auth error'));
                             }
                         }
                         break;
@@ -656,7 +656,7 @@ Espo.define(
                         } else {
                             var msg = self.language.translate('Error') + ' ' + xhr.status;
                             msg += ': ' + self.language.translate('Access denied');
-                            Espo.Ui.error(msg);
+                            Nadlani.Ui.error(msg);
                         }
                         break;
                     case 404:
@@ -665,7 +665,7 @@ Espo.define(
                         } else {
                             var msg = self.language.translate('Error') + ' ' + xhr.status;
                             msg += ': ' + self.language.translate('Not found');
-                            Espo.Ui.error(msg);
+                            Nadlani.Ui.error(msg);
                         }
                         break;
                     default:
@@ -673,7 +673,7 @@ Espo.define(
                         if (statusReason) {
                             msg += ': ' + statusReason;
                         }
-                        Espo.Ui.error(msg);
+                        Nadlani.Ui.error(msg);
                 }
 
                 if (statusReason) {

@@ -5,7 +5,7 @@
             <div class="col-md-12">
                 <div align="center">
                     <div class="content-img">
-                        <img class="devices" src="img/devices.png" alt="EspoCRM">
+                        <img class="devices" src="img/devices.png" alt="NadlaniCrm">
                     </div>
                     {$langs['labels']['Main page header']}
                 </div>

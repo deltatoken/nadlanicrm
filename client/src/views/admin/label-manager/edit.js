@@ -1,32 +1,32 @@
 /************************************************************************
- * This file is part of EspoCRM.
+ * This file is part of NadlaniCrm.
  *
- * EspoCRM - Open Source CRM application.
- * Copyright (C) 2014-2018 Yuri Kuznetsov, Taras Machyshyn, Oleksiy Avramenko
- * Website: http://www.espocrm.com
+ * NadlaniCrm - Open Source CRM application.
+ * Copyright (C) 2014-2018 Pablo Rotem
+ * Website: https://www.facebook.com/sites4u2
  *
- * EspoCRM is free software: you can redistribute it and/or modify
+ * NadlaniCrm is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * EspoCRM is distributed in the hope that it will be useful,
+ * NadlaniCrm is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with EspoCRM. If not, see http://www.gnu.org/licenses/.
+ * along with NadlaniCrm. If not, see http://www.gnu.org/licenses/.
  *
  * The interactive user interfaces in modified source and object code versions
  * of this program must display Appropriate Legal Notices, as required under
  * Section 5 of the GNU General Public License version 3.
  *
  * In accordance with Section 7(b) of the GNU General Public License version 3,
- * these Appropriate Legal Notices must retain the display of the "EspoCRM" word.
+ * these Appropriate Legal Notices must retain the display of the "NadlaniCrm" word.
  ************************************************************************/
 
-Espo.define('views/admin/label-manager/edit', 'view', function (Dep) {
+Nadlani.define('views/admin/label-manager/edit', 'view', function (Dep) {
 
     return Dep.extend({
 
@@ -75,7 +75,7 @@ Espo.define('views/admin/label-manager/edit', 'view', function (Dep) {
             }).then(function (data) {
                 this.scopeData = data;
 
-                this.scopeDataInitial = Espo.Utils.cloneDeep(this.scopeData);
+                this.scopeDataInitial = Nadlani.Utils.cloneDeep(this.scopeData);
                 this.wait(false);
             }.bind(this));
         },
@@ -126,13 +126,13 @@ Espo.define('views/admin/label-manager/edit', 'view', function (Dep) {
                 data[name] = value;
             }, this);
 
-            Espo.Ui.notify(this.translate('saving', 'messages'));
+            Nadlani.Ui.notify(this.translate('saving', 'messages'));
             this.ajaxPostRequest('LabelManager/action/saveLabels', {
                 scope: this.scope,
                 language: this.language,
                 labels: data
             }).then(function (returnData) {
-                this.scopeDataInitial = Espo.Utils.cloneDeep(this.scopeData);
+                this.scopeDataInitial = Nadlani.Utils.cloneDeep(this.scopeData);
                 this.dirtyLabelList = [];
                 this.setConfirmLeaveOut(false);
 
@@ -144,7 +144,7 @@ Espo.define('views/admin/label-manager/edit', 'view', function (Dep) {
                     this.$el.find('input.label-value[data-name="'+name+'"]').val(returnData[key]);
                 }
 
-                Espo.Ui.success(this.translate('Saved'));
+                Nadlani.Ui.success(this.translate('Saved'));
             }.bind(this)).fail(function () {
                 this.$save.removeClass('disabled').removeAttr('disabled');
                 this.$cancel.removeClass('disabled').removeAttr('disabled');
@@ -152,7 +152,7 @@ Espo.define('views/admin/label-manager/edit', 'view', function (Dep) {
         },
 
         actionCancel: function () {
-            this.scopeData = Espo.Utils.cloneDeep(this.scopeDataInitial);
+            this.scopeData = Nadlani.Utils.cloneDeep(this.scopeDataInitial);
             this.dirtyLabelList = [];
             this.setConfirmLeaveOut(false);
 

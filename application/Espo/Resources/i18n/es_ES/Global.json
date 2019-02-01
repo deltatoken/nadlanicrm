@@ -708,11 +708,11 @@
     }
   },
   "themes": {
-    "Espo": "Espo",
+    "Nadlani": "Nadlani",
     "Sakura": "Sakura",
     "Violet": "Violeta",
-    "EspoRtl": "RTL Espo",
-    "EspoVertical": "Espo con barra lateral",
+    "NadlaniRtl": "RTL Nadlani",
+    "NadlaniVertical": "Nadlani con barra lateral",
     "SakuraVertical": "Sakura con barra lateral",
     "VioletVertical": "Violet con barra lateral",
     "Hazyblue": "Hazyblue",

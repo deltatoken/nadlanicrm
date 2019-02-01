@@ -1,35 +1,35 @@
 <?php
 /************************************************************************
- * This file is part of EspoCRM.
+ * This file is part of NadlaniCrm.
  *
- * EspoCRM - Open Source CRM application.
- * Copyright (C) 2014-2018 Yuri Kuznetsov, Taras Machyshyn, Oleksiy Avramenko
- * Website: http://www.espocrm.com
+ * NadlaniCrm - Open Source CRM application.
+ * Copyright (C) 2014-2018 Pablo Rotem
+ * Website: https://www.facebook.com/sites4u2
  *
- * EspoCRM is free software: you can redistribute it and/or modify
+ * NadlaniCrm is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * EspoCRM is distributed in the hope that it will be useful,
+ * NadlaniCrm is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with EspoCRM. If not, see http://www.gnu.org/licenses/.
+ * along with NadlaniCrm. If not, see http://www.gnu.org/licenses/.
  *
  * The interactive user interfaces in modified source and object code versions
  * of this program must display Appropriate Legal Notices, as required under
  * Section 5 of the GNU General Public License version 3.
  *
  * In accordance with Section 7(b) of the GNU General Public License version 3,
- * these Appropriate Legal Notices must retain the display of the "EspoCRM" word.
+ * these Appropriate Legal Notices must retain the display of the "NadlaniCrm" word.
  ************************************************************************/
 
-namespace tests\unit\Espo\Core\Utils\File;
+namespace tests\unit\Nadlani\Core\Utils\File;
 use tests\unit\ReflectionHelper;
-use Espo\Core\Utils\Util;
+use Nadlani\Core\Utils\Util;
 
 class ManagerTest extends \PHPUnit\Framework\TestCase
 {
@@ -44,9 +44,9 @@ class ManagerTest extends \PHPUnit\Framework\TestCase
 
     protected function setUp()
     {
-        $this->objects['config'] = $this->getMockBuilder('\Espo\Core\Utils\Config')->disableOriginalConstructor()->getMock();
+        $this->objects['config'] = $this->getMockBuilder('\Nadlani\Core\Utils\Config')->disableOriginalConstructor()->getMock();
 
-        $this->object = new \Espo\Core\Utils\File\Manager();
+        $this->object = new \Nadlani\Core\Utils\File\Manager();
 
         $this->reflection = new ReflectionHelper($this->object);
     }
@@ -64,7 +64,7 @@ class ManagerTest extends \PHPUnit\Framework\TestCase
 
         $this->assertEquals('Donwload', $this->object->getFileName('\Donwload.php'));
 
-        $this->assertEquals('Donwload', $this->object->getFileName('application/Espo/EntryPoints/Donwload.php'));
+        $this->assertEquals('Donwload', $this->object->getFileName('application/Nadlani/EntryPoints/Donwload.php'));
     }
 
     public function testGetContents()
@@ -87,37 +87,37 @@ class ManagerTest extends \PHPUnit\Framework\TestCase
 
     public function testConcatPaths()
     {
-        $input = Util::fixPath('application/Espo/Resources/metadata/app/panel.json');
-        $result = Util::fixPath('application/Espo/Resources/metadata/app/panel.json');
+        $input = Util::fixPath('application/Nadlani/Resources/metadata/app/panel.json');
+        $result = Util::fixPath('application/Nadlani/Resources/metadata/app/panel.json');
 
         $this->assertEquals($result, $this->reflection->invokeMethod('concatPaths', array($input)) );
 
 
         $input = array(
             'application',
-            'Espo/Resources/metadata/',
+            'Nadlani/Resources/metadata/',
             'app',
             'panel.json',
         );
-        $result = Util::fixPath('application/Espo/Resources/metadata/app/panel.json');
+        $result = Util::fixPath('application/Nadlani/Resources/metadata/app/panel.json');
 
         $this->assertEquals($result, $this->reflection->invokeMethod('concatPaths', array($input)) );
 
 
         $input = array(
-            'application/Espo/Resources/metadata/app',
+            'application/Nadlani/Resources/metadata/app',
             'panel.json',
         );
-        $result = Util::fixPath('application/Espo/Resources/metadata/app/panel.json');
+        $result = Util::fixPath('application/Nadlani/Resources/metadata/app/panel.json');
 
         $this->assertEquals($result, $this->reflection->invokeMethod('concatPaths', array($input)) );
 
 
         $input = array(
-            'application/Espo/Resources/metadata/app/',
+            'application/Nadlani/Resources/metadata/app/',
             'panel.json',
         );
-        $result = Util::fixPath('application/Espo/Resources/metadata/app/panel.json');
+        $result = Util::fixPath('application/Nadlani/Resources/metadata/app/panel.json');
 
         $this->assertEquals($result, $this->reflection->invokeMethod('concatPaths', array($input)) );
     }
@@ -132,16 +132,16 @@ class ManagerTest extends \PHPUnit\Framework\TestCase
         $result = 'logs';
         $this->assertEquals($result, $this->object->getDirName($input, false));
 
-        $input = 'application/Espo/Resources/metadata/entityDefs';
+        $input = 'application/Nadlani/Resources/metadata/entityDefs';
         $result = 'entityDefs';
         $this->assertEquals($result, $this->object->getDirName($input, false));
 
-        $input = 'application/Espo/Resources/metadata/entityDefs/';
+        $input = 'application/Nadlani/Resources/metadata/entityDefs/';
         $result = 'entityDefs';
         $this->assertEquals($result, $this->object->getDirName($input, false));
 
         //path doesn't exists. Be careful to use "/" at the beginning
-        $input = '/application/Espo/Resources/metadata/entityDefs';
+        $input = '/application/Nadlani/Resources/metadata/entityDefs';
         $result = 'metadata';
         $this->assertEquals($result, $this->object->getDirName($input, false));
 
@@ -164,17 +164,17 @@ class ManagerTest extends \PHPUnit\Framework\TestCase
         $result = 'data/logs';
         $this->assertEquals($result, $this->object->getDirName($input));
 
-        $input = 'application/Espo/Resources/metadata/entityDefs';
-        $result = 'application/Espo/Resources/metadata/entityDefs';
+        $input = 'application/Nadlani/Resources/metadata/entityDefs';
+        $result = 'application/Nadlani/Resources/metadata/entityDefs';
         $this->assertEquals($result, $this->object->getDirName($input));
 
-        $input = 'application/Espo/Resources/metadata/entityDefs/';
-        $result = 'application/Espo/Resources/metadata/entityDefs';
+        $input = 'application/Nadlani/Resources/metadata/entityDefs/';
+        $result = 'application/Nadlani/Resources/metadata/entityDefs';
         $this->assertEquals($result, $this->object->getDirName($input));
 
         //path doesn't exists. Be careful to use "/" at the beginning
-        $input = '/application/Espo/Resources/metadata/entityDefs';
-        $result = '/application/Espo/Resources/metadata';
+        $input = '/application/Nadlani/Resources/metadata/entityDefs';
+        $result = '/application/Nadlani/Resources/metadata';
         $this->assertEquals($result, $this->object->getDirName($input));
 
         $input = 'notRealPath/logs/espo.log';
@@ -203,8 +203,8 @@ class ManagerTest extends \PHPUnit\Framework\TestCase
     public function testIsDirEmpty()
     {
         $this->assertFalse($this->object->isDirEmpty('application'));
-        $this->assertFalse($this->object->isDirEmpty('tests/unit/Espo'));
-        $this->assertFalse($this->object->isDirEmpty('tests/unit/Espo/Core/Utils/File'));
+        $this->assertFalse($this->object->isDirEmpty('tests/unit/Nadlani'));
+        $this->assertFalse($this->object->isDirEmpty('tests/unit/Nadlani/Core/Utils/File'));
 
         $dirPath = 'tests/unit/testData/cache/EmptyDir';
         if (file_exists($dirPath) || mkdir($dirPath, 0755)) {
@@ -214,22 +214,22 @@ class ManagerTest extends \PHPUnit\Framework\TestCase
 
     public function testGetParentDirName()
     {
-        $input = 'application/Espo/Resources/metadata/entityDefs';
+        $input = 'application/Nadlani/Resources/metadata/entityDefs';
         $result = 'metadata';
         $this->assertEquals($result, $this->object->getParentDirName($input, false));
 
-        $input = 'application/Espo/Resources/metadata/entityDefs/';
-        $result = 'metadata';
-        $this->assertEquals($result, $this->object->getParentDirName($input, false));
-
-        //path doesn't exists. Be careful to use "/" at the beginning
-        $input = '/application/Espo/Resources/metadata/entityDefs';
+        $input = 'application/Nadlani/Resources/metadata/entityDefs/';
         $result = 'metadata';
         $this->assertEquals($result, $this->object->getParentDirName($input, false));
 
         //path doesn't exists. Be careful to use "/" at the beginning
-        $input = '/application/Espo/Resources/metadata/entityDefs';
-        $result = '/application/Espo/Resources/metadata';
+        $input = '/application/Nadlani/Resources/metadata/entityDefs';
+        $result = 'metadata';
+        $this->assertEquals($result, $this->object->getParentDirName($input, false));
+
+        //path doesn't exists. Be careful to use "/" at the beginning
+        $input = '/application/Nadlani/Resources/metadata/entityDefs';
+        $result = '/application/Nadlani/Resources/metadata';
         $this->assertEquals($result, $this->object->getParentDirName($input));
 
         $input = 'notRealPath/logs/espo.log';
@@ -246,7 +246,7 @@ class ManagerTest extends \PHPUnit\Framework\TestCase
         $input = array (
           'custom' =>
           array (
-            'Espo' =>
+            'Nadlani' =>
             array (
               'Custom' =>
               array (
@@ -265,14 +265,14 @@ class ManagerTest extends \PHPUnit\Framework\TestCase
 
         $result = array (
             'custom',
-            'custom/Espo',
-            'custom/Espo/Custom',
-            'custom/Espo/Custom/Modules',
-            'custom/Espo/Custom/Modules/ExtensionTest',
-            'custom/Espo/Custom/Modules/ExtensionTest/File.json',
-            'custom/Espo/Custom/Modules/ExtensionTest/File.php',
+            'custom/Nadlani',
+            'custom/Nadlani/Custom',
+            'custom/Nadlani/Custom/Modules',
+            'custom/Nadlani/Custom/Modules/ExtensionTest',
+            'custom/Nadlani/Custom/Modules/ExtensionTest/File.json',
+            'custom/Nadlani/Custom/Modules/ExtensionTest/File.php',
         );
-        $result = array_map('\Espo\Core\Utils\Util::fixPath', $result);
+        $result = array_map('\Nadlani\Core\Utils\Util::fixPath', $result);
 
         $this->assertEquals($result, $this->reflection->invokeMethod('getSingeFileList', array($input)));
     }
@@ -282,7 +282,7 @@ class ManagerTest extends \PHPUnit\Framework\TestCase
         $input = array (
           'custom' =>
           array (
-            'Espo' =>
+            'Nadlani' =>
             array (
               'Custom' =>
               array (
@@ -300,8 +300,8 @@ class ManagerTest extends \PHPUnit\Framework\TestCase
         );
 
         $result = array (
-            Util::fixPath('custom/Espo/Custom/Modules/ExtensionTest/File.json'),
-            Util::fixPath('custom/Espo/Custom/Modules/ExtensionTest/File.php'),
+            Util::fixPath('custom/Nadlani/Custom/Modules/ExtensionTest/File.json'),
+            Util::fixPath('custom/Nadlani/Custom/Modules/ExtensionTest/File.php'),
         );
 
         $this->assertEquals($result, $this->reflection->invokeMethod('getSingeFileList', array($input, true)));
@@ -312,7 +312,7 @@ class ManagerTest extends \PHPUnit\Framework\TestCase
         $input = array (
           'custom' =>
           array (
-            'Espo' =>
+            'Nadlani' =>
             array (
               'Custom' =>
               array (
@@ -331,12 +331,12 @@ class ManagerTest extends \PHPUnit\Framework\TestCase
 
         $result = array (
             'custom',
-            'custom/Espo',
-            'custom/Espo/Custom',
-            'custom/Espo/Custom/Modules',
-            'custom/Espo/Custom/Modules/ExtensionTest',
+            'custom/Nadlani',
+            'custom/Nadlani/Custom',
+            'custom/Nadlani/Custom/Modules',
+            'custom/Nadlani/Custom/Modules/ExtensionTest',
         );
-        $result = array_map('\Espo\Core\Utils\Util::fixPath', $result);
+        $result = array_map('\Nadlani\Core\Utils\Util::fixPath', $result);
 
         $this->assertEquals($result, $this->reflection->invokeMethod('getSingeFileList', array($input, false)));
     }
@@ -346,23 +346,23 @@ class ManagerTest extends \PHPUnit\Framework\TestCase
         return array(
           array( 'Set1', array(
                 'custom',
-                'custom/Espo',
-                'custom/Espo/Custom',
-                'custom/Espo/Custom/Modules',
-                'custom/Espo/Custom/Modules/TestModule',
-                'custom/Espo/Custom/Modules/TestModule/SubFolder',
-                'custom/Espo/Custom/Modules/TestModule/SubFolder/Tester.txt',
+                'custom/Nadlani',
+                'custom/Nadlani/Custom',
+                'custom/Nadlani/Custom/Modules',
+                'custom/Nadlani/Custom/Modules/TestModule',
+                'custom/Nadlani/Custom/Modules/TestModule/SubFolder',
+                'custom/Nadlani/Custom/Modules/TestModule/SubFolder/Tester.txt',
             )
           ),
 
           array( 'Set2', array(
                 'custom',
-                'custom/Espo',
-                'custom/Espo/Custom',
-                'custom/Espo/Custom/Resources',
-                'custom/Espo/Custom/Resources/metadata',
-                'custom/Espo/Custom/Resources/metadata/entityDefs',
-                'custom/Espo/Custom/Resources/metadata/entityDefs/Account.json',
+                'custom/Nadlani',
+                'custom/Nadlani/Custom',
+                'custom/Nadlani/Custom/Resources',
+                'custom/Nadlani/Custom/Resources/metadata',
+                'custom/Nadlani/Custom/Resources/metadata/entityDefs',
+                'custom/Nadlani/Custom/Resources/metadata/entityDefs/Account.json',
             )
           ),
 
@@ -383,10 +383,10 @@ class ManagerTest extends \PHPUnit\Framework\TestCase
         $cachePath = $this->cachePath . '/' . $name;
 
         $fileList = array (
-            $cachePath . '/custom/Espo/Custom/Modules/ExtensionTest/File.json',
-            $cachePath . '/custom/Espo/Custom/Modules/ExtensionTest/File.php',
+            $cachePath . '/custom/Nadlani/Custom/Modules/ExtensionTest/File.json',
+            $cachePath . '/custom/Nadlani/Custom/Modules/ExtensionTest/File.php',
         );
-        $result = array_map('\Espo\Core\Utils\Util::fixPath', $result);
+        $result = array_map('\Nadlani\Core\Utils\Util::fixPath', $result);
 
         $res = $this->object->copy($path, $cachePath, true);
         if ($res) {
@@ -398,11 +398,11 @@ class ManagerTest extends \PHPUnit\Framework\TestCase
     public function existsPathSet()
     {
         return array(
-          array( 'application/Espo/Core/Application.php', 'application/Espo/Core/Application.php', ),
-          array( 'application/Espo/Core/NotRealApplication.php', 'application/Espo/Core'),
-          array( array('application', 'Espo/Core', 'NotRealApplication.php'), 'application/Espo/Core'),
-          array( 'application/NoEspo/Core/Application.php', 'application'),
-          array( 'notRealPath/Espo/Core/Application.php', '.'),
+          array( 'application/Nadlani/Core/Application.php', 'application/Nadlani/Core/Application.php', ),
+          array( 'application/Nadlani/Core/NotRealApplication.php', 'application/Nadlani/Core'),
+          array( array('application', 'Nadlani/Core', 'NotRealApplication.php'), 'application/Nadlani/Core'),
+          array( 'application/NoNadlani/Core/Application.php', 'application'),
+          array( 'notRealPath/Nadlani/Core/Application.php', '.'),
         );
     }
 
@@ -420,9 +420,9 @@ class ManagerTest extends \PHPUnit\Framework\TestCase
         $cachePath = $this->cachePath . '/copy/testCase1';
 
         $expectedResult = [
-            'custom/Espo/Custom/Modules/ExtensionTest/File.json',
-            'custom/Espo/Custom/Modules/ExtensionTest/File.php',
-            'custom/Espo/Custom/Modules/TestModule/SubFolder/Tester.txt',
+            'custom/Nadlani/Custom/Modules/ExtensionTest/File.json',
+            'custom/Nadlani/Custom/Modules/ExtensionTest/File.php',
+            'custom/Nadlani/Custom/Modules/TestModule/SubFolder/Tester.txt',
         ];
 
         $result = $this->object->copy($path, $cachePath, true);
@@ -439,7 +439,7 @@ class ManagerTest extends \PHPUnit\Framework\TestCase
         $cachePath = $this->cachePath . '/copy/testCase2';
 
         $expectedResult = [
-            'custom/Espo/Custom/test1.php',
+            'custom/Nadlani/Custom/test1.php',
             'data/test2.php',
             'data/upload/5a86d9bf1154968dc',
             'test0.php'
@@ -459,7 +459,7 @@ class ManagerTest extends \PHPUnit\Framework\TestCase
         $cachePath = $this->cachePath . '/copy/testCase3';
 
         $expectedResult = [
-            'custom/Espo/Custom/test1.php',
+            'custom/Nadlani/Custom/test1.php',
             'data/test2.php',
             'data/upload/5a86d9bf1154968dc',
             'test0.php'
@@ -484,9 +484,9 @@ class ManagerTest extends \PHPUnit\Framework\TestCase
 
         $expectedResult = [
             'custom',
-            'custom/Espo',
-            'custom/Espo/Custom',
-            'custom/Espo/Custom/test1.php',
+            'custom/Nadlani',
+            'custom/Nadlani/Custom',
+            'custom/Nadlani/Custom/test1.php',
             'data',
             'data/test2.php',
             'data/upload',

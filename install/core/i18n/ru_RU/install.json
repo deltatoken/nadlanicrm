@@ -1,6 +1,6 @@
 {
   "labels": {
-    "Main page title": "Добро пожаловать в EspoCRM",
+    "Main page title": "Добро пожаловать в NadlaniCrm",
     "Start page title": "Лицензионное соглашение",
     "Step1 page title": "Лицензионное соглашение",
     "License Agreement": "Лицензионное соглашение",
@@ -11,9 +11,9 @@
     "Step5 page title": "Настройки SMTP для исходящей эл. почты",
     "Errors page title": "Ошибки",
     "Finish page title": "Установка завершена",
-    "Congratulation! Welcome to EspoCRM": "Поздравляем! EspoCRM был успешно установлен.",
+    "Congratulation! Welcome to NadlaniCrm": "Поздравляем! NadlaniCrm был успешно установлен.",
     "More Information": "Для получения дополнительной информации, пожалуйста, посетите наш {BLOG}, следуйте за нами в {TWITTER}.<br><br>Если у Вас есть какие-либо предложения или вопросы, пожалуйста, обратитесь на {FORUM}.",
-    "share": "Если Вам понравился EspoCRM, расскажите об этом Вашими друзьями. Пусть они узнают об этом продукте.",
+    "share": "Если Вам понравился NadlaniCrm, расскажите об этом Вашими друзьями. Пусть они узнают об этом продукте.",
     "blog": "блог",
     "twitter": "твиттер",
     "forum": "форум",
@@ -24,7 +24,7 @@
     "Start": "Начать",
     "Back": "Назад",
     "Next": "Далее",
-    "Go to EspoCRM": "Перейти к EspoCRM",
+    "Go to NadlaniCrm": "Перейти к NadlaniCrm",
     "Re-check": "Перепроверить",
     "Version": "Версия",
     "Test settings": "Проверка соединения",
@@ -75,9 +75,9 @@
     "2005": "Неизвестный MySQL сервер",
     "Bad init Permission": "Запрещен доступ к директории \"{*}\". Пожалуйста, установите права 775 для \"{*}\" или просто выполните эту команду в терминале <pre><b>{C}</b></pre>\n\tОперация не разрешена? Попробуйте это: {CSU}",
     "Some errors occurred!": "Произошло несколько ошибок!",
-    "phpVersion": "Установленная версия PHP не поддерживается EspoCRM, обновите РНР по крайней мере до версии {MinVersion}",
-    "requiredMysqlVersion": "Установленная версия MySQL не поддерживается EspoCRM, обновите MySQL по крайней мере до версии {minVersion}",
-    "requiredMariadbVersion": "Установленная версия MariaDB не поддерживается EspoCRM, обновите MariaDB по крайней мере до версии {minVersion}",
+    "phpVersion": "Установленная версия PHP не поддерживается NadlaniCrm, обновите РНР по крайней мере до версии {MinVersion}",
+    "requiredMysqlVersion": "Установленная версия MySQL не поддерживается NadlaniCrm, обновите MySQL по крайней мере до версии {minVersion}",
+    "requiredMariadbVersion": "Установленная версия MariaDB не поддерживается NadlaniCrm, обновите MariaDB по крайней мере до версии {minVersion}",
     "The PHP extension was not found...": "Ошибка PHP: расширение <b>{extName}</b> не найдено.",
     "All Settings correct": "Все настройки верны",
     "Failed to connect to database": "Не удалось подключиться к базе данных",
@@ -101,24 +101,24 @@
     "Thousand Separator and Decimal Mark equal": "Тысячный разделитель не может быть таким же как и десятичный разделитель",
     "extension": "{0} расширение отсутствует",
     "option": "Рекомендуемое значение {0}",
-    "mysqlSettingError": "Для EspoCRM требуется, чтобы значением \"{NAME}\" являлось {VALUE}"
+    "mysqlSettingError": "Для NadlaniCrm требуется, чтобы значением \"{NAME}\" являлось {VALUE}"
   },
   "options": {
     "modRewriteInstruction": {
       "apache": {
         "windows": "<br> <pre>1. Найдите файл httpd.conf (как правило, вы можете найти его в папке conf, config или в папке с похожим названием)<br>\n2. Внутри файла httpd.conf раскомментируйте строку LoadModule rewrite_module modules/mod_rewrite.so (удалите знак '#' в начале строки)<br>\n3. Также убедитесь что раскомментирована строка ClearModuleList и что строка AddModule mod_rewrite.c не закомментирована.\n</pre>",
-        "linux": "<br><br>1. Подключите модуль \"mod_rewrite\". Для этого выполните в терминале следующие комманды:<pre>{APACHE1}</pre><br>2. Включите поддержку .htaccess. Добавьте/отредактируйте параметры конфигурации сервера (/etc/apache/apache2.conf, /etc/httpd/conf/httpd.conf):<pre>{APACHE2}</pre>\n Потом выполните эту команду в терминале:<pre>{APACHE3}</pre><br>3. Попробуйте добавить путь RewriteBase, откройте файл {API_PATH}.htaccess и замените следующую строку:<pre>{APACHE4}</pre>To<pre>{APACHE5}</pre><br> Для получения более подробной информации, пожалуйста, перейдите <a href=\"https://www.espocrm.com/documentation/administration/apache-server-configuration/\" target=\"_blank\">Apache server configuration for EspoCRM</a>.<br><br>"
+        "linux": "<br><br>1. Подключите модуль \"mod_rewrite\". Для этого выполните в терминале следующие комманды:<pre>{APACHE1}</pre><br>2. Включите поддержку .htaccess. Добавьте/отредактируйте параметры конфигурации сервера (/etc/apache/apache2.conf, /etc/httpd/conf/httpd.conf):<pre>{APACHE2}</pre>\n Потом выполните эту команду в терминале:<pre>{APACHE3}</pre><br>3. Попробуйте добавить путь RewriteBase, откройте файл {API_PATH}.htaccess и замените следующую строку:<pre>{APACHE4}</pre>To<pre>{APACHE5}</pre><br> Для получения более подробной информации, пожалуйста, перейдите <a href=\"https://www.espocrm.com/documentation/administration/apache-server-configuration/\" target=\"_blank\">Apache server configuration for NadlaniCrm</a>.<br><br>"
       },
       "nginx": {
-        "linux": "<br>\n<pre>\n{NGINX}\n</pre> <br> Для получения более подробной информации, пожалуйста, перейдите <a href=\"https://www.espocrm.com/documentation/administration/nginx-server-configuration/\" target=\"_blank\">Nginx server configuration for EspoCRM</a>.<br><br>",
-        "windows": "<br>\n<pre>\n{NGINX}\n</pre> <br> Для получения более подробной информации, пожалуйста, перейдите <a href=\"https://www.espocrm.com/documentation/administration/nginx-server-configuration/\" target=\"_blank\">Nginx server configuration for EspoCRM</a>.<br><br>"
+        "linux": "<br>\n<pre>\n{NGINX}\n</pre> <br> Для получения более подробной информации, пожалуйста, перейдите <a href=\"https://www.espocrm.com/documentation/administration/nginx-server-configuration/\" target=\"_blank\">Nginx server configuration for NadlaniCrm</a>.<br><br>",
+        "windows": "<br>\n<pre>\n{NGINX}\n</pre> <br> Для получения более подробной информации, пожалуйста, перейдите <a href=\"https://www.espocrm.com/documentation/administration/nginx-server-configuration/\" target=\"_blank\">Nginx server configuration for NadlaniCrm</a>.<br><br>"
       }
     },
     "modRewriteTitle": {
-      "apache": "Ошибка API: EspoCRM API недоступен.<br> Возможные проблемы: не подключен модуль \"mod_rewrite\" к Apache серверу, отключена поддержка .htaccess или проблема с RewriteBase.<br>Совершайте только необходимые шаги. После каждого шага проверяйте решена ли проблема.",
-      "nginx": "Ошибка API: EspoCRM API недоступен.<br> Добавьте этот код в конфигурацию Nginx (/etc/nginx/sites-available/YOUR_SITE) в блок \"server\":",
-      "microsoft-iis": "Ошибка API: EspoCRM API недоступен.<br> Возможная проблема: не подключен модуль \"URL Rewrite\". Пожалуйста, проверьте и подключите модуль \"URL Rewrite\" к IIS серверу.",
-      "default": "Ошибка API: EspoCRM API недоступен.<br> Возможная проблема: не подключен модуль Rewrite. Пожалуйста, проверьте и подключите к серверу модуль Rewrite (например mod_rewrite в Apache) и поддержку .htaccess."
+      "apache": "Ошибка API: NadlaniCrm API недоступен.<br> Возможные проблемы: не подключен модуль \"mod_rewrite\" к Apache серверу, отключена поддержка .htaccess или проблема с RewriteBase.<br>Совершайте только необходимые шаги. После каждого шага проверяйте решена ли проблема.",
+      "nginx": "Ошибка API: NadlaniCrm API недоступен.<br> Добавьте этот код в конфигурацию Nginx (/etc/nginx/sites-available/YOUR_SITE) в блок \"server\":",
+      "microsoft-iis": "Ошибка API: NadlaniCrm API недоступен.<br> Возможная проблема: не подключен модуль \"URL Rewrite\". Пожалуйста, проверьте и подключите модуль \"URL Rewrite\" к IIS серверу.",
+      "default": "Ошибка API: NadlaniCrm API недоступен.<br> Возможная проблема: не подключен модуль Rewrite. Пожалуйста, проверьте и подключите к серверу модуль Rewrite (например mod_rewrite в Apache) и поддержку .htaccess."
     }
   }
 }

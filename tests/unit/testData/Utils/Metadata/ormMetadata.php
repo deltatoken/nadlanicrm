@@ -1543,7 +1543,7 @@ return array (
       'outboundEmailFromName' => 
       array (
         'type' => 'varchar',
-        'default' => 'EspoCRM',
+        'default' => 'NadlaniCrm',
         'len' => 255,
       ),
       'outboundEmailFromAddress' => 

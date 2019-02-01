@@ -748,10 +748,10 @@
         "kanban": "Kanban"
     },
     "themes": {
-        "Espo": "Classic Espo",
-        "EspoRtl": "RTL Espo",
+        "Nadlani": "Classic Nadlani",
+        "NadlaniRtl": "RTL Nadlani",
         "Sakura": "Classic Sakura",
-        "EspoVertical": "Vertical Espo",
+        "NadlaniVertical": "Vertical Nadlani",
         "SakuraVertical": "Vertical Sakura",
         "Violet": "Classic Violet",
         "VioletVertical": "Vertical Violet",

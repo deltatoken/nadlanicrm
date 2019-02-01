@@ -108,9 +108,9 @@
         "seeMoreDisabled": "Zakázat ořez textu"
     },
     "messages": {
-        "upgradeVersion": "EspoCRM bude upgradováno na verzi <strong>{version}</strong>. Toto může chvíli trvat.",
-        "upgradeDone": "EspoCRM bylo upgradováno na verzi <strong>{version}</strong>.",
-        "upgradeBackup": "Doporučujeme zálohovat soubory a data EspoCRM před upgradem.",
+        "upgradeVersion": "NadlaniCrm bude upgradováno na verzi <strong>{version}</strong>. Toto může chvíli trvat.",
+        "upgradeDone": "NadlaniCrm bylo upgradováno na verzi <strong>{version}</strong>.",
+        "upgradeBackup": "Doporučujeme zálohovat soubory a data NadlaniCrm před upgradem.",
         "thousandSeparatorEqualsDecimalMark": "Oddělovač tisíců nemůže být stejný jako desetinný symbol.",
         "userHasNoEmailAddress": "Uživatel nemá emailovou adresu.",
         "selectEntityType": "Vybrat entitu v levém menu.",
@@ -125,7 +125,7 @@
     "descriptions": {
         "settings": "Systémová nastavení aplikace.",
         "scheduledJob": "Činnosti vykonávané CRONem.",
-        "upgrade": "Upgradovat EspoCRM.",
+        "upgrade": "Upgradovat NadlaniCrm.",
         "clearCache": "Vyčistit veškerou cache.",
         "rebuild": "Přestavě backend a vyčistit cache.",
         "users": "Správa uživatelů.",

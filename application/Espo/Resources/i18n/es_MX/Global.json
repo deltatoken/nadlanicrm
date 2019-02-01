@@ -129,7 +129,7 @@
     "Only My": "Sólo míos",
     "Open": "Abiertos",
     "Admin": "Administrador",
-    "About": "Acerca de EspoCRM",
+    "About": "Acerca de NadlaniCrm",
     "Refresh": "Actualizar",
     "Remove": "Eliminar",
     "Options": "Opciones",
@@ -724,9 +724,9 @@
     "kanban": "Tarjetas"
   },
   "themes": {
-    "Espo": "Espo Clásico",
+    "Nadlani": "Nadlani Clásico",
     "Sakura": "Sakura Clásico",
-    "EspoVertical": "Espo Vertical",
+    "NadlaniVertical": "Nadlani Vertical",
     "SakuraVertical": "Sakura Vertical",
     "Violet": "Violeta Clásico",
     "VioletVertical": "Violeta Vertical",

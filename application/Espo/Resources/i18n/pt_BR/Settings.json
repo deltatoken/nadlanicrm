@@ -47,7 +47,7 @@
 		"ldapAccountCanonicalForm": "Formulário Canônico de Conta",
 		"ldapAccountDomainName": "Nome de Domínio da Conta",
 		"ldapTryUsernameSplit": "Tentar dividir o Nome de Usuário",
-		"ldapCreateEspoUser": "Criar usuário no EspoCRM",
+		"ldapCreateNadlaniUser": "Criar usuário no NadlaniCrm",
 		"ldapSecurity": "Segurança",
 		"ldapUserLoginFilter": "Filtro para Login de Usuário",
 		"ldapAccountDomainNameShort": "Nome curto do Domínio da Conta",

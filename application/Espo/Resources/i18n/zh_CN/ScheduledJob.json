@@ -22,9 +22,9 @@
       "CheckNewVersion": "检查新版本"
     },
     "cronSetup": {
-      "linux": "注意：将此行添加到crontab文件以运行Espo计划作业：",
-      "mac": "注意：将此行添加到crontab文件以运行Espo计划作业：",
-      "windows": "注意：使用以下命令创建批处理文件以使用Windows计划任务运行Espo计划作业：",
+      "linux": "注意：将此行添加到crontab文件以运行Nadlani计划作业：",
+      "mac": "注意：将此行添加到crontab文件以运行Nadlani计划作业：",
+      "windows": "注意：使用以下命令创建批处理文件以使用Windows计划任务运行Nadlani计划作业：",
       "default": "注意：将此命令添加到Cron Job（计划任务）："
     },
     "status": {

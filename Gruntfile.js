@@ -1,22 +1,22 @@
 /************************************************************************
- * This file is part of EspoCRM.
+ * This file is part of NadlaniCrm.
  *
- * EspoCRM - Open Source CRM application.
- * Copyright (C) 2014-2018 Yuri Kuznetsov, Taras Machyshyn, Oleksiy Avramenko
- * Website: http://www.espocrm.com
+ * NadlaniCrm - Open Source CRM application.
+ * Copyright (C) 2014-2018 Pablo Rotem
+ * Website: https://www.facebook.com/sites4u2
  *
- * EspoCRM is free software: you can redistribute it and/or modify
+ * NadlaniCrm is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * EspoCRM is distributed in the hope that it will be useful,
+ * NadlaniCrm is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with EspoCRM. If not, see http://www.gnu.org/licenses/.
+ * along with NadlaniCrm. If not, see http://www.gnu.org/licenses/.
  ************************************************************************/
 module.exports = function (grunt) {
 
@@ -83,7 +83,7 @@ module.exports = function (grunt) {
     var fs = require('fs');
 
     var themeList = [];
-    fs.readdirSync('application/Espo/Resources/metadata/themes').forEach(function (file) {
+    fs.readdirSync('application/Nadlani/Resources/metadata/themes').forEach(function (file) {
         themeList.push(file.substr(0, file.length - 5));
     });
 
@@ -120,7 +120,7 @@ module.exports = function (grunt) {
             start: ['build/*'],
             final: ['build/tmp'],
             beforeFinal: {
-                src: ['build/tmp/custom/Espo/Custom/*', '!build/tmp/custom/Espo/Custom/.htaccess']
+                src: ['build/tmp/custom/Nadlani/Custom/*', '!build/tmp/custom/Nadlani/Custom/.htaccess']
             }
         },
         less: lessData,
@@ -188,7 +188,7 @@ module.exports = function (grunt) {
                 dot: true,
                 src: '**',
                 cwd: 'build/tmp',
-                dest: 'build/EspoCRM-<%= pkg.version %>/',
+                dest: 'build/NadlaniCrm-<%= pkg.version %>/',
             },
         },
         chmod: {
@@ -200,15 +200,15 @@ module.exports = function (grunt) {
                     mode: '644'
                 },
                 src: [
-                    'build/EspoCRM-<%= pkg.version %>/**/*.php',
-                    'build/EspoCRM-<%= pkg.version %>/**/*.json',
-                    'build/EspoCRM-<%= pkg.version %>/**/*.config',
-                    'build/EspoCRM-<%= pkg.version %>/**/.htaccess',
-                    'build/EspoCRM-<%= pkg.version %>/client/**/*.js',
-                    'build/EspoCRM-<%= pkg.version %>/client/**/*.css',
-                    'build/EspoCRM-<%= pkg.version %>/client/**/*.tpl',
-                    'build/EspoCRM-<%= pkg.version %>/**/*.html',
-                    'build/EspoCRM-<%= pkg.version %>/**/*.txt',
+                    'build/NadlaniCrm-<%= pkg.version %>/**/*.php',
+                    'build/NadlaniCrm-<%= pkg.version %>/**/*.json',
+                    'build/NadlaniCrm-<%= pkg.version %>/**/*.config',
+                    'build/NadlaniCrm-<%= pkg.version %>/**/.htaccess',
+                    'build/NadlaniCrm-<%= pkg.version %>/client/**/*.js',
+                    'build/NadlaniCrm-<%= pkg.version %>/client/**/*.css',
+                    'build/NadlaniCrm-<%= pkg.version %>/client/**/*.tpl',
+                    'build/NadlaniCrm-<%= pkg.version %>/**/*.html',
+                    'build/NadlaniCrm-<%= pkg.version %>/**/*.txt',
                 ]
             },
             folders: {
@@ -216,12 +216,12 @@ module.exports = function (grunt) {
                     mode: '755'
                 },
                 src: [
-                    'build/EspoCRM-<%= pkg.version %>/install',
-                    'build/EspoCRM-<%= pkg.version %>/portal',
-                    'build/EspoCRM-<%= pkg.version %>/api',
-                    'build/EspoCRM-<%= pkg.version %>/api/v1',
-                    'build/EspoCRM-<%= pkg.version %>/api/v1/portal-access',
-                    'build/EspoCRM-<%= pkg.version %>',
+                    'build/NadlaniCrm-<%= pkg.version %>/install',
+                    'build/NadlaniCrm-<%= pkg.version %>/portal',
+                    'build/NadlaniCrm-<%= pkg.version %>/api',
+                    'build/NadlaniCrm-<%= pkg.version %>/api/v1',
+                    'build/NadlaniCrm-<%= pkg.version %>/api/v1/portal-access',
+                    'build/NadlaniCrm-<%= pkg.version %>',
                 ]
             }
         },
@@ -257,8 +257,8 @@ module.exports = function (grunt) {
                 },
                 files: [
                     {
-                        src: 'build/tmp/application/Espo/Core/defaults/config.php',
-                        dest: 'build/tmp/application/Espo/Core/defaults/config.php'
+                        src: 'build/tmp/application/Nadlani/Core/defaults/config.php',
+                        dest: 'build/tmp/application/Nadlani/Core/defaults/config.php'
                     }
                 ]
             }
@@ -266,12 +266,12 @@ module.exports = function (grunt) {
         compress: {
             final: {
                 options: {
-                    archive: 'build/EspoCRM-<%= pkg.version %>.zip',
+                    archive: 'build/NadlaniCrm-<%= pkg.version %>.zip',
                     mode: 'zip'
                 },
                 src: ['**'],
-                cwd: 'build/EspoCRM-<%= pkg.version %>',
-                dest: 'EspoCRM-<%= pkg.version %>'
+                cwd: 'build/NadlaniCrm-<%= pkg.version %>',
+                dest: 'NadlaniCrm-<%= pkg.version %>'
             }
         }
     });

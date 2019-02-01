@@ -3315,7 +3315,7 @@ return (object) [
                 ],
                 'outboundEmailFromName' => (object) [
                     'type' => 'varchar',
-                    'default' => 'EspoCRM',
+                    'default' => 'NadlaniCrm',
                     'trim' => true
                 ],
                 'outboundEmailFromAddress' => (object) [
@@ -3386,10 +3386,10 @@ return (object) [
                 'authenticationMethod' => (object) [
                     'type' => 'enum',
                     'options' => [
-                        0 => 'Espo',
+                        0 => 'Nadlani',
                         1 => 'LDAP'
                     ],
-                    'default' => 'Espo'
+                    'default' => 'Nadlani'
                 ],
                 'ldapHost' => (object) [
                     'type' => 'varchar',
@@ -3461,7 +3461,7 @@ return (object) [
                     'type' => 'bool',
                     'tooltip' => true
                 ],
-                'ldapCreateEspoUser' => (object) [
+                'ldapCreateNadlaniUser' => (object) [
                     'type' => 'bool',
                     'default' => true,
                     'tooltip' => true
@@ -5232,7 +5232,7 @@ return (object) [
                     'type' => 'varchar',
                     'required' => true,
                     'maxLength' => 36,
-                    'default' => 'Espo'
+                    'default' => 'Nadlani'
                 ],
                 'createdAt' => (object) [
                     'type' => 'datetime',

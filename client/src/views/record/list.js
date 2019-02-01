@@ -1,32 +1,32 @@
 /************************************************************************
- * This file is part of EspoCRM.
+ * This file is part of NadlaniCrm.
  *
- * EspoCRM - Open Source CRM application.
- * Copyright (C) 2014-2018 Yuri Kuznetsov, Taras Machyshyn, Oleksiy Avramenko
- * Website: http://www.espocrm.com
+ * NadlaniCrm - Open Source CRM application.
+ * Copyright (C) 2014-2018 Pablo Rotem
+ * Website: https://www.facebook.com/sites4u2
  *
- * EspoCRM is free software: you can redistribute it and/or modify
+ * NadlaniCrm is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * EspoCRM is distributed in the hope that it will be useful,
+ * NadlaniCrm is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with EspoCRM. If not, see http://www.gnu.org/licenses/.
+ * along with NadlaniCrm. If not, see http://www.gnu.org/licenses/.
  *
  * The interactive user interfaces in modified source and object code versions
  * of this program must display Appropriate Legal Notices, as required under
  * Section 5 of the GNU General Public License version 3.
  *
  * In accordance with Section 7(b) of the GNU General Public License version 3,
- * these Appropriate Legal Notices must retain the display of the "EspoCRM" word.
+ * these Appropriate Legal Notices must retain the display of the "NadlaniCrm" word.
  ************************************************************************/
 
-Espo.define('views/record/list', 'view', function (Dep) {
+Nadlani.define('views/record/list', 'view', function (Dep) {
 
     return Dep.extend({
 
@@ -137,7 +137,7 @@ Espo.define('views/record/list', 'view', function (Dep) {
                 this.selectAllHandler(e.currentTarget.checked);
             },
             'click .action': function (e) {
-                Espo.Utils.handleAction(this, e);
+                Nadlani.Utils.handleAction(this, e);
             },
             'click .checkbox-dropdown [data-action="selectAllResult"]': function (e) {
                 this.selectAllResult();
@@ -146,7 +146,7 @@ Espo.define('views/record/list', 'view', function (Dep) {
                 $el = $(e.currentTarget);
                 var action = $el.data('action');
 
-                var method = 'massAction' + Espo.Utils.upperCaseFirst(action);
+                var method = 'massAction' + Nadlani.Utils.upperCaseFirst(action);
                 if (method in this) {
                     this[method]();
                 } else {
@@ -388,7 +388,7 @@ Espo.define('views/record/list', 'view', function (Dep) {
 
             this.rowActionsDisabled = this.options.rowActionsDisabled || this.rowActionsDisabled;
 
-            this.dropdownItemList = Espo.Utils.cloneDeep(this.options.dropdownItemList || this.dropdownItemList);
+            this.dropdownItemList = Nadlani.Utils.cloneDeep(this.options.dropdownItemList || this.dropdownItemList);
 
             if ('buttonsDisabled' in this.options) {
                 this.buttonsDisabled = this.options.buttonsDisabled;
@@ -524,7 +524,7 @@ Espo.define('views/record/list', 'view', function (Dep) {
                 data.entityType = this.entityType;
 
                 var waitMessage = this.getMetadata().get(['clientDefs', this.scope, 'massActionDefs', name, 'waitMessage']) || 'pleaseWait';
-                Espo.Ui.notify(this.translate(waitMessage, 'messages', this.scope));
+                Nadlani.Ui.notify(this.translate(waitMessage, 'messages', this.scope));
 
                 var url = this.getMetadata().get(['clientDefs', this.scope, 'massActionDefs', name, 'url']);
 
@@ -536,7 +536,7 @@ Espo.define('views/record/list', 'view', function (Dep) {
                         if ('count' in result) {
                             message = message.replace('{count}', result.count);
                         }
-                        Espo.Ui.success(message);
+                        Nadlani.Ui.success(message);
                     }.bind(this));
                 }.bind(this));
             }
@@ -568,12 +568,12 @@ Espo.define('views/record/list', 'view', function (Dep) {
                 message: this.translate('recalculateFormulaConfirmation', 'messages'),
                 confirmText: this.translate('Yes')
             }, function () {
-                Espo.Ui.notify(this.translate('pleaseWait', 'messages'));
+                Nadlani.Ui.notify(this.translate('pleaseWait', 'messages'));
                 var data = this.getMassActionSelectionPostData();
-                Espo.Ajax.postRequest(this.entityType + '/action/massRecalculateFormula', data).then(function (result) {
+                Nadlani.Ajax.postRequest(this.entityType + '/action/massRecalculateFormula', data).then(function (result) {
                     result = result || {};
                     this.collection.fetch().then(function () {
-                        Espo.Ui.success(this.translate('Done'));
+                        Nadlani.Ui.success(this.translate('Done'));
                     }.bind(this));
                 }.bind(this));
             }.bind(this));
@@ -595,7 +595,7 @@ Espo.define('views/record/list', 'view', function (Dep) {
                 this.notify('Removing...');
                 var data = this.getMassActionSelectionPostData();
 
-                Espo.Ajax.postRequest(this.entityType + '/action/massDelete', data).then(function (result) {
+                Nadlani.Ajax.postRequest(this.entityType + '/action/massDelete', data).then(function (result) {
                     result = result || {};
                     var count = result.count;
                     if (this.allResultIsChecked) {
@@ -606,18 +606,18 @@ Espo.define('views/record/list', 'view', function (Dep) {
                                 if (count == 1) {
                                     msg = 'massRemoveResultSingle'
                                 }
-                                Espo.Ui.success(this.translate(msg, 'messages').replace('{count}', count));
+                                Nadlani.Ui.success(this.translate(msg, 'messages').replace('{count}', count));
                             }, this);
                             this.collection.fetch();
-                            Espo.Ui.notify(false);
+                            Nadlani.Ui.notify(false);
                         } else {
-                            Espo.Ui.warning(this.translate('noRecordsRemoved', 'messages'));
+                            Nadlani.Ui.warning(this.translate('noRecordsRemoved', 'messages'));
                         }
                     } else {
                         var idsRemoved = result.ids || [];
                         if (count) {
                             idsRemoved.forEach(function (id) {
-                                Espo.Ui.notify(false);
+                                Nadlani.Ui.notify(false);
 
                                 this.collection.trigger('model-removing', id);
                                 this.removeRecordFromList(id);
@@ -628,9 +628,9 @@ Espo.define('views/record/list', 'view', function (Dep) {
                             if (count == 1) {
                                 msg = 'massRemoveResultSingle'
                             }
-                            Espo.Ui.success(this.translate(msg, 'messages').replace('{count}', count));
+                            Nadlani.Ui.success(this.translate(msg, 'messages').replace('{count}', count));
                         } else {
-                            Espo.Ui.warning(this.translate('noRecordsRemoved', 'messages'));
+                            Nadlani.Ui.warning(this.translate('noRecordsRemoved', 'messages'));
                         }
                     }
                 }.bind(this));
@@ -642,7 +642,7 @@ Espo.define('views/record/list', 'view', function (Dep) {
             if (maxCount) {
                 if (this.checkedList.length > maxCount) {
                     var msg = this.translate('massPrintPdfMaxCountError', 'messages').replace('{maxCount}', maxCount.toString());
-                    Espo.Ui.error(msg);
+                    Nadlani.Ui.error(msg);
                     return;
                 }
             }
@@ -659,13 +659,13 @@ Espo.define('views/record/list', 'view', function (Dep) {
                 this.listenToOnce(view, 'select', function (templateModel) {
                     this.clearView('pdfTemplate');
 
-                    Espo.Ui.notify(this.translate('pleaseWait', 'messages'));
+                    Nadlani.Ui.notify(this.translate('pleaseWait', 'messages'));
                     this.ajaxPostRequest('Pdf/action/massPrint', {
                         idList: idList,
                         entityType: this.entityType,
                         templateId: templateModel.id
                     }, {timeout: 0}).then(function (result) {
-                        Espo.Ui.notify(false);
+                        Nadlani.Ui.notify(false);
                         window.open('?entryPoint=download&id=' + result.id, '_blank');
                     }.bind(this));
                 }, this);
@@ -685,7 +685,7 @@ Espo.define('views/record/list', 'view', function (Dep) {
                 message: confirmMsg,
                 confirmText: this.translate('Follow')
             }, function () {
-                Espo.Ui.notify(this.translate('pleaseWait', 'messages'));
+                Nadlani.Ui.notify(this.translate('pleaseWait', 'messages'));
                 this.ajaxPostRequest(this.entityType + '/action/massFollow', {
                     ids: idList
                 }).then(function (result) {
@@ -695,9 +695,9 @@ Espo.define('views/record/list', 'view', function (Dep) {
                         if (resultCount === 1) {
                             msg += 'Single';
                         }
-                        Espo.Ui.success(this.translate(msg, 'messages').replace('{count}', resultCount));
+                        Nadlani.Ui.success(this.translate(msg, 'messages').replace('{count}', resultCount));
                     } else {
-                        Espo.Ui.warning(this.translate('massFollowZeroResult', 'messages'));
+                        Nadlani.Ui.warning(this.translate('massFollowZeroResult', 'messages'));
                     }
                 }.bind(this));
             }, this);
@@ -716,7 +716,7 @@ Espo.define('views/record/list', 'view', function (Dep) {
                 message: confirmMsg,
                 confirmText: this.translate('Unfollow')
             }, function () {
-                Espo.Ui.notify(this.translate('pleaseWait', 'messages'));
+                Nadlani.Ui.notify(this.translate('pleaseWait', 'messages'));
                 this.ajaxPostRequest(this.entityType + '/action/massUnfollow', {
                     ids: idList
                 }).then(function (result) {
@@ -726,9 +726,9 @@ Espo.define('views/record/list', 'view', function (Dep) {
                         if (resultCount === 1) {
                             msg += 'Single';
                         }
-                        Espo.Ui.success(this.translate(msg, 'messages').replace('{count}', resultCount));
+                        Nadlani.Ui.success(this.translate(msg, 'messages').replace('{count}', resultCount));
                     } else {
-                        Espo.Ui.warning(this.translate('massUnfollowZeroResult', 'messages'));
+                        Nadlani.Ui.warning(this.translate('massUnfollowZeroResult', 'messages'));
                     }
                 }.bind(this));
             }, this);
@@ -763,7 +763,7 @@ Espo.define('views/record/list', 'view', function (Dep) {
                 return false;
             }
 
-            Espo.Ui.notify(this.translate('loading', 'messages'));
+            Nadlani.Ui.notify(this.translate('loading', 'messages'));
             var ids = false;
             var allResultIsChecked = this.allResultIsChecked;
             if (!allResultIsChecked) {
@@ -787,9 +787,9 @@ Espo.define('views/record/list', 'view', function (Dep) {
                             if (count == 1) {
                                 msg = 'massUpdateResultSingle'
                             }
-                            Espo.Ui.success(this.translate(msg, 'messages').replace('{count}', count));
+                            Nadlani.Ui.success(this.translate(msg, 'messages').replace('{count}', count));
                         } else {
-                            Espo.Ui.warning(this.translate('noRecordsUpdated', 'messages'));
+                            Nadlani.Ui.warning(this.translate('noRecordsUpdated', 'messages'));
                         }
                         if (allResultIsChecked) {
                             this.selectAllResult();
@@ -816,7 +816,7 @@ Espo.define('views/record/list', 'view', function (Dep) {
                 confirmText: this.translate('Unlink')
             }, function () {
                 this.notify('Unlinking...');
-                Espo.Ajax.deleteRequest(this.collection.url, {
+                Nadlani.Ajax.deleteRequest(this.collection.url, {
                     ids: this.checkedList
                 }).then(function () {
                     this.notify('Unlinked', 'success');
@@ -863,9 +863,9 @@ Espo.define('views/record/list', 'view', function (Dep) {
             this.entityType = this.collection.name || null;
             this.scope = this.options.scope || this.entityType;
 
-            this.events = Espo.Utils.clone(this.events);
-            this.massActionList = Espo.Utils.clone(this.massActionList);
-            this.buttonList = Espo.Utils.clone(this.buttonList);
+            this.events = Nadlani.Utils.clone(this.events);
+            this.massActionList = Nadlani.Utils.clone(this.massActionList);
+            this.buttonList = Nadlani.Utils.clone(this.buttonList);
 
             if (!this.getAcl().checkScope(this.entityType, 'delete')) {
                 this.removeMassAction('remove');
@@ -972,8 +972,8 @@ Espo.define('views/record/list', 'view', function (Dep) {
 
             this.setupMassActionItems();
 
-            Espo.Utils.clone(this.massActionList).forEach(function (item) {
-                var propName = 'massAction' + Espo.Utils.upperCaseFirst(item) + 'Disabled';
+            Nadlani.Utils.clone(this.massActionList).forEach(function (item) {
+                var propName = 'massAction' + Nadlani.Utils.upperCaseFirst(item) + 'Disabled';
                 if (this[propName] || this.options[propName]) {
                     this.removeMassAction(item);
                 }
@@ -1066,7 +1066,7 @@ Espo.define('views/record/list', 'view', function (Dep) {
                 return this._cachedFilteredListLayout;
             }
 
-            filteredListLayout = Espo.Utils.clone(listLayout);
+            filteredListLayout = Nadlani.Utils.clone(listLayout);
             for (var i in listLayout) {
                 var name = listLayout[i].name;
                 if (name && ~forbiddenFieldList.indexOf(name)) {
@@ -1363,7 +1363,7 @@ Espo.define('views/record/list', 'view', function (Dep) {
 
             this.rowList.push(key);
             this.getInternalLayout(function (internalLayout) {
-                internalLayout = Espo.Utils.cloneDeep(internalLayout);
+                internalLayout = Nadlani.Utils.cloneDeep(internalLayout);
                 this.prepareInternalLayout(internalLayout, model);
 
                 var acl =  {
@@ -1441,7 +1441,7 @@ Espo.define('views/record/list', 'view', function (Dep) {
 
             $showMore.children('a').addClass('disabled');
 
-            Espo.Ui.notify(this.translate('loading', 'messages'));
+            Nadlani.Ui.notify(this.translate('loading', 'messages'));
 
             var final = function () {
                 $showMore.parent().append($showMore);
@@ -1457,7 +1457,7 @@ Espo.define('views/record/list', 'view', function (Dep) {
                     this.$el.find('input.record-checkbox').attr('disabled', 'disabled').prop('checked', true);
                 }
 
-                Espo.Ui.notify(false);
+                Nadlani.Ui.notify(false);
 
                 if (callback) {
                     callback.call(this);
@@ -1467,7 +1467,7 @@ Espo.define('views/record/list', 'view', function (Dep) {
             var initialCount = collection.length;
 
             var success = function () {
-                Espo.Ui.notify(false);
+                Nadlani.Ui.notify(false);
                 $showMore.addClass('hidden');
 
                 var rowCount = collection.length - initialCount;
@@ -1532,7 +1532,7 @@ Espo.define('views/record/list', 'view', function (Dep) {
             var viewName = this.getMetadata().get('clientDefs.' + scope + '.modalViews.detail') || 'views/modals/detail';
 
             if (!this.quickDetailDisabled) {
-                Espo.Ui.notify(this.translate('loading', 'messages'));
+                Nadlani.Ui.notify(this.translate('loading', 'messages'));
 
                 var options = {
                     scope: scope,
@@ -1544,7 +1544,7 @@ Espo.define('views/record/list', 'view', function (Dep) {
                 }
                 this.createView('modal', viewName, options, function (view) {
                     this.listenToOnce(view, 'after:render', function () {
-                        Espo.Ui.notify(false);
+                        Nadlani.Ui.notify(false);
                     });
                     view.render();
 
@@ -1583,7 +1583,7 @@ Espo.define('views/record/list', 'view', function (Dep) {
             var viewName = this.getMetadata().get('clientDefs.' + scope + '.modalViews.edit') || 'views/modals/edit';
 
             if (!this.quickEditDisabled) {
-                Espo.Ui.notify(this.translate('loading', 'messages'));
+                Nadlani.Ui.notify(this.translate('loading', 'messages'));
                 var options = {
                     scope: scope,
                     id: id,
@@ -1603,7 +1603,7 @@ Espo.define('views/record/list', 'view', function (Dep) {
                 }
                 this.createView('modal', viewName, options, function (view) {
                     view.once('after:render', function () {
-                        Espo.Ui.notify(false);
+                        Nadlani.Ui.notify(false);
                     });
 
                     view.render();

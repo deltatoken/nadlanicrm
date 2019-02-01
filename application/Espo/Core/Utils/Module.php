@@ -1,33 +1,33 @@
 <?php
 /************************************************************************
- * This file is part of EspoCRM.
+ * This file is part of NadlaniCrm.
  *
- * EspoCRM - Open Source CRM application.
- * Copyright (C) 2014-2018 Yuri Kuznetsov, Taras Machyshyn, Oleksiy Avramenko
- * Website: http://www.espocrm.com
+ * NadlaniCrm - Open Source CRM application.
+ * Copyright (C) 2014-2018 Pablo Rotem
+ * Website: https://www.facebook.com/sites4u2
  *
- * EspoCRM is free software: you can redistribute it and/or modify
+ * NadlaniCrm is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * EspoCRM is distributed in the hope that it will be useful,
+ * NadlaniCrm is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with EspoCRM. If not, see http://www.gnu.org/licenses/.
+ * along with NadlaniCrm. If not, see http://www.gnu.org/licenses/.
  *
  * The interactive user interfaces in modified source and object code versions
  * of this program must display Appropriate Legal Notices, as required under
  * Section 5 of the GNU General Public License version 3.
  *
  * In accordance with Section 7(b) of the GNU General Public License version 3,
- * these Appropriate Legal Notices must retain the display of the "EspoCRM" word.
+ * these Appropriate Legal Notices must retain the display of the "NadlaniCrm" word.
  ************************************************************************/
 
-namespace Espo\Core\Utils;
+namespace Nadlani\Core\Utils;
 
 class Module
 {
@@ -42,16 +42,16 @@ class Module
     protected $cacheFile = 'data/cache/application/modules.php';
 
     protected $paths = array(
-        'corePath' => 'application/Espo/Resources/module.json',
-        'modulePath' => 'application/Espo/Modules/{*}/Resources/module.json',
-        'customPath' => 'custom/Espo/Custom/Resources/module.json',
+        'corePath' => 'application/Nadlani/Resources/module.json',
+        'modulePath' => 'application/Nadlani/Modules/{*}/Resources/module.json',
+        'customPath' => 'custom/Nadlani/Custom/Resources/module.json',
     );
 
     public function __construct(File\Manager $fileManager, $useCache = false)
     {
         $this->fileManager = $fileManager;
 
-        $this->unifier = new \Espo\Core\Utils\File\FileUnifier($this->fileManager);
+        $this->unifier = new \Nadlani\Core\Utils\File\FileUnifier($this->fileManager);
 
         $this->useCache = $useCache;
     }
@@ -99,7 +99,7 @@ class Module
             if ($this->useCache) {
                 $result = $this->getFileManager()->putPhpContents($this->cacheFile, $this->data);
                 if ($result == false) {
-                    throw new \Espo\Core\Exceptions\Error('Module - Cannot save unified modules.');
+                    throw new \Nadlani\Core\Exceptions\Error('Module - Cannot save unified modules.');
                 }
             }
         }

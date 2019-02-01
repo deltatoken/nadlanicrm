@@ -1,30 +1,30 @@
 <?php
 /************************************************************************
- * This file is part of EspoCRM.
+ * This file is part of NadlaniCrm.
  *
- * EspoCRM - Open Source CRM application.
- * Copyright (C) 2014-2018 Yuri Kuznetsov, Taras Machyshyn, Oleksiy Avramenko
- * Website: http://www.espocrm.com
+ * NadlaniCrm - Open Source CRM application.
+ * Copyright (C) 2014-2018 Pablo Rotem
+ * Website: https://www.facebook.com/sites4u2
  *
- * EspoCRM is free software: you can redistribute it and/or modify
+ * NadlaniCrm is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * EspoCRM is distributed in the hope that it will be useful,
+ * NadlaniCrm is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with EspoCRM. If not, see http://www.gnu.org/licenses/.
+ * along with NadlaniCrm. If not, see http://www.gnu.org/licenses/.
  *
  * The interactive user interfaces in modified source and object code versions
  * of this program must display Appropriate Legal Notices, as required under
  * Section 5 of the GNU General Public License version 3.
  *
  * In accordance with Section 7(b) of the GNU General Public License version 3,
- * these Appropriate Legal Notices must retain the display of the "EspoCRM" word.
+ * these Appropriate Legal Notices must retain the display of the "NadlaniCrm" word.
  ************************************************************************/
 
 namespace tests\integration\Core;
@@ -48,14 +48,14 @@ class Tester
     protected $params;
 
     /**
-     * Espo username which is used for authentication
+     * Nadlani username which is used for authentication
      *
      * @var null
      */
     protected $userName = null;
 
     /**
-     * Espo user password which is used for authentication
+     * Nadlani user password which is used for authentication
      *
      * @var null
      */
@@ -72,7 +72,7 @@ class Tester
 
     protected function normalizeParams(array $params)
     {
-        $namespaceToRemove = 'tests\\integration\\Espo';
+        $namespaceToRemove = 'tests\\integration\\Nadlani';
         $classPath = preg_replace('/^'.preg_quote($namespaceToRemove).'\\\\(.+)Test$/', '${1}', $params['className']);
 
         $params['testDataPath'] = realpath($this->testDataPath);
@@ -122,8 +122,8 @@ class Tester
                 $this->clearCache();
             }
 
-            $this->application = empty($this->portalId) ? new \Espo\Core\Application() : new \Espo\Core\Portal\Application($this->portalId);
-            $auth = new \Espo\Core\Utils\Auth($this->application->getContainer());
+            $this->application = empty($this->portalId) ? new \Nadlani\Core\Application() : new \Nadlani\Core\Portal\Application($this->portalId);
+            $auth = new \Nadlani\Core\Utils\Auth($this->application->getContainer());
 
             if (isset($this->userName)) {
                 $this->password = isset($this->password) ? $this->password : $this->defaultUserPassword;
@@ -170,10 +170,10 @@ class Tester
 
     protected function install()
     {
-        $mainApplication = new \Espo\Core\Application();
+        $mainApplication = new \Nadlani\Core\Application();
         $fileManager = $mainApplication->getContainer()->get('fileManager');
 
-        $latestEspo = Utils::getLatestBuildedPath($this->buildedPath);
+        $latestNadlani = Utils::getLatestBuildedPath($this->buildedPath);
 
         $configData = include($this->configPath);
         $configData['siteUrl'] = $mainApplication->getContainer()->get('config')->get('siteUrl') . '/' . $this->installPath;
@@ -187,10 +187,10 @@ class Tester
             die("Permission denied for directory [".$this->installPath."].\n");
         }
 
-        //remove and copy Espo files
+        //remove and copy Nadlani files
         Utils::dropTables($configData['database']);
         $fileManager->removeInDir($this->installPath);
-        $tt = $fileManager->copy($latestEspo, $this->installPath, true);
+        $tt = $fileManager->copy($latestNadlani, $this->installPath, true);
 
         Utils::fixUndefinedVariables();
 
@@ -246,7 +246,7 @@ class Tester
     {
         $this->clearVars();
 
-        $fileManager = new \Espo\Core\Utils\File\Manager();
+        $fileManager = new \Nadlani\Core\Utils\File\Manager();
         return $fileManager->removeInDir('data/cache');
     }
 
@@ -273,7 +273,7 @@ class Tester
      * @param  string|array $userData - If $userData is a string, then it's a userName with default password
      * @param  array  $role
      *
-     * @return \Espo\Entities\User
+     * @return \Nadlani\Entities\User
      */
     public function createUser($userData, array $roleData = null, $isPortal = false)
     {
@@ -309,7 +309,7 @@ class Tester
             $userData['password'] = $this->defaultUserPassword;
         }
 
-        $passwordHash = new \Espo\Core\Utils\PasswordHash($config);
+        $passwordHash = new \Nadlani\Core\Utils\PasswordHash($config);
         $userData['password'] = $passwordHash->hash($userData['password']);
 
         if ($isPortal) {

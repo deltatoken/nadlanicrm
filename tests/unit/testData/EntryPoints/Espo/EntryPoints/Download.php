@@ -1,9 +1,9 @@
 <?php
 
-namespace tests\unit\testData\EntryPoints\Espo\EntryPoints;
+namespace tests\unit\testData\EntryPoints\Nadlani\EntryPoints;
 
 
-class Download extends \Espo\Core\EntryPoints\Base
+class Download extends \Nadlani\Core\EntryPoints\Base
 {
 
     public function run()

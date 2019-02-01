@@ -1,57 +1,57 @@
 <?php
 /************************************************************************
- * This file is part of EspoCRM.
+ * This file is part of NadlaniCrm.
  *
- * EspoCRM - Open Source CRM application.
- * Copyright (C) 2014-2018 Yuri Kuznetsov, Taras Machyshyn, Oleksiy Avramenko
- * Website: http://www.espocrm.com
+ * NadlaniCrm - Open Source CRM application.
+ * Copyright (C) 2014-2018 Pablo Rotem
+ * Website: https://www.facebook.com/sites4u2
  *
- * EspoCRM is free software: you can redistribute it and/or modify
+ * NadlaniCrm is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * EspoCRM is distributed in the hope that it will be useful,
+ * NadlaniCrm is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with EspoCRM. If not, see http://www.gnu.org/licenses/.
+ * along with NadlaniCrm. If not, see http://www.gnu.org/licenses/.
  *
  * The interactive user interfaces in modified source and object code versions
  * of this program must display Appropriate Legal Notices, as required under
  * Section 5 of the GNU General Public License version 3.
  *
  * In accordance with Section 7(b) of the GNU General Public License version 3,
- * these Appropriate Legal Notices must retain the display of the "EspoCRM" word.
+ * these Appropriate Legal Notices must retain the display of the "NadlaniCrm" word.
  ************************************************************************/
 
-namespace tests\unit\Espo\Core\Formula;
+namespace tests\unit\Nadlani\Core\Formula;
 
-use \Espo\ORM\Entity;
+use \Nadlani\ORM\Entity;
 
 class FormulaTest extends \PHPUnit\Framework\TestCase
 {
 
     protected function setUp()
     {
-        $container = $this->container = $this->getMockBuilder('\\Espo\\Core\\Container')->disableOriginalConstructor()->getMock();
+        $container = $this->container = $this->getMockBuilder('\\Nadlani\\Core\\Container')->disableOriginalConstructor()->getMock();
 
-        $this->functionFactory = new \Espo\Core\Formula\FunctionFactory($container);
-        $this->formula = new \Espo\Core\Formula\Formula($this->functionFactory);
+        $this->functionFactory = new \Nadlani\Core\Formula\FunctionFactory($container);
+        $this->formula = new \Nadlani\Core\Formula\Formula($this->functionFactory);
 
         $this->entity = $this->getEntityMock();
-        $this->entityManager = $this->getMockBuilder('\\Espo\\ORM\\EntityManager')->disableOriginalConstructor()->getMock();
-        $this->repository = $this->getMockBuilder('\\Espo\\ORM\\Repositories\\RDB')->disableOriginalConstructor()->getMock();
+        $this->entityManager = $this->getMockBuilder('\\Nadlani\\ORM\\EntityManager')->disableOriginalConstructor()->getMock();
+        $this->repository = $this->getMockBuilder('\\Nadlani\\ORM\\Repositories\\RDB')->disableOriginalConstructor()->getMock();
 
         date_default_timezone_set('UTC');
 
-        $this->dateTime = new \Espo\Core\Utils\DateTime();
+        $this->dateTime = new \Nadlani\Core\Utils\DateTime();
 
-        $this->number = new \Espo\Core\Utils\NumberUtil();
+        $this->number = new \Nadlani\Core\Utils\NumberUtil();
 
-        $this->config = $this->getMockBuilder('\\Espo\\Core\\Utils\\Config')->disableOriginalConstructor()->getMock();
+        $this->config = $this->getMockBuilder('\\Nadlani\\Core\\Utils\\Config')->disableOriginalConstructor()->getMock();
         $this->config
             ->expects($this->any())
             ->method('get')
@@ -88,7 +88,7 @@ class FormulaTest extends \PHPUnit\Framework\TestCase
 
     protected function getEntityMock()
     {
-        return $this->getMockBuilder('\\Espo\\Core\\ORM\\Entity')->disableOriginalConstructor()->getMock();
+        return $this->getMockBuilder('\\Nadlani\\Core\\ORM\\Entity')->disableOriginalConstructor()->getMock();
     }
 
     protected function setEntityAttributes($entity, $attributes)

@@ -687,11 +687,11 @@
     }
   },
   "themes": {
-    "Espo": "Espo",
+    "Nadlani": "Nadlani",
     "Sakura": "Sakura",
     "Violet": "Violet",
-    "EspoRtl": "Højre-Venstre Espo",
-    "EspoVertical": "Espo m/ sidemenu",
+    "NadlaniRtl": "Højre-Venstre Nadlani",
+    "NadlaniVertical": "Nadlani m/ sidemenu",
     "SakuraVertical": "Sakura M/ sidemenu",
     "VioletVertical": "Violet m/ sidemenu",
     "Hazyblue": "Hazyblue",

@@ -1,6 +1,6 @@
 {
 	"labels": {
-		"Main page title": "Welkom bij EspoCRM",
+		"Main page title": "Welkom bij NadlaniCrm",
 		"Main page header": "",
 		"Start page title": "Licentie Overeenkomst",
 		"Step1 page title": "Licentie Overeenkomst",
@@ -12,9 +12,9 @@
 		"Step5 page title": "SMTP instellingen voor uitgaande e-mails",
 		"Errors page title": "Fouten",
 		"Finish page title": "Installatie is compleet",
-		"Congratulation! Welcome to EspoCRM": "Gefeliciteerd EspoCRM is succesvol geinstalleerd.",
+		"Congratulation! Welcome to NadlaniCrm": "Gefeliciteerd NadlaniCrm is succesvol geinstalleerd.",
 		"More Information": "Voor meer informatie, bezoek onze {BLOG}, volg ons op {TWITTER}.<br><br> Vragen of verzoeken kunt u vermelden op het {FORUM}.",
-		"share": "Tevreden over EspoCRM, deel dit dan met je vrienden. Informeer ze over ons product.",
+		"share": "Tevreden over NadlaniCrm, deel dit dan met je vrienden. Informeer ze over ons product.",
 		"blog": "blog",
 		"twitter": "twitter",
 		"forum": "forum",
@@ -28,7 +28,7 @@
 		"Start": "Start",
 		"Back": "Terug",
 		"Next": "Volgende",
-		"Go to EspoCRM": "Ga naar EspoCRM",
+		"Go to NadlaniCrm": "Ga naar NadlaniCrm",
 		"Re-check": "Re-check",
 		"Version": "Versie",
 		"Test settings": "Test verbinding",
@@ -79,9 +79,9 @@
 	"messages": {
 		"Bad init Permission": "Toestemming geweigerd voor \"{*}\" directory. Stel 775 in voor \"{*}\" of voer deze opdracht uit in Terminal <pre><b>{C}</b></pre>\n\tHandeling niet toegestaan? Probeer deze: {CSU}",
 		"Some errors occurred!": "Er zijn fouten gevonden!",
-		"phpVersion": "Uw PHP versie wordt niet ondersteund door EspoCRM, u moet minimaal updaten naar PHP {minVersion}",
-		"requiredMysqlVersion": "Uw MySQL versie wordt niet ondersteund door EspoCRM, u moet minimaal updaten naar MySQL {minVersion}",
-		"requiredMariadbVersion": "Uw MariaDB versie wordt niet ondersteund door EspoCRM, u moet minimaal updaten naar MariaDB {minVersion}",
+		"phpVersion": "Uw PHP versie wordt niet ondersteund door NadlaniCrm, u moet minimaal updaten naar PHP {minVersion}",
+		"requiredMysqlVersion": "Uw MySQL versie wordt niet ondersteund door NadlaniCrm, u moet minimaal updaten naar MySQL {minVersion}",
+		"requiredMariadbVersion": "Uw MariaDB versie wordt niet ondersteund door NadlaniCrm, u moet minimaal updaten naar MariaDB {minVersion}",
 		"The PHP extension was not found...": "PHP Error: Extension <b>{extName}</b> is not found.",
 		"All Settings correct": "Alle Instellingen zijn juist",
 		"Failed to connect to database": "Kan geen verbinding maken met de database",
@@ -108,7 +108,7 @@
 		"1045": "Geen rechten voor de gebruiker",
 		"extension": "{0} extensie ontbreekt",
 		"option": "Aanbevolen waarde is {0}",
-		"mysqlSettingError": "EspoCRM vraagde MySQL instelling \"{NAME}\" in te stellen op {VALUE}"
+		"mysqlSettingError": "NadlaniCrm vraagde MySQL instelling \"{NAME}\" in te stellen op {VALUE}"
 	},
 	"options": {
 		"db driver": {

@@ -1,1 +1,1 @@
-EspoCRM felhasználói hozzáférési információ
+NadlaniCrm felhasználói hozzáférési információ

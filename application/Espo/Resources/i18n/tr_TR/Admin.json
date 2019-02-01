@@ -152,14 +152,14 @@
     "selectExtensionPackage": "Eklenti paketi seçiniz ",
     "extensionInstalled": "{name} {version} eklentisi başarıyla kuruldu",
     "installExtension": "{name} {version} eklentisi kurulum için hazır",
-    "upgradeVersion": "EspoCRM <strong>{version}</strong> sürümüne güncellenecektir. Bu işlem biraz zaman alabileceği için lütfen sabırlı olunuz.",
-    "upgradeDone": "EspoCRN <strong>{version}</strong> sürümüne yükseltilmiştir.",
+    "upgradeVersion": "NadlaniCrm <strong>{version}</strong> sürümüne güncellenecektir. Bu işlem biraz zaman alabileceği için lütfen sabırlı olunuz.",
+    "upgradeDone": "NadlaniCRN <strong>{version}</strong> sürümüne yükseltilmiştir.",
     "userHasNoEmailAddress": "Kullanıcının email adresi yok"
   },
   "descriptions": {
     "settings": "Uygulamanın sistem ayarları.",
     "scheduledJob": "Cron tarafından gerçekleştirilmiş işler.",
-    "upgrade": "EspoCRM i yükselt.",
+    "upgrade": "NadlaniCrm i yükselt.",
     "clearCache": "Tüm sunucu önbelleğini temizle.",
     "rebuild": "Sunucuyu onar ve önbelleği temizle.",
     "users": "Kullanıcı Yönetimi.",

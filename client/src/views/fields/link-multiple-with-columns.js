@@ -1,32 +1,32 @@
 /************************************************************************
- * This file is part of EspoCRM.
+ * This file is part of NadlaniCrm.
  *
- * EspoCRM - Open Source CRM application.
- * Copyright (C) 2014-2018 Yuri Kuznetsov, Taras Machyshyn, Oleksiy Avramenko
- * Website: http://www.espocrm.com
+ * NadlaniCrm - Open Source CRM application.
+ * Copyright (C) 2014-2018 Pablo Rotem
+ * Website: https://www.facebook.com/sites4u2
  *
- * EspoCRM is free software: you can redistribute it and/or modify
+ * NadlaniCrm is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * EspoCRM is distributed in the hope that it will be useful,
+ * NadlaniCrm is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with EspoCRM. If not, see http://www.gnu.org/licenses/.
+ * along with NadlaniCrm. If not, see http://www.gnu.org/licenses/.
  *
  * The interactive user interfaces in modified source and object code versions
  * of this program must display Appropriate Legal Notices, as required under
  * Section 5 of the GNU General Public License version 3.
  *
  * In accordance with Section 7(b) of the GNU General Public License version 3,
- * these Appropriate Legal Notices must retain the display of the "EspoCRM" word.
+ * these Appropriate Legal Notices must retain the display of the "NadlaniCrm" word.
  ************************************************************************/
 
-Espo.define('views/fields/link-multiple-with-columns', 'views/fields/link-multiple', function (Dep) {
+Nadlani.define('views/fields/link-multiple-with-columns', 'views/fields/link-multiple', function (Dep) {
 
     return Dep.extend({
 
@@ -38,10 +38,10 @@ Espo.define('views/fields/link-multiple-with-columns', 'views/fields/link-multip
             this.columnsDefs = {};
 
             this.columnsName = this.name + 'Columns';
-            this.columns = Espo.Utils.cloneDeep(this.model.get(this.columnsName) || {});
+            this.columns = Nadlani.Utils.cloneDeep(this.model.get(this.columnsName) || {});
 
             this.listenTo(this.model, 'change:' + this.columnsName, function () {
-                this.columns = Espo.Utils.cloneDeep(this.model.get(this.columnsName) || {});
+                this.columns = Nadlani.Utils.cloneDeep(this.model.get(this.columnsName) || {});
             }, this);
 
             var columns = this.getMetadata().get(['entityDefs', this.model.name, 'fields', this.name, 'columns']) || {};
@@ -51,7 +51,7 @@ Espo.define('views/fields/link-multiple-with-columns', 'views/fields/link-multip
 
             this.columnList.forEach(function (column) {
                 if (column in columnsDefsInitial) {
-                    this.columnsDefs[column] = Espo.Utils.cloneDeep(columnsDefsInitial[column]);
+                    this.columnsDefs[column] = Nadlani.Utils.cloneDeep(columnsDefsInitial[column]);
                     return;
                 }
                 if (column in columns) {
@@ -302,7 +302,7 @@ Espo.define('views/fields/link-multiple-with-columns', 'views/fields/link-multip
 
         fetch: function () {
             var data = Dep.prototype.fetch.call(this);
-            data[this.columnsName] = Espo.Utils.cloneDeep(this.columns);
+            data[this.columnsName] = Nadlani.Utils.cloneDeep(this.columns);
             return data;
         },
 

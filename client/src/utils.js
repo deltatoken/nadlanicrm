@@ -1,41 +1,41 @@
 /************************************************************************
- * This file is part of EspoCRM.
+ * This file is part of NadlaniCrm.
  *
- * EspoCRM - Open Source CRM application.
- * Copyright (C) 2014-2018 Yuri Kuznetsov, Taras Machyshyn, Oleksiy Avramenko
- * Website: http://www.espocrm.com
+ * NadlaniCrm - Open Source CRM application.
+ * Copyright (C) 2014-2018 Pablo Rotem
+ * Website: https://www.facebook.com/sites4u2
  *
- * EspoCRM is free software: you can redistribute it and/or modify
+ * NadlaniCrm is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * EspoCRM is distributed in the hope that it will be useful,
+ * NadlaniCrm is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with EspoCRM. If not, see http://www.gnu.org/licenses/.
+ * along with NadlaniCrm. If not, see http://www.gnu.org/licenses/.
  *
  * The interactive user interfaces in modified source and object code versions
  * of this program must display Appropriate Legal Notices, as required under
  * Section 5 of the GNU General Public License version 3.
  *
  * In accordance with Section 7(b) of the GNU General Public License version 3,
- * these Appropriate Legal Notices must retain the display of the "EspoCRM" word.
+ * these Appropriate Legal Notices must retain the display of the "NadlaniCrm" word.
  ************************************************************************/
 
-Espo.define('utils', [], function () {
+Nadlani.define('utils', [], function () {
 
-    var Utils = Espo.utils = Espo.Utils = {
+    var Utils = Nadlani.utils = Nadlani.Utils = {
 
         handleAction: function (viewObject, e) {
             var $target = $(e.currentTarget);
             var action = $target.data('action');
             if (action) {
                 var data = $target.data();
-                var method = 'action' + Espo.Utils.upperCaseFirst(action);
+                var method = 'action' + Nadlani.Utils.upperCaseFirst(action);
                 if (typeof viewObject[method] == 'function') {
                     viewObject[method].call(viewObject, data, e);
                     e.preventDefault();
@@ -151,13 +151,13 @@ Espo.define('utils', [], function () {
             switch (p) {
                 case 'c-h':
                 case 'C-h':
-                    result = Espo.Utils.camelCaseToHyphen(string);
+                    result = Nadlani.Utils.camelCaseToHyphen(string);
                     break;
                 case 'h-c':
-                    result = Espo.Utils.hyphenToCamelCase(string);
+                    result = Nadlani.Utils.hyphenToCamelCase(string);
                     break;
                 case 'h-C':
-                    result = Espo.Utils.hyphenToUpperCamelCase(string);
+                    result = Nadlani.Utils.hyphenToUpperCamelCase(string);
                     break;
             }
             return result;
@@ -171,16 +171,16 @@ Espo.define('utils', [], function () {
         },
 
         clone: function (obj) {
-            if (!Espo.Utils.isObject(obj)) {
+            if (!Nadlani.Utils.isObject(obj)) {
                 return obj;
             }
             return _.isArray(obj) ? obj.slice() : _.extend({}, obj);
         },
 
         cloneDeep: function (data) {
-            data = Espo.Utils.clone(data);
+            data = Nadlani.Utils.clone(data);
 
-            if (Espo.Utils.isObject(data) || _.isArray(data)) {
+            if (Nadlani.Utils.isObject(data) || _.isArray(data)) {
                 for (var i in data) {
                     data[i] = this.cloneDeep(data[i]);
                 }
@@ -227,7 +227,7 @@ Espo.define('utils', [], function () {
         },
 
         toDom: function (string) {
-            return Espo.Utils.convert(string, 'c-h').split('.').join('-');
+            return Nadlani.Utils.convert(string, 'c-h').split('.').join('-');
         },
 
         lowerCaseFirst: function (string) {

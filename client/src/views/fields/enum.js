@@ -1,32 +1,32 @@
 /************************************************************************
- * This file is part of EspoCRM.
+ * This file is part of NadlaniCrm.
  *
- * EspoCRM - Open Source CRM application.
- * Copyright (C) 2014-2018 Yuri Kuznetsov, Taras Machyshyn, Oleksiy Avramenko
- * Website: http://www.espocrm.com
+ * NadlaniCrm - Open Source CRM application.
+ * Copyright (C) 2014-2018 Pablo Rotem
+ * Website: https://www.facebook.com/sites4u2
  *
- * EspoCRM is free software: you can redistribute it and/or modify
+ * NadlaniCrm is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * EspoCRM is distributed in the hope that it will be useful,
+ * NadlaniCrm is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with EspoCRM. If not, see http://www.gnu.org/licenses/.
+ * along with NadlaniCrm. If not, see http://www.gnu.org/licenses/.
  *
  * The interactive user interfaces in modified source and object code versions
  * of this program must display Appropriate Legal Notices, as required under
  * Section 5 of the GNU General Public License version 3.
  *
  * In accordance with Section 7(b) of the GNU General Public License version 3,
- * these Appropriate Legal Notices must retain the display of the "EspoCRM" word.
+ * these Appropriate Legal Notices must retain the display of the "NadlaniCrm" word.
  ************************************************************************/
 
-Espo.define('views/fields/enum', ['views/fields/base', 'lib!Selectize'], function (Dep) {
+Nadlani.define('views/fields/enum', ['views/fields/base', 'lib!Selectize'], function (Dep) {
 
     return Dep.extend({
 
@@ -77,7 +77,7 @@ Espo.define('views/fields/enum', ['views/fields/base', 'lib!Selectize'], functio
 
         setup: function () {
             if (!this.params.options) {
-                var methodName = 'get' + Espo.Utils.upperCaseFirst(this.name) + 'Options';
+                var methodName = 'get' + Nadlani.Utils.upperCaseFirst(this.name) + 'Options';
                 if (typeof this.model[methodName] == 'function') {
                     this.params.options = this.model[methodName].call(this.model);
                 }
@@ -105,7 +105,7 @@ Espo.define('views/fields/enum', ['views/fields/base', 'lib!Selectize'], functio
             }
 
             if (this.params.isSorted && this.translatedOptions) {
-                this.params.options = Espo.Utils.clone(this.params.options);
+                this.params.options = Nadlani.Utils.clone(this.params.options);
                 this.params.options = this.params.options.sort(function (v1, v2) {
                      return (this.translatedOptions[v1] || v1).localeCompare(this.translatedOptions[v2] || v2);
                 }.bind(this));
@@ -157,7 +157,7 @@ Espo.define('views/fields/enum', ['views/fields/base', 'lib!Selectize'], functio
             if (!this.originalOptionList) {
                 this.originalOptionList = this.params.options;
             }
-            this.params.options = Espo.Utils.clone(optionList);
+            this.params.options = Nadlani.Utils.clone(optionList);
 
             if (this.mode == 'edit') {
                 if (this.isRendered()) {
@@ -177,7 +177,7 @@ Espo.define('views/fields/enum', ['views/fields/base', 'lib!Selectize'], functio
 
         resetOptionList: function () {
             if (this.originalOptionList) {
-                this.params.options = Espo.Utils.clone(this.originalOptionList);
+                this.params.options = Nadlani.Utils.clone(this.originalOptionList);
             }
 
             if (this.mode == 'edit') {

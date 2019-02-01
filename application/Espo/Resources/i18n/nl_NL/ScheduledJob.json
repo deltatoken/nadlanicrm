@@ -19,9 +19,9 @@
             "SendEmailReminders": "Stuur Herinnering Email"
         },
         "cronSetup": {
-            "linux": "Opgelet; Voeg deze regel toe aan uw crontab bestand tbv de geplande Espo opdrachten:",
-            "mac": "Opgelet; Voeg deze regel toe aan uw crontab bestand tbv de geplande Espo opdrachten:",
-            "windows": "Opgelet: Maak een batch bestand met de volgende commando's om de geplande opdrachten voor Espo onder Windows te gebruiken:",
+            "linux": "Opgelet; Voeg deze regel toe aan uw crontab bestand tbv de geplande Nadlani opdrachten:",
+            "mac": "Opgelet; Voeg deze regel toe aan uw crontab bestand tbv de geplande Nadlani opdrachten:",
+            "windows": "Opgelet: Maak een batch bestand met de volgende commando's om de geplande opdrachten voor Nadlani onder Windows te gebruiken:",
             "default": "Opgelet: Voeg deze regel toe aan de Cron Job (geplande opdracht):"
         },
         "status": {

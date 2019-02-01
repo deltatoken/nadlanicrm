@@ -1,36 +1,36 @@
 <?php
 /************************************************************************
- * This file is part of EspoCRM.
+ * This file is part of NadlaniCrm.
  *
- * EspoCRM - Open Source CRM application.
- * Copyright (C) 2014-2018 Yuri Kuznetsov, Taras Machyshyn, Oleksiy Avramenko
- * Website: http://www.espocrm.com
+ * NadlaniCrm - Open Source CRM application.
+ * Copyright (C) 2014-2018 Pablo Rotem
+ * Website: https://www.facebook.com/sites4u2
  *
- * EspoCRM is free software: you can redistribute it and/or modify
+ * NadlaniCrm is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * EspoCRM is distributed in the hope that it will be useful,
+ * NadlaniCrm is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with EspoCRM. If not, see http://www.gnu.org/licenses/.
+ * along with NadlaniCrm. If not, see http://www.gnu.org/licenses/.
  *
  * The interactive user interfaces in modified source and object code versions
  * of this program must display Appropriate Legal Notices, as required under
  * Section 5 of the GNU General Public License version 3.
  *
  * In accordance with Section 7(b) of the GNU General Public License version 3,
- * these Appropriate Legal Notices must retain the display of the "EspoCRM" word.
+ * these Appropriate Legal Notices must retain the display of the "NadlaniCrm" word.
  ************************************************************************/
 
-namespace Espo\Core;
+namespace Nadlani\Core;
 
-use \Espo\Core\Utils\Util;
-use \Espo\Core\Exceptions\NotFound;
+use \Nadlani\Core\Utils\Util;
+use \Nadlani\Core\Exceptions\NotFound;
 
 class ControllerManager
 {
@@ -42,7 +42,7 @@ class ControllerManager
 
     private $controllersHash = null;
 
-    public function __construct(\Espo\Core\Container $container)
+    public function __construct(\Nadlani\Core\Container $container)
     {
         $this->container = $container;
 
@@ -64,15 +64,15 @@ class ControllerManager
 
     protected function getControllerClassName($controllerName)
     {
-        $customClassName = '\\Espo\\Custom\\Controllers\\' . Util::normilizeClassName($controllerName);
+        $customClassName = '\\Nadlani\\Custom\\Controllers\\' . Util::normilizeClassName($controllerName);
         if (class_exists($customClassName)) {
             $controllerClassName = $customClassName;
         } else {
             $moduleName = $this->metadata->getScopeModuleName($controllerName);
             if ($moduleName) {
-                $controllerClassName = '\\Espo\\Modules\\' . $moduleName . '\\Controllers\\' . Util::normilizeClassName($controllerName);
+                $controllerClassName = '\\Nadlani\\Modules\\' . $moduleName . '\\Controllers\\' . Util::normilizeClassName($controllerName);
             } else {
-                $controllerClassName = '\\Espo\\Controllers\\' . Util::normilizeClassName($controllerName);
+                $controllerClassName = '\\Nadlani\\Controllers\\' . Util::normilizeClassName($controllerName);
             }
         }
 
@@ -99,7 +99,7 @@ class ControllerManager
         return $this->controllersHash->$name;
     }
 
-    public function processRequest(\Espo\Core\Controllers\Base $controller, $actionName, $params, $data, $request, $response = null)
+    public function processRequest(\Nadlani\Core\Controllers\Base $controller, $actionName, $params, $data, $request, $response = null)
     {
         if ($data && stristr($request->getContentType(), 'application/json')) {
             $data = json_decode($data);
@@ -147,7 +147,7 @@ class ControllerManager
         }
 
         if (is_array($result) || is_bool($result) || $result instanceof \StdClass) {
-            return \Espo\Core\Utils\Json::encode($result);
+            return \Nadlani\Core\Utils\Json::encode($result);
         }
 
         return $result;

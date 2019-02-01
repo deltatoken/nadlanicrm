@@ -1,1 +1,1 @@
-EspoCRM vartotojo prieigos informacija
+NadlaniCrm vartotojo prieigos informacija

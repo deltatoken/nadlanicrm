@@ -135,9 +135,9 @@
     "useNumericFormat": "使用数字格式"
   },
   "messages": {
-    "upgradeVersion": "EspoCRM将升级至版本<strong>{version}</strong>, 升级可能需要一段时间，请耐心等待。",
-    "upgradeDone": "EspoCRM已升级至版本<strong>{version}</strong>。",
-    "upgradeBackup": "建议在升级EspoCRM之前备份文件和数据。",
+    "upgradeVersion": "NadlaniCrm将升级至版本<strong>{version}</strong>, 升级可能需要一段时间，请耐心等待。",
+    "upgradeDone": "NadlaniCrm已升级至版本<strong>{version}</strong>。",
+    "upgradeBackup": "建议在升级NadlaniCrm之前备份文件和数据。",
     "thousandSeparatorEqualsDecimalMark": "千分分隔符不能与小数点字符相同。",
     "userHasNoEmailAddress": "用户未设置Email地址。",
     "selectEntityType": "在左侧菜单选择功能类型。",
@@ -148,14 +148,14 @@
     "extensionInstalled": "扩展{name}{version}已安装。",
     "installExtension": "扩展{name}{version}已准备好进行安装。",
     "cronIsNotConfigured": "计划作业没有运行。因此入站邮件、通知和提醒都不起作用。 请按照[instructions](https://www.espocrm.com/documentation/administration/server-configuration/#user-content-setup-a-crontab)设置 cron job.",
-    "newVersionIsAvailable": "有新的EspoCRM版本{latestVersion}可用。",
+    "newVersionIsAvailable": "有新的NadlaniCrm版本{latestVersion}可用。",
     "newExtensionVersionIsAvailable": "{extensionName}有新版本{latestVersion}可以使用。",
     "uninstallConfirmation": "是否卸载扩展？"
   },
   "descriptions": {
     "settings": "应用程序的系统设置。",
     "scheduledJob": "由Cron执行的作业。",
-    "upgrade": "升级EspoCRM。",
+    "upgrade": "升级NadlaniCrm。",
     "clearCache": "清除所有后端缓存。",
     "rebuild": "重建后端并清除缓存。",
     "users": "用户管理。",

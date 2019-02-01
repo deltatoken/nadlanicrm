@@ -57,7 +57,7 @@
         },
         "authenticationMethod": {
             "type": "enum",
-            "options": ["Espo", "LDAP", "ApiKey", "Hmac"]
+            "options": ["Nadlani", "LDAP", "ApiKey", "Hmac"]
         }
     },
     "links": {

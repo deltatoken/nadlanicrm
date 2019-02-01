@@ -1,6 +1,6 @@
 {
   "labels": {
-    "Main page title": "Üdvözöljük az EspoCRM-en",
+    "Main page title": "Üdvözöljük az NadlaniCrm-en",
     "Start page title": "Licencszerződés",
     "Step1 page title": "Licencszerződés",
     "License Agreement": "Licencszerződés",
@@ -11,9 +11,9 @@
     "Step5 page title": "SMTP-beállítások a kimenő e-mailekhez",
     "Errors page title": "hibák",
     "Finish page title": "A telepítés befejeződött",
-    "Congratulation! Welcome to EspoCRM": "Gratuláció! Az EspoCRM sikeresen telepítve lett.",
+    "Congratulation! Welcome to NadlaniCrm": "Gratuláció! Az NadlaniCrm sikeresen telepítve lett.",
     "More Information": "További információért látogasson el a (z) {BLOG} webhelyre, kövesse velünk a (z) {TWITTER} webhelyet. <br> <br> Ha bármilyen javaslata vagy kérdése van, kérdezze meg a (z) {FORUM} fórumot.",
-    "share": "Ha tetszik az EspoCRM, ossza meg barátaival. Tájékoztasson erről a termékről.",
+    "share": "Ha tetszik az NadlaniCrm, ossza meg barátaival. Tájékoztasson erről a termékről.",
     "forum": "fórum",
     "Installation Guide": "Telepítési útmutató",
     "localhost": "helyi kiszolgáló",
@@ -22,7 +22,7 @@
     "Start": "Rajt",
     "Back": "Hát",
     "Next": "Következő",
-    "Go to EspoCRM": "Menjen az EspoCRM-be",
+    "Go to NadlaniCrm": "Menjen az NadlaniCrm-be",
     "Re-check": "Re-ellenőrzés",
     "Version": "Változat",
     "Test settings": "Vizsgálati kapcsolat",
@@ -74,9 +74,9 @@
     "2005": "Ismeretlen MySQL kiszolgáló állomás",
     "Bad init Permission": "Engedély megtagadva a \"{*}\" könyvtárhoz. Kérjük, állítsa be 775-öt a \"{*}\" -re, vagy csak hajtsa végre ezt a parancsot a <pre> <b> {C} </ b> </ pre>\nA művelet nem engedélyezett? Próbálja ki ezt: {CSU}",
     "Some errors occurred!": "Néhány hiba történt!",
-    "phpVersion": "PHP-verzióját nem támogatja az EspoCRM, kérjük, frissítse legalább a PHP {minVersion} programot",
-    "requiredMysqlVersion": "A MySQL verzióját nem támogatja az EspoCRM, kérjük, frissítse legalább a MySQL {minVersion} programot",
-    "requiredMariadbVersion": "A MariaDB verzióját nem támogatja az EspoCRM, kérjük, frissítse legalább a MariaDB {minVersion} programot",
+    "phpVersion": "PHP-verzióját nem támogatja az NadlaniCrm, kérjük, frissítse legalább a PHP {minVersion} programot",
+    "requiredMysqlVersion": "A MySQL verzióját nem támogatja az NadlaniCrm, kérjük, frissítse legalább a MySQL {minVersion} programot",
+    "requiredMariadbVersion": "A MariaDB verzióját nem támogatja az NadlaniCrm, kérjük, frissítse legalább a MariaDB {minVersion} programot",
     "The PHP extension was not found...": "PHP hiba: A kiterjesztés <b> {extName} </ b> nem található.",
     "All Settings correct": "Minden beállítás helyes",
     "Failed to connect to database": "Nem sikerült csatlakozni az adatbázishoz",
@@ -99,24 +99,24 @@
     "Thousand Separator and Decimal Mark equal": "Ezer elválasztó és decimális jelölés nem lehet egyenlő",
     "extension": "{0} kiterjesztés hiányzik",
     "option": "A javasolt érték {0}",
-    "mysqlSettingError": "Az EspoCRM-nek meg kell adnia a (z) \"{NAME}\" MySQL beállítását: {VALUE}"
+    "mysqlSettingError": "Az NadlaniCrm-nek meg kell adnia a (z) \"{NAME}\" MySQL beállítását: {VALUE}"
   },
   "options": {
     "modRewriteInstruction": {
       "apache": {
         "windows": "<br> <pre> 1. Keresse meg a httpd.conf fájlt (általában megtalálja azt egy mappában, amit conf, config vagy valami hasonló sorok mentén talál) <br>\n2. A httpd.conf fájl belsejében olvassa el a LoadModule rewrite_module modulok / mod_rewrite.so sorát (távolítsa el a font \"#\" jelet a sor elejéről) <br>\n3. Keresse meg a ClearModuleList vonalat sem, majd keresse meg és győződjön meg róla, hogy a mod_rewrite.c AddModule vonalat nem kommentálta.\n</ Pre>",
-        "linux": "Matton 1. Engedélyezze a \"mod_rewrite\" beállítást. Ehhez futtassa ezeket a parancsokat egy terminálban: <pre> {APACHE1} </ pre> <br> 2. Engedélyezze a .htaccess támogatást. A kiszolgáló konfigurációs beállításainak hozzáadása / szerkesztése (/etc/apache/apache2.conf, /etc/httpd/conf/httpd.conf): <pre> {APACHE2} </ pre>\n Ezután futtassa ezt a parancsot egy terminálban: <pre> {APACHE3} </ pre> <br> 3. Próbálja meg hozzáadni a RewriteBase elérési utat, nyisson meg egy {API_PATH} .htaccess fájlt, és cserélje ki a következő sort: <pre> {APACHE4} </ pre> A <pre> {APACHE5} </ pre> az <a href=\"https://www.espocrm.com/documentation/administration/apache-server-configuration/\" target=\"_blank\"> Apache kiszolgáló konfigurációja az EspoCRM-hez </a>. <br> <br>"
+        "linux": "Matton 1. Engedélyezze a \"mod_rewrite\" beállítást. Ehhez futtassa ezeket a parancsokat egy terminálban: <pre> {APACHE1} </ pre> <br> 2. Engedélyezze a .htaccess támogatást. A kiszolgáló konfigurációs beállításainak hozzáadása / szerkesztése (/etc/apache/apache2.conf, /etc/httpd/conf/httpd.conf): <pre> {APACHE2} </ pre>\n Ezután futtassa ezt a parancsot egy terminálban: <pre> {APACHE3} </ pre> <br> 3. Próbálja meg hozzáadni a RewriteBase elérési utat, nyisson meg egy {API_PATH} .htaccess fájlt, és cserélje ki a következő sort: <pre> {APACHE4} </ pre> A <pre> {APACHE5} </ pre> az <a href=\"https://www.espocrm.com/documentation/administration/apache-server-configuration/\" target=\"_blank\"> Apache kiszolgáló konfigurációja az NadlaniCrm-hez </a>. <br> <br>"
       },
       "nginx": {
-        "linux": "katalógusa\n<Pre>\n{Nginx}\n</ pre> <br> További információkért látogasson el a <a href=\"https://www.espocrm.com/documentation/administration/nginx-server-configuration/\" target=\"_blank\"> Útmutató a Nginx kiszolgáló konfigurációjához EspoCRM </a>. Matton",
-        "windows": "katalógusa\n<Pre>\n{Nginx}\n</ pre> <br> További információkért látogasson el a <a href=\"https://www.espocrm.com/documentation/administration/nginx-server-configuration/\" target=\"_blank\"> Útmutató a Nginx kiszolgáló konfigurációjához EspoCRM </a>. Matton"
+        "linux": "katalógusa\n<Pre>\n{Nginx}\n</ pre> <br> További információkért látogasson el a <a href=\"https://www.espocrm.com/documentation/administration/nginx-server-configuration/\" target=\"_blank\"> Útmutató a Nginx kiszolgáló konfigurációjához NadlaniCrm </a>. Matton",
+        "windows": "katalógusa\n<Pre>\n{Nginx}\n</ pre> <br> További információkért látogasson el a <a href=\"https://www.espocrm.com/documentation/administration/nginx-server-configuration/\" target=\"_blank\"> Útmutató a Nginx kiszolgáló konfigurációjához NadlaniCrm </a>. Matton"
       }
     },
     "modRewriteTitle": {
-      "apache": "API hiba: Az EspoCRM API nem érhető el. <br> Lehetséges problémák: letiltott \"mod_rewrite\" az Apache szerveren, letiltott .htaccess támogatás vagy RewriteBase kiadás. <br> Csak a szükséges lépéseket tegye meg. Minden lépés után ellenőrizze, hogy a probléma megoldódott-e.",
-      "nginx": "API hiba: Az EspoCRM API nem érhető el. <br> Adja hozzá ezt a kódot a \"server\" szakaszban a Nginx kiszolgáló blokk konfigurációs fájljához (/ etc / nginx / sites-available / YOUR_SITE)",
-      "microsoft-iis": "API-hiba: az EspoCRM API nem érhető el. <br> Lehetséges probléma: letiltva \"URL Rewrite\". Kérjük, ellenőrizze és engedélyezze az \"URL Rewrite\" modult az IIS kiszolgálón",
-      "default": "API hiba: Az EspoCRM API nem érhető el. <br> Lehetséges probléma: letiltva újraírható modul. Kérjük, ellenőrizze és engedélyezze a Rewrite Modult a kiszolgálón (például mod_rewrite az Apache-ban) és a .htaccess támogatást."
+      "apache": "API hiba: Az NadlaniCrm API nem érhető el. <br> Lehetséges problémák: letiltott \"mod_rewrite\" az Apache szerveren, letiltott .htaccess támogatás vagy RewriteBase kiadás. <br> Csak a szükséges lépéseket tegye meg. Minden lépés után ellenőrizze, hogy a probléma megoldódott-e.",
+      "nginx": "API hiba: Az NadlaniCrm API nem érhető el. <br> Adja hozzá ezt a kódot a \"server\" szakaszban a Nginx kiszolgáló blokk konfigurációs fájljához (/ etc / nginx / sites-available / YOUR_SITE)",
+      "microsoft-iis": "API-hiba: az NadlaniCrm API nem érhető el. <br> Lehetséges probléma: letiltva \"URL Rewrite\". Kérjük, ellenőrizze és engedélyezze az \"URL Rewrite\" modult az IIS kiszolgálón",
+      "default": "API hiba: Az NadlaniCrm API nem érhető el. <br> Lehetséges probléma: letiltva újraírható modul. Kérjük, ellenőrizze és engedélyezze a Rewrite Modult a kiszolgálón (például mod_rewrite az Apache-ban) és a .htaccess támogatást."
     }
   }
 }

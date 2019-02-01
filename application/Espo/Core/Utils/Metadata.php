@@ -1,35 +1,35 @@
 <?php
 /************************************************************************
- * This file is part of EspoCRM.
+ * This file is part of NadlaniCrm.
  *
- * EspoCRM - Open Source CRM application.
- * Copyright (C) 2014-2018 Yuri Kuznetsov, Taras Machyshyn, Oleksiy Avramenko
- * Website: http://www.espocrm.com
+ * NadlaniCrm - Open Source CRM application.
+ * Copyright (C) 2014-2018 Pablo Rotem
+ * Website: https://www.facebook.com/sites4u2
  *
- * EspoCRM is free software: you can redistribute it and/or modify
+ * NadlaniCrm is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * EspoCRM is distributed in the hope that it will be useful,
+ * NadlaniCrm is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with EspoCRM. If not, see http://www.gnu.org/licenses/.
+ * along with NadlaniCrm. If not, see http://www.gnu.org/licenses/.
  *
  * The interactive user interfaces in modified source and object code versions
  * of this program must display Appropriate Legal Notices, as required under
  * Section 5 of the GNU General Public License version 3.
  *
  * In accordance with Section 7(b) of the GNU General Public License version 3,
- * these Appropriate Legal Notices must retain the display of the "EspoCRM" word.
+ * these Appropriate Legal Notices must retain the display of the "NadlaniCrm" word.
  ************************************************************************/
 
-namespace Espo\Core\Utils;
+namespace Nadlani\Core\Utils;
 
-use Espo\Core\Exceptions\Error;
+use Nadlani\Core\Exceptions\Error;
 
 class Metadata
 {
@@ -49,16 +49,16 @@ class Metadata
 
     private $metadataHelper;
 
-    protected $pathToModules = 'application/Espo/Modules';
+    protected $pathToModules = 'application/Nadlani/Modules';
 
     protected $cacheFile = 'data/cache/application/metadata.php';
 
     protected $objCacheFile = 'data/cache/application/objMetadata.php';
 
     protected $paths = array(
-        'corePath' => 'application/Espo/Resources/metadata',
-        'modulePath' => 'application/Espo/Modules/{*}/Resources/metadata',
-        'customPath' => 'custom/Espo/Custom/Resources/metadata',
+        'corePath' => 'application/Nadlani/Resources/metadata',
+        'modulePath' => 'application/Nadlani/Modules/{*}/Resources/metadata',
+        'customPath' => 'custom/Nadlani/Custom/Resources/metadata',
     );
 
     private $moduleList = null;
@@ -80,7 +80,7 @@ class Metadata
 
     private $changedData = array();
 
-    public function __construct(\Espo\Core\Utils\File\Manager $fileManager, $useCache = false)
+    public function __construct(\Nadlani\Core\Utils\File\Manager $fileManager, $useCache = false)
     {
         $this->useCache = $useCache;
         $this->fileManager = $fileManager;
@@ -94,7 +94,7 @@ class Metadata
     protected function getUnifier()
     {
         if (!isset($this->unifier)) {
-            $this->unifier = new \Espo\Core\Utils\File\Unifier($this->fileManager, $this, false);
+            $this->unifier = new \Nadlani\Core\Utils\File\Unifier($this->fileManager, $this, false);
         }
 
         return $this->unifier;
@@ -103,7 +103,7 @@ class Metadata
     protected function getObjUnifier()
     {
         if (!isset($this->objUnifier)) {
-            $this->objUnifier = new \Espo\Core\Utils\File\Unifier($this->fileManager, $this, true);
+            $this->objUnifier = new \Nadlani\Core\Utils\File\Unifier($this->fileManager, $this, true);
         }
 
         return $this->objUnifier;
@@ -112,7 +112,7 @@ class Metadata
     protected function getModuleConfig()
     {
         if (!isset($this->moduleConfig)) {
-            $this->moduleConfig = new \Espo\Core\Utils\Module($this->fileManager, $this->useCache);
+            $this->moduleConfig = new \Nadlani\Core\Utils\Module($this->fileManager, $this->useCache);
         }
 
         return $this->moduleConfig;
@@ -561,7 +561,7 @@ class Metadata
     }
 
     /**
-     * Get Entity path, ex. Espo.Entities.Account or Modules\Crm\Entities\MyModule
+     * Get Entity path, ex. Nadlani.Entities.Account or Modules\Crm\Entities\MyModule
      *
      * @param string $entityName
      * @param bool $delim - delimiter
@@ -643,7 +643,7 @@ class Metadata
     {
         $moduleName = $this->getScopeModuleName($scopeName);
 
-        $path = ($moduleName !== false) ? 'Espo/Modules/'.$moduleName : 'Espo';
+        $path = ($moduleName !== false) ? 'Nadlani/Modules/'.$moduleName : 'Nadlani';
 
         if ($delim != '/') {
            $path = str_replace('/', $delim, $path);

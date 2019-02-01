@@ -1,6 +1,6 @@
 {
   "labels": {
-    "Main page title": "Bem vindo ao EspoCRM",
+    "Main page title": "Bem vindo ao NadlaniCrm",
     "Main page header": "",
     "Start page title": "Contrato de Licença",
     "Step1 page title": "Contrato de Licença",
@@ -12,9 +12,9 @@
     "Step5 page title": "Configurações SMTP para envio de e-mails",
     "Errors page title": "Erros",
     "Finish page title": "Instalação completa",
-    "Congratulation! Welcome to EspoCRM!": "Parabéns! O EspoCRM foi instalado com sucesso.",
+    "Congratulation! Welcome to NadlaniCrm!": "Parabéns! O NadlaniCrm foi instalado com sucesso.",
     "More Information": "For more information, please visit our {BLOG}, follow us on {TWITTER}.<br><br>If you have any suggestions or questions, please ask on the {FORUM}.",
-    "share": "If you like EspoCRM, share it with your friends. Let them know about this product.",
+    "share": "If you like NadlaniCrm, share it with your friends. Let them know about this product.",
     "blog": "blog",
     "twitter": "twitter",
     "forum": "forum",
@@ -28,7 +28,7 @@
     "Start": "Iniciar",
     "Back": "Voltar",
     "Next": "Avançar",
-    "Go to EspoCRM": "Ir para o EspoCRM",
+    "Go to NadlaniCrm": "Ir para o NadlaniCrm",
     "Re-check": "Verificar novamente",
     "Version": "Version",
     "Test settings": "Testar Conexão",

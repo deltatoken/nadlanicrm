@@ -20,7 +20,7 @@
             [{"name": "ldapUserLoginFilter", "fullWidth": true}],
             [{"name": "ldapAccountDomainName"}, {"name": "ldapAccountDomainNameShort"}],
             [{"name": "ldapTryUsernameSplit"}, {"name": "ldapOptReferrals"}],
-            [{"name": "ldapCreateEspoUser"}, false],
+            [{"name": "ldapCreateNadlaniUser"}, false],
             [{"name": "ldapUserFirstNameAttribute"}, {"name": "ldapUserLastNameAttribute"}],
             [{"name": "ldapUserTitleAttribute"}, false],
             [{"name": "ldapUserEmailAddressAttribute"}, {"name": "ldapUserPhoneNumberAttribute"}],

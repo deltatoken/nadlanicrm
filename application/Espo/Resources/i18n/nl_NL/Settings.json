@@ -40,7 +40,7 @@
         "ldapAccountCanonicalForm": "Standaard Formulier Gebruiker",
         "ldapAccountDomainName": "Domeinnaam Account",
         "ldapTryUsernameSplit": "Probeer gesplitste Gebruikersnaam",
-        "ldapCreateEspoUser": "Gebruiker aanmaken in EspoCRM",
+        "ldapCreateNadlaniUser": "Gebruiker aanmaken in NadlaniCrm",
         "ldapSecurity": "Beveiliging",
         "ldapUserLoginFilter": "Gebruikers Login Filter",
         "ldapAccountDomainNameShort": "Korte Gebruikers Domein Naam",

@@ -1,32 +1,32 @@
 /************************************************************************
- * This file is part of EspoCRM.
+ * This file is part of NadlaniCrm.
  *
- * EspoCRM - Open Source CRM application.
- * Copyright (C) 2014-2018 Yuri Kuznetsov, Taras Machyshyn, Oleksiy Avramenko
- * Website: http://www.espocrm.com
+ * NadlaniCrm - Open Source CRM application.
+ * Copyright (C) 2014-2018 Pablo Rotem
+ * Website: https://www.facebook.com/sites4u2
  *
- * EspoCRM is free software: you can redistribute it and/or modify
+ * NadlaniCrm is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * EspoCRM is distributed in the hope that it will be useful,
+ * NadlaniCrm is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with EspoCRM. If not, see http://www.gnu.org/licenses/.
+ * along with NadlaniCrm. If not, see http://www.gnu.org/licenses/.
  *
  * The interactive user interfaces in modified source and object code versions
  * of this program must display Appropriate Legal Notices, as required under
  * Section 5 of the GNU General Public License version 3.
  *
  * In accordance with Section 7(b) of the GNU General Public License version 3,
- * these Appropriate Legal Notices must retain the display of the "EspoCRM" word.
+ * these Appropriate Legal Notices must retain the display of the "NadlaniCrm" word.
  ************************************************************************/
 
-Espo.define('views/admin/link-manager/modals/edit', ['views/modal', 'views/admin/link-manager/index', 'model'], function (Dep, Index, Model) {
+Nadlani.define('views/admin/link-manager/modals/edit', ['views/modal', 'views/admin/link-manager/index', 'model'], function (Dep, Index, Model) {
 
     return Dep.extend({
 
@@ -314,36 +314,36 @@ Espo.define('views/admin/link-manager/modals/edit', ['views/modal', 'views/admin
 
             switch (linkType) {
                 case 'oneToMany':
-                    linkForeign = Espo.Utils.lowerCaseFirst(this.scope);
-                    link = this.toPlural(Espo.Utils.lowerCaseFirst(entityForeign));
+                    linkForeign = Nadlani.Utils.lowerCaseFirst(this.scope);
+                    link = this.toPlural(Nadlani.Utils.lowerCaseFirst(entityForeign));
                     if (entityForeign == this.scope) {
 
-                        if (linkForeign == Espo.Utils.lowerCaseFirst(this.scope)) {
+                        if (linkForeign == Nadlani.Utils.lowerCaseFirst(this.scope)) {
                             linkForeign = linkForeign + 'Parent';
                         }
                     }
                     break;
                 case 'manyToOne':
-                    linkForeign = this.toPlural(Espo.Utils.lowerCaseFirst(this.scope));
-                    link = Espo.Utils.lowerCaseFirst(entityForeign);
+                    linkForeign = this.toPlural(Nadlani.Utils.lowerCaseFirst(this.scope));
+                    link = Nadlani.Utils.lowerCaseFirst(entityForeign);
                     if (entityForeign == this.scope) {
-                        if (link == Espo.Utils.lowerCaseFirst(this.scope)) {
+                        if (link == Nadlani.Utils.lowerCaseFirst(this.scope)) {
                             link = link + 'Parent';
                         }
                     }
                     break;
                 case 'manyToMany':
-                    linkForeign = this.toPlural(Espo.Utils.lowerCaseFirst(this.scope));
-                    link = this.toPlural(Espo.Utils.lowerCaseFirst(entityForeign));
+                    linkForeign = this.toPlural(Nadlani.Utils.lowerCaseFirst(this.scope));
+                    link = this.toPlural(Nadlani.Utils.lowerCaseFirst(entityForeign));
                     if (link == linkForeign) {
                         link = link + 'Right';
                         linkForeign = linkForeign + 'Left';
                     }
                     var relationName;
                     if (this.scope.localeCompare(entityForeign)) {
-                        relationName = Espo.Utils.lowerCaseFirst(this.scope) + entityForeign;
+                        relationName = Nadlani.Utils.lowerCaseFirst(this.scope) + entityForeign;
                     } else {
-                        relationName = Espo.Utils.lowerCaseFirst(entityForeign) + this.scope;
+                        relationName = Nadlani.Utils.lowerCaseFirst(entityForeign) + this.scope;
                     }
                     this.model.set('relationName', relationName);
                     break;
@@ -364,8 +364,8 @@ Espo.define('views/admin/link-manager/modals/edit', ['views/modal', 'views/admin
             this.model.set('link', link);
             this.model.set('linkForeign', linkForeign);
 
-            this.model.set('label', Espo.Utils.upperCaseFirst(link));
-            this.model.set('labelForeign', Espo.Utils.upperCaseFirst(linkForeign));
+            this.model.set('label', Nadlani.Utils.upperCaseFirst(link));
+            this.model.set('labelForeign', Nadlani.Utils.upperCaseFirst(linkForeign));
 
             return;
         },
@@ -377,7 +377,7 @@ Espo.define('views/admin/link-manager/modals/edit', ['views/modal', 'views/admin
                     return g.toUpperCase();
                 }).replace(' ', '');
                 if (value.length) {
-                     value = Espo.Utils.lowerCaseFirst(value);
+                     value = Nadlani.Utils.lowerCaseFirst(value);
                 }
             }
             this.model.set(field, value);
@@ -558,16 +558,16 @@ Espo.define('views/admin/link-manager/modals/edit', ['views/modal', 'views/admin
                         if (statusReasonHeader) {
                             console.error(statusReasonHeader);
                         }
-                        Espo.Ui.error(msg);
+                        Nadlani.Ui.error(msg);
                         xhr.errorIsHandled = true;
                     }
                     this.$el.find('button[data-name="save"]').removeClass('disabled').removeAttr('disabled');
                 }.bind(this)
             }).done(function () {
                 if (!this.isNew) {
-                    Espo.Ui.success(this.translate('Saved'));
+                    Nadlani.Ui.success(this.translate('Saved'));
                 } else {
-                    Espo.Ui.success(this.translate('Created'));
+                    Nadlani.Ui.success(this.translate('Created'));
                 }
 
                 this.model.fetchedAttributes = this.model.getClonedAttributes();

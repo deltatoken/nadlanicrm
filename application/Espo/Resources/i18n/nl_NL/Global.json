@@ -545,9 +545,9 @@
         }
     },
     "themes": {
-        "Espo": "Espo",
+        "Nadlani": "Nadlani",
         "Sakura": "Sakura",
-        "EspoVertical": "Espo (Vertical)",
+        "NadlaniVertical": "Nadlani (Vertical)",
         "SakuraVertical": "Sakura (Vertical)"
     }
 }

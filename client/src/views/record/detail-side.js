@@ -1,32 +1,32 @@
 /************************************************************************
- * This file is part of EspoCRM.
+ * This file is part of NadlaniCrm.
  *
- * EspoCRM - Open Source CRM application.
- * Copyright (C) 2014-2018 Yuri Kuznetsov, Taras Machyshyn, Oleksiy Avramenko
- * Website: http://www.espocrm.com
+ * NadlaniCrm - Open Source CRM application.
+ * Copyright (C) 2014-2018 Pablo Rotem
+ * Website: https://www.facebook.com/sites4u2
  *
- * EspoCRM is free software: you can redistribute it and/or modify
+ * NadlaniCrm is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * EspoCRM is distributed in the hope that it will be useful,
+ * NadlaniCrm is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with EspoCRM. If not, see http://www.gnu.org/licenses/.
+ * along with NadlaniCrm. If not, see http://www.gnu.org/licenses/.
  *
  * The interactive user interfaces in modified source and object code versions
  * of this program must display Appropriate Legal Notices, as required under
  * Section 5 of the GNU General Public License version 3.
  *
  * In accordance with Section 7(b) of the GNU General Public License version 3,
- * these Appropriate Legal Notices must retain the display of the "EspoCRM" word.
+ * these Appropriate Legal Notices must retain the display of the "NadlaniCrm" word.
  ************************************************************************/
 
-Espo.define('views/record/detail-side', 'views/record/panels-container', function (Dep) {
+Nadlani.define('views/record/detail-side', 'views/record/panels-container', function (Dep) {
 
     return Dep.extend({
 
@@ -65,7 +65,7 @@ Espo.define('views/record/detail-side', 'views/record/panels-container', functio
 
             this.recordHelper = this.options.recordHelper;
 
-            this.panelList = Espo.Utils.clone(this.panelList);
+            this.panelList = Nadlani.Utils.clone(this.panelList);
 
             this.readOnlyLocked = this.options.readOnlyLocked || this.readOnly;
             this.readOnly = this.options.readOnly || this.readOnly;
@@ -101,7 +101,7 @@ Espo.define('views/record/detail-side', 'views/record/panels-container', functio
                     }
                 }
                 if (p.accessDataList) {
-                    if (!Espo.Utils.checkAccessDataList(p.accessDataList, this.getAcl(), this.getUser())) {
+                    if (!Nadlani.Utils.checkAccessDataList(p.accessDataList, this.getAcl(), this.getUser())) {
                         return false;
                     }
                 }
@@ -109,7 +109,7 @@ Espo.define('views/record/detail-side', 'views/record/panels-container', functio
             }, this);
 
             this.panelList = this.panelList.map(function (p) {
-                var item = Espo.Utils.clone(p);
+                var item = Nadlani.Utils.clone(p);
                 if (this.recordHelper.getPanelStateParam(p.name, 'hidden') !== null) {
                     item.hidden = this.recordHelper.getPanelStateParam(p.name, 'hidden');
                 } else {
@@ -123,7 +123,7 @@ Espo.define('views/record/detail-side', 'views/record/panels-container', functio
             }, this);
 
             this.wait(true);
-            this.getHelper().layoutManager.get(this.scope, 'sidePanels' + Espo.Utils.upperCaseFirst(this.type), function (layoutData) {
+            this.getHelper().layoutManager.get(this.scope, 'sidePanels' + Nadlani.Utils.upperCaseFirst(this.type), function (layoutData) {
                 if (layoutData) {
                     this.alterPanels(layoutData);
                 }
@@ -189,7 +189,7 @@ Espo.define('views/record/detail-side', 'views/record/panels-container', functio
 
             if (!defaultPanelDefs) return;
 
-            defaultPanelDefs = Espo.Utils.cloneDeep(defaultPanelDefs);
+            defaultPanelDefs = Nadlani.Utils.cloneDeep(defaultPanelDefs);
 
             var fieldList = this.getMetadata().get(['clientDefs', this.scope, 'defaultSidePanelFieldLists', this.type]);
 

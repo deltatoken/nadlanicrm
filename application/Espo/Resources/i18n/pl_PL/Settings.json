@@ -29,7 +29,7 @@
     "authenticationMethod": "Metoda autentykcji",
     "ldapAccountDomainName": "Nazwa konta domeny",
     "ldapTryUsernameSplit": "Spróbuj rodzielić nazwę użytkonika",
-    "ldapCreateEspoUser": "Utwórz uzytkonika w EspoCRM",
+    "ldapCreateNadlaniUser": "Utwórz uzytkonika w NadlaniCrm",
     "ldapUserLoginFilter": "Filtr użytkoników ",
     "ldapAccountDomainNameShort": "Krótka nazwa konta domeny",
     "b2cMode": "Tryb B2C",

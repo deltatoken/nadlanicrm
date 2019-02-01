@@ -41,7 +41,7 @@
     "ldapAccountCanonicalForm": "Account Canonical Form",
     "ldapAccountDomainName": "Nama akun Domain",
     "ldapTryUsernameSplit": "Try Username Split",
-    "ldapCreateEspoUser": "Buat Pengguna di EspoCRM",
+    "ldapCreateNadlaniUser": "Buat Pengguna di NadlaniCrm",
     "ldapUserLoginFilter": "Filter Login Pengguna",
     "ldapAccountDomainNameShort": "Akun Domain Name Pendek",
     "ldapOptReferrals": "opt Rujukan",

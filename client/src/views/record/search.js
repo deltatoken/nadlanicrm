@@ -1,32 +1,32 @@
 /************************************************************************
- * This file is part of EspoCRM.
+ * This file is part of NadlaniCrm.
  *
- * EspoCRM - Open Source CRM application.
- * Copyright (C) 2014-2018 Yuri Kuznetsov, Taras Machyshyn, Oleksiy Avramenko
- * Website: http://www.espocrm.com
+ * NadlaniCrm - Open Source CRM application.
+ * Copyright (C) 2014-2018 Pablo Rotem
+ * Website: https://www.facebook.com/sites4u2
  *
- * EspoCRM is free software: you can redistribute it and/or modify
+ * NadlaniCrm is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * EspoCRM is distributed in the hope that it will be useful,
+ * NadlaniCrm is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with EspoCRM. If not, see http://www.gnu.org/licenses/.
+ * along with NadlaniCrm. If not, see http://www.gnu.org/licenses/.
  *
  * The interactive user interfaces in modified source and object code versions
  * of this program must display Appropriate Legal Notices, as required under
  * Section 5 of the GNU General Public License version 3.
  *
  * In accordance with Section 7(b) of the GNU General Public License version 3,
- * these Appropriate Legal Notices must retain the display of the "EspoCRM" word.
+ * these Appropriate Legal Notices must retain the display of the "NadlaniCrm" word.
  ************************************************************************/
 
-Espo.define('views/record/search', 'view', function (Dep) {
+Nadlani.define('views/record/search', 'view', function (Dep) {
 
     return Dep.extend({
 
@@ -95,13 +95,13 @@ Espo.define('views/record/search', 'view', function (Dep) {
                 return this.fieldList != null && this.moreFieldList != null;
             }.bind(this));
 
-            this.boolFilterList = Espo.Utils.clone(this.getMetadata().get('clientDefs.' + this.scope + '.boolFilterList') || []).filter(function (item) {
+            this.boolFilterList = Nadlani.Utils.clone(this.getMetadata().get('clientDefs.' + this.scope + '.boolFilterList') || []).filter(function (item) {
                 if (typeof item === 'string') return true;
                 item = item || {};
                 if (item.inPortalDisabled && this.getUser().isPortal()) return false;
                 if (item.isPortalOnly && !this.getUser().isPortal()) return false;
                 if (item.accessDataList) {
-                    if (!Espo.Utils.checkAccessDataList(item.accessDataList, this.getAcl(), this.getUser())) {
+                    if (!Nadlani.Utils.checkAccessDataList(item.accessDataList, this.getAcl(), this.getUser())) {
                         return false;
                     }
                 }
@@ -125,13 +125,13 @@ Espo.define('views/record/search', 'view', function (Dep) {
 
             var filterList = this.options.filterList || this.getMetadata().get(['clientDefs', this.scope, 'filterList']) || [];
 
-            this.presetFilterList = Espo.Utils.clone(filterList).filter(function (item) {
+            this.presetFilterList = Nadlani.Utils.clone(filterList).filter(function (item) {
                 if (typeof item === 'string') return true;
                 item = item || {};
                 if (item.inPortalDisabled && this.getUser().isPortal()) return false;
                 if (item.isPortalOnly && !this.getUser().isPortal()) return false;
                 if (item.accessDataList) {
-                    if (!Espo.Utils.checkAccessDataList(item.accessDataList, this.getAcl(), this.getUser())) {
+                    if (!Nadlani.Utils.checkAccessDataList(item.accessDataList, this.getAcl(), this.getUser())) {
                         return false;
                     }
                 }
@@ -345,7 +345,7 @@ Espo.define('views/record/search', 'view', function (Dep) {
             this.collection.abortLastFetch();
             this.collection.reset();
             this.collection.fetch().then(function () {
-                Espo.Ui.notify(false);
+                Nadlani.Ui.notify(false);
             });
         },
 
@@ -621,7 +621,7 @@ Espo.define('views/record/search', 'view', function (Dep) {
             this.notify('Please wait...');
             this.collection.where = this.searchManager.getWhere();
             this.collection.fetch().then(function () {
-                Espo.Ui.notify(false);
+                Nadlani.Ui.notify(false);
             });
         },
 
@@ -640,7 +640,7 @@ Espo.define('views/record/search', 'view', function (Dep) {
             var data = {};
             this.getPresetFilterList().forEach(function (item) {
                 if (item.name == this.presetName) {
-                    data = Espo.Utils.clone(item.data || {});
+                    data = Nadlani.Utils.clone(item.data || {});
                     return;
                 }
             }, this);
@@ -691,12 +691,12 @@ Espo.define('views/record/search', 'view', function (Dep) {
             }
 
             if (this.presetName) {
-                this.advanced = _.extend(Espo.Utils.clone(this.getPresetData()), searchData.advanced);
+                this.advanced = _.extend(Nadlani.Utils.clone(this.getPresetData()), searchData.advanced);
                 if (!primaryIsSet) {
                     this.primary = this.getPrimaryFilterName();
                 }
             } else {
-                this.advanced = Espo.Utils.clone(searchData.advanced);
+                this.advanced = Nadlani.Utils.clone(searchData.advanced);
             }
             this.bool = searchData.bool;
         },

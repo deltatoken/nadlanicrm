@@ -12,56 +12,7 @@ the api can also be used to “pull” from the crm data and display it in any o
 the crm is very scalable - and uses MYSQL as the storage engine, supporting unlimited storage (usually databases are  limited by the constraints of the os used )
 check this table directly taken from the following link as a reference to database comparisons and constraints.
 
-Query
-Indexes
-Database
-P,C1
-C,P2
-Oracle 10g XE
-MySQL 5.0.49a (MyISAM)
-SQL Server 2008
-Aggregation
-No
-No
-1.329s
-0.703s4
-6.920s
-Yes
-No
-1.329s
-2.219s
-5.983s
-No
-Yes
-0.219s
-0.406s
-0.436s
-Yes
-Yes
-0.230s
-0.406s
-0.416s
-Join
-No
-No
-0.729s
-Failed5
-6.656s
-Yes
-No
-0.719s
-2.750s
-6.796s
-No
-Yes
-0.094s
-0.704s
-0.670s3
-Yes
-Yes
-0.094s
-0.813s
-0.423s
+
 
 
 as you can see the simple and complex searches are also extremely fast on mysql.
